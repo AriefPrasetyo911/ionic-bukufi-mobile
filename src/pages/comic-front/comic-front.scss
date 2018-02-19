@@ -1,0 +1,77 @@
+page-comic-front {
+    ion-card{
+        border-radius: 0;
+    }
+    
+    ion-title, .card-header{
+        font-weight: bold;
+    }
+    
+    .card-header{
+        background-color: cadetblue;
+        color: white;
+    }
+
+    .card-header{
+        padding: 10px;
+    }
+
+    .card-content{
+        padding: 0;
+        border-radius: 0;
+    }
+
+    .swiper-slide{
+        width: 100% !important;
+    }
+
+    ion-grid, ion-col{
+        padding: 0 !important;
+    }
+
+    .card ,.card-md{
+        margin: 0;
+        width: 100%;
+        border-radius: 0;
+    }
+
+    .margin-10px{
+        margin-top: 10px;
+    }
+
+    .segment-activated{
+        background-color: gainsboro !important;
+        color: darkorange !important;
+    }
+
+    .segment-ios, .segment-button, .segment-activated{
+        border-radius: 0 !important;   
+    }
+
+    .card, .card-md{
+        box-shadow: none !important;
+    }
+
+    .login-indicator-false{
+        color: red;
+    }
+
+    .login-indicator-true{
+        color: green;
+    }
+
+    .book_cover{
+        height: 495px;
+        width: 100%;
+        object-fit: unset;
+    }
+
+    .more-btn{
+        color: crimson;
+        border: 1px solid lightsteelblue;
+    }
+
+    .no-padding{
+        padding: 0;
+    }
+}

@@ -1,0 +1,135 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Comic Detail</ion-title>
+    <ion-buttons end>
+      <div *ngIf="loggedin == false; else loginTrue">
+        <button ion-button class="login-indicator-false">
+          <ion-icon name="sunny" end></ion-icon>
+        </button>
+      </div>
+      <ng-template #loginTrue>
+          <div *ngIf="isFacebookLogin == true">
+            <button ion-button class="login-indicator-true">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </button>
+          </div>
+          <div *ngIf="isGoogleLogin == true">
+            <button ion-button class="login-indicator-true">
+              <ion-icon name="logo-googleplus"></ion-icon>
+            </button>
+          </div>
+      </ng-template>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-card *ngFor="let comic of comic_detail?.data1">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6>
+          <img src="http://bukufi.com/storage/comic/comic_cover/{{comic.comic_image}}"/>
+        </ion-col>
+        <ion-col col-6>
+
+          <div *ngIf="loggedin">
+              <button ion-button outline small block color="secondary" icon-left (click)="addBookmarkComic()">
+                <ion-icon name="bookmark"></ion-icon>Bookmark
+                <!-- <input type="hidden" value="{{book.book_title}}" name="bookmark"> -->
+              </button>
+            </div>
+
+            <div *ngIf="!loggedin">
+              <button ion-button outline small block color="secondary" icon-left disabled>
+                <ion-icon name="bookmark"></ion-icon>Bookmark
+                <!-- <input type="hidden" value="{{book.book_title}}" name="bookmark"> -->
+              </button>
+            </div>
+
+            <div *ngIf="loggedin">
+              <button ion-button outline small block icon-left class="btn-2" (click)="addFavouriteComic()">
+                  <ion-icon name="heart"></ion-icon> Favourite
+              </button>
+            </div>
+
+            <div *ngIf="!loggedin">
+              <button ion-button outline small block icon-left class="btn-2" disabled>
+                  <ion-icon name="heart"></ion-icon> Favourite
+              </button>
+            </div>
+        </ion-col>
+        <!-- description area -->
+        <ion-col col-12>
+          <ion-row>
+            <ion-col col-4><strong>Author</strong></ion-col>
+            <ion-col col-1>:</ion-col>
+            <ion-col col-7>{{comic.comic_author_nodash}}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-4><strong>Genre</strong></ion-col>
+            <ion-col col-1>:</ion-col>
+            <ion-col col-7>{{comic.comic_genre}}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-4><strong>Release</strong></ion-col>
+            <ion-col col-1>:</ion-col>
+            <ion-col col-7>{{comic.comic_release}}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-4><strong>Status</strong></ion-col>
+            <ion-col col-1>:</ion-col>
+            <ion-col col-7>{{comic.comic_status}}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-4><strong>Description</strong></ion-col>
+            <ion-col col-1>:</ion-col>
+            <ion-col col-7>{{comic.comic_description}}</ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header class="bold">
+      Comic Chapter
+    </ion-card-header>
+    <ion-card-content class="scroll">
+        <ion-list *ngFor="let comic of comic_detail?.data2">
+          <button ion-button outline full (click)="readComic(comic.comic_title, comic.comic_chapter)">
+              <i class="fa fa-caret-right" aria-hidden="true"></i> Chapter {{comic.comic_chapter}} : {{comic.chapter_title}}
+          </button>
+        </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <!--FAB BOTTOM RIGHT-->
+  <ion-fab right bottom #fab2>
+    <button ion-fab mini color="primary"><ion-icon name="apps"></ion-icon></button>
+    <ion-fab-list side="top">
+      <div *ngIf="loggedin == true; else loginfirst">
+        <button ion-fab (click)="loginFirst()">
+          <ion-icon name="information-circle"></ion-icon>
+        </button>
+      </div>
+      <ng-template #loginfirst>
+        <button ion-fab (click)="loginFirst()">
+          <ion-icon name="log-in"></ion-icon>
+        </button>
+      </ng-template>
+      <button ion-fab (click)="search()">
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-fab-list>
+  </ion-fab>
+
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content 
+      pullingText="Pull to refresh"
+      pullingIcon="arrow-dropdown"
+      refreshingSpinner="circles"
+      refreshingText="fetching data ...">
+    </ion-refresher-content>
+  </ion-refresher>
+</ion-content>

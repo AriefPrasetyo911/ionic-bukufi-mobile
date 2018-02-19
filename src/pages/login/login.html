@@ -1,0 +1,172 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="satu" *ngIf="!loggedin">
+  <div>
+    <div class="branding">
+      <h3 class="animated jackInTheBox" id="login-text">Please Login <br> to Use Full Feature App</h3>
+      <img src="./assets/imgs/login.png" />
+    </div>
+
+    <button class="facebook" ion-button icon-left outline block (click)="loginFacebook()">
+      <ion-icon name="logo-facebook"></ion-icon>
+      Login with Facebook
+    </button>
+
+    <div class="login">
+      <button class="google" ion-button icon-left outline block color="danger" (click)="loginGoogle()">
+        <ion-icon name="logo-googleplus"></ion-icon>
+        Login with Google+
+      </button>
+    </div>
+  </div>
+
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content 
+      pullingText="Pull to refresh"
+      pullingIcon="arrow-dropdown"
+      refreshingSpinner="circles"
+      refreshingText="fetching data ...">
+    </ion-refresher-content>
+  </ion-refresher>
+</ion-content>
+
+<ion-content *ngIf="loggedin" class="dua">
+
+  <ion-card *ngIf="isFacebookLogin" class="facebook"> 
+    <ion-item>
+      <ion-avatar item-left>
+        <img [src]="userProfile.photoURL">
+      </ion-avatar>
+      <h2>{{ userProfile.displayName }}</h2>
+      <h3>{{ userProfile.email }}</h3>      
+    </ion-item>
+
+    <img src="./assets/imgs/thank-you.png" alt="Profile Picture">
+
+    <ion-card-content>
+      <h5 text-center>Thank you already login to our application. <br> Now you can read our books and comics as many as you want. <br> Happy reading :)</h5>
+    </ion-card-content>
+
+    
+    <ion-segment [(ngModel)]="loginSegment">
+      <ion-segment-button value="Book">
+        Book
+      </ion-segment-button>
+      <ion-segment-button value="Comic">
+        Comic
+      </ion-segment-button>
+    </ion-segment>
+
+    <div [ngSwitch]="loginSegment">
+      <ion-list *ngSwitchCase="'Comic'">
+        <ion-item>
+          <ion-grid>
+            <ion-row>
+              <ion-col col-6>
+                <button ion-button outline block (tap)="gotoBookmarkComic()">Bookmark Comic</button>
+              </ion-col>
+              <ion-col col-6>
+                <button ion-button color="secondary" outline block (tap)="gotoFavouriteComic()">Favourite Comic</button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+      </ion-list>
+
+      <ion-list *ngSwitchCase="'Book'">
+        <ion-item>
+          <ion-grid>
+            <ion-row>
+              <ion-col col-6>
+                <button ion-button outline block (tap)="gotoBookmarkBook()">Bookmark Book</button>
+              </ion-col>
+              <ion-col col-6>
+                <button ion-button color="secondary" outline block (tap)="gotoFavouriteBook(isFacebookLogin)">Favourite Book</button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+      </ion-list>
+    </div>
+
+    <button ion-button block outline iocn-left color="danger" (click)="logoutFacebook()">
+      <ion-icon name="log-out"></ion-icon> Logout Facebook
+    </button>
+  </ion-card>
+
+  <!-- batas -->
+  
+  <ion-card *ngIf="isGoogleLogin" class="googleplus"> 
+    <ion-item>
+      <ion-avatar item-left>
+        <img [src]="userProfile.imageUrl">
+      </ion-avatar>
+      <h2>{{ userProfile.displayName }}</h2>
+      <h3>{{ userProfile.email }}</h3>      
+    </ion-item>
+
+    <img src="../assets/imgs/thank-you.png" alt="">
+
+    <ion-card-content>
+      <h5 text-center>Thank you already login to our application. <br> Now you can read our books and comics as many as you want. <br> Happy reading :)</h5>
+    </ion-card-content>
+
+    <ion-segment [(ngModel)]="loginSegment">
+      <ion-segment-button value="Book">
+        Book
+      </ion-segment-button>
+      <ion-segment-button value="Comic">
+        Comic
+      </ion-segment-button>
+    </ion-segment>
+
+    <div [ngSwitch]="loginSegment">
+      <ion-list *ngSwitchCase="'Comic'">
+        <ion-item>
+          <ion-grid>
+            <ion-row>
+              <ion-col col-6>
+                <button ion-button outline block (tap)="gotoBookmarkComic()">Bookmark Comic</button>
+              </ion-col>
+              <ion-col col-6>
+                <button ion-button color="secondary" outline block (tap)="gotoFavouriteComic()">Favourite Comic</button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+      </ion-list>
+
+      <ion-list *ngSwitchCase="'Book'">
+        <ion-item>
+          <ion-grid>
+            <ion-row>
+              <ion-col col-6>
+                <button ion-button outline block (tap)="gotoBookmarkBook()">Bookmark Book</button>
+              </ion-col>
+              <ion-col col-6>
+                <button ion-button color="secondary" outline block (tap)="gotoFavouriteBook(isFacebookLogin)">Favourite Book</button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+      </ion-list>
+    </div>
+
+    <button ion-button block outline iocn-left color="danger" (click)="logoutGooglePlus()">
+      <ion-icon name="log-out"></ion-icon> Logout Google Plus
+    </button>      
+  </ion-card>
+
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content 
+      pullingText="Pull to refresh"
+      pullingIcon="arrow-dropdown"
+      refreshingSpinner="circles"
+      refreshingText="fetching data ...">
+    </ion-refresher-content>
+  </ion-refresher>
+</ion-content>

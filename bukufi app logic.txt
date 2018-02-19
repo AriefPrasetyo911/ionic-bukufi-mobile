@@ -1,0 +1,8 @@
+Bukufi app logic
+
+1. When user open app and browse the menu with no login before, user can't read book but can read comic mx 5 pages.
+2. to refresh the app you can pull down the screen.
+3. bookmark and favourite for book and comic can be accessible when user already login (both use facebook and google plus).
+4. for access bookmark and favourite page, user can go to login page and choose the menu from there.
+5. on top right the navbar header will display what you choose to login. for user that no login will show lamp icon with red color. 
+   for user who login use facebbok will display facebook icon with green color and for google plus login will display google plus icon with green color.

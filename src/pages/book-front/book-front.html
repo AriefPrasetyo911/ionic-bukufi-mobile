@@ -1,0 +1,185 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Book</ion-title>
+    <ion-buttons end>
+      <div *ngIf="loggedin == false; else loginTrue">
+        <button ion-button class="login-indicator-false">
+          <ion-icon name="sunny" end></ion-icon>
+        </button>
+      </div>
+      <ng-template #loginTrue>
+          <div *ngIf="isFacebookLogin == true">
+            <button ion-button class="login-indicator-true">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </button>
+          </div>
+          <div *ngIf="isGoogleLogin == true">
+            <button ion-button class="login-indicator-true">
+              <ion-icon name="logo-googleplus"></ion-icon>
+            </button>
+          </div>
+      </ng-template>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-segment [(ngModel)]="book">
+    <ion-segment-button value="popular-book">
+      <b>Popular Books</b>
+    </ion-segment-button>
+    <ion-segment-button value="new-book">
+      <b>New Books</b>
+    </ion-segment-button>
+  </ion-segment>
+  
+  <div [ngSwitch]="book">
+    <ion-list *ngSwitchCase="'popular-book'">
+      <!-- popular books -->
+      <ion-card>
+        <ion-card-header>
+          Popular Books
+        </ion-card-header>
+        <ion-card-content>
+          <ion-slides pager>
+            <ion-slide *ngFor="let book of popularBooks" (tap)="showDetailBook(book.book_title)">
+              <div *ngIf="book.book_sticker == 'New'">
+                <div class="cnrflash-new">
+                  <div class="cnrflash-inner-new">
+                      <span class="cnrflash-label-new">
+                        NEW
+                      </span>
+                  </div>
+                </div>
+              </div>
+    
+              <div *ngIf="book.book_sticker == 'Popular'">
+                <div class="cnrflash-popular">
+                  <div class="cnrflash-inner-popular">
+                      <span class="cnrflash-label-popular">
+                        POPULAR
+                      </span>
+                  </div>
+                </div>
+              </div>
+    
+              <div *ngIf="book.book_sticker == 'Recomended'">
+                <div class="cnrflash-recomended">
+                  <div class="cnrflash-inner-recomended">
+                      <span class="cnrflash-label-recomended">
+                        RECOMENDED
+                      </span>
+                  </div>
+                </div>
+              </div>
+    
+              <div *ngIf="book.book_sticker == 'Editor Pick'">
+                <div class="cnrflash-editor-pick">
+                  <div class="cnrflash-inner-editor-pick">
+                      <span class="cnrflash-label-editor-pick">
+                        EDITOR <br> PICK
+                      </span>
+                  </div>
+                </div>
+              </div>
+              <img class="book_cover" src="http://bukufi.com/storage/book/book_cover/{{book.book_image}}" alt="{{book.book_title}}">
+            </ion-slide>
+          </ion-slides>
+        </ion-card-content>
+      </ion-card>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'new-book'">
+      <!-- New books -->
+      <ion-card>
+        <ion-card-header style="padding: 0 !important;">
+          <ion-grid>
+            <ion-row>
+              <ion-col col-8 text-left>New Books</ion-col>
+              <ion-col col-4 text-center color="primary" (tap)="bookList()" class="more-btn">More Books</ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-slides pager>
+            <ion-slide *ngFor="let book of newBooks" (click)="showDetailBook(book.book_title)">
+              <div *ngIf="book.book_stikcer == 'New'">
+                <div class="cnrflash-new">
+                  <div class="cnrflash-inner-new">
+                      <span class="cnrflash-label-new">
+                        NEW
+                      </span>
+                  </div>
+                </div>
+              </div>
+    
+              <div *ngIf="book.book_stikcer == 'Popular'">
+                <div class="cnrflash-popular">
+                  <div class="cnrflash-inner-popular">
+                      <span class="cnrflash-label-popular">
+                        POPULAR
+                      </span>
+                  </div>
+                </div>
+              </div>
+    
+              <div *ngIf="book.book_stikcer == 'Recomended'">
+                <div class="cnrflash-recomended">
+                  <div class="cnrflash-inner-recomended">
+                      <span class="cnrflash-label-recomended">
+                        RECOMENDED
+                      </span>
+                  </div>
+                </div>
+              </div>
+    
+              <div *ngIf="book.book_stikcer == 'Editor Pick'">
+                <div class="cnrflash-editor-pick">
+                  <div class="cnrflash-inner-editor-pick">
+                      <span class="cnrflash-label-editor-pick">
+                        EDITOR <br> PICK
+                      </span>
+                  </div>
+                </div>
+              </div>
+              <img class="book_cover" src="http://bukufi.com/storage/book/book_cover/{{book.book_image}}" alt="{{book.book_title}}">
+            </ion-slide>
+          </ion-slides>
+        </ion-card-content>
+      </ion-card>
+    </ion-list>
+  </div>
+
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content 
+      pullingText="Pull to refresh"
+      pullingIcon="arrow-dropdown"
+      refreshingSpinner="circles"
+      refreshingText="fetching data ...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <!--FAB BOTTOM RIGHT-->
+  <ion-fab right bottom #fab2>
+    <button ion-fab mini color="primary"><ion-icon name="apps"></ion-icon></button>
+    <ion-fab-list side="top">
+      <div *ngIf="loggedin == true; else loginfirst">
+        <button ion-fab (click)="loginFirst()">
+          <ion-icon name="information-circle"></ion-icon>
+        </button>
+      </div>
+      <ng-template #loginfirst>
+        <button ion-fab (click)="loginFirst()">
+          <ion-icon name="log-in"></ion-icon>
+        </button>
+      </ng-template>
+      <button ion-fab (click)="search()">
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>

@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{comic_title.replace(regex, ' ')}} - Chapter {{comic_chapter}}</ion-title>
+    <ion-buttons end>
+      <div *ngIf="loggedin == false; else loginTrue">
+        <button ion-button class="login-indicator-false">
+          <ion-icon name="sunny" end></ion-icon>
+        </button>
+      </div>
+      <ng-template #loginTrue>
+          <div *ngIf="isFacebookLogin == true">
+            <button ion-button class="login-indicator-true">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </button>
+          </div>
+          <div *ngIf="isGoogleLogin == true">
+            <button ion-button class="login-indicator-true">
+              <ion-icon name="logo-googleplus"></ion-icon>
+            </button>
+          </div>
+      </ng-template>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-slides pager *ngIf="loggedin">
+    <ion-slide *ngFor="let login of comics">
+      <img src="http://bukufi.com/storage/comic/comic_files/{{login.comic_title}}/{{login.comic_image}}" alt="{{login.comic_image}}">
+      }
+    </ion-slide>
+  </ion-slides>
+
+  <ion-slides pager *ngIf="!loggedin">
+    <ion-slide *ngFor="let comics of comicsNonLogin; let i=index">
+      <div *ngIf="i<5">
+        <img src="http://bukufi.com/storage/comic/comic_files/{{comics.comic_title}}/{{comics.comic_image}}" alt="{{comics.comic_image}}">
+      </div>
+      <div *ngIf="i>=5">
+        <div class='wrapper'>
+          <img src="./assets/imgs/sorry-icon.png" class="sorry">
+          <h3 class='sorry-message need-margin-top'>sorry, you must login to continue reading the comic.</h3>
+          <h3 class='sorry-message'>You can login from the floating button.</h3>
+          <h3 class='sorry-message'>Thank you</h3>
+        </div>
+      </div>
+    </ion-slide>
+  </ion-slides>
+
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content 
+      pullingText="Pull to refresh"
+      pullingIcon="arrow-dropdown"
+      refreshingSpinner="circles"
+      refreshingText="fetching data ...">
+    </ion-refresher-content>
+  </ion-refresher>
+</ion-content>

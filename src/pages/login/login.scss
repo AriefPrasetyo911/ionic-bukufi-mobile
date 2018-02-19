@@ -1,0 +1,91 @@
+page-login {
+    .branding{
+        h3{
+            text-align: center;
+        }
+        img{
+            width: 100%;
+            margin: 0 auto;
+            display: block;
+        }
+    }
+
+    #login-text{
+        -vendor-animation-duration: 5s;
+        -vendor-animation-delay: 1s;
+        //-vendor-animation-iteration-count: infinite;
+    }
+
+    .satu .scroll-content{
+        background-image: url(./assets/imgs/login-bg.jpg);
+        background-position: center center;
+        background-repeat:  no-repeat;
+        background-attachment: fixed;
+        background-size:  cover;
+    }
+
+    .satu .card, .satu .card-md{
+        // margin-top: 50px;
+    }
+
+    .content, .content-md{
+        padding: 0 !important;
+    }
+
+    .noMargin{
+        margin: 0;
+        padding: 5px 10px;
+    }
+
+    .card, .card-md{
+        width: 100% !important;
+        box-shadow: none;
+    }
+
+    .dua .card, .dua .card-md{
+        margin: 0;
+        padding: 10px;
+    }
+
+    .login{
+        margin-top: 10px;
+    }
+
+    .item, .item-block, .item-md{
+        padding-left: 0;
+    }
+
+    .label, .label-md{
+        margin-top: 0;
+        margin-bottom: 0;
+        margin-right: 0;
+        width: 100%;
+    }
+
+    .grid{
+        padding-top: 0;
+    }
+
+    .segment, .segment-md{
+        background-color: ghostwhite;
+    }
+
+    .segment-button, .segment-activated{
+        background-color: darkgray !important;
+        color: white !important;
+        font-weight: 700;
+        border-color: darkgray !important;
+    }
+
+    .segment-ios, .segment-button, .segment-activated{
+        border-radius: 0 !important;   
+    }
+
+    .login-indicator-false{
+        color: red;
+    }
+
+    .login-indicator-true{
+        color: green;
+    }
+}

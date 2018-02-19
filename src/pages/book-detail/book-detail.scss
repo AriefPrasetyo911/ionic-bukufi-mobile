@@ -1,0 +1,315 @@
+page-book-detail {
+    ion-card-content{
+		padding: 10px !important;
+	}
+
+	.grid{
+		padding: 0 !important;
+    }
+    
+    .text-bold{
+        font-weight: 400;
+        padding: 0;
+    }
+
+    .card, .card-md{
+        margin: 0;
+        width: 100%;
+        border-radius: 0;
+    }
+
+    .no-padd-top-btm{
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    .no-padding-left-right{
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .padding-3px{
+        padding: 3px;
+    }
+
+    .margin-5px{
+        margin-top: 5px;
+    }
+
+    hr.show {
+        border: 1px solid darkgrey;
+        width: 100%;
+        height: 0;
+    }
+
+    hr.show2 {
+    border: 1px solid darkgrey;
+    width: 100%;
+    height: 0;
+    margin-bottom: 0;
+    }
+
+    .header{
+        padding: 5px;
+    }
+
+    ion-card-content.no-padding-top{
+        padding-top: 0 !important;
+    }
+
+    blockquote{
+        margin: 0.5em 0;
+        border-right-color: seagreen;
+        border-right-style: double;
+        padding: 5px;
+        background-color: gainsboro;
+        border-radius: 2px;
+    }
+
+    .info{
+        color: dimgrey;
+        font-size: 12px;
+    }
+
+    .counterRating{
+        background-color: gainsboro;
+        padding: 5px;
+        text-align: center !important;
+    }
+
+    .counterRating2{
+        background-color: linen;
+        padding: 5px;
+        text-align: center !important;
+    }
+
+    .black{
+        color: black;
+        text-align: center !important;
+    }
+
+    //===- NEW -===//
+    .cnrflash-new{
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        z-index: 1;
+        overflow: hidden;
+        width: 70px;
+        height: 70px;
+    }
+
+    .cnrflash-inner-new{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 99px;
+        height: 50px;
+        -ms-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        -webkit-transform-origin: 100% 100%;
+        -ms-transform-origin: 100% 100%;
+        -o-transform-origin: 100% 100%;
+        -moz-transform-origin: 100% 100%;
+        background-image: linear-gradient(90deg, transparent 50%, rgba(255, 255, 255, 0.1) 50%), linear-gradient(0deg, transparent 0%, rgba(1, 1, 1, 0.2) 50%);
+        background-size: 4px, auto, auto, auto;
+        background-color: lightseagreen;
+        box-shadow: 0 3px 3px 0 rgba(1, 1, 1, 0.5), 0 1px 0 0 rgba(1, 1, 1, 0.5), inset 0 -1px 8px 0 rgba(255, 255, 255, 0.3), inset 0 -1px 0 0 rgba(255, 255, 255,0);
+    }
+
+    .cnrflash-label-new{
+        position: absolute;
+        bottom: 0;
+        top: 22px;
+        left: 0;
+        display: block;
+        width: 100%;
+        padding-bottom: 15px;
+        color: #fff;
+        text-shadow: 0 1px 1px rgba(1, 1, 1, 0.8);
+        font-size: 0.95em;
+        font-weight: bold;
+        text-align: center;
+    }
+    //===- END NEW -===//
+
+    //===- POPULAR -===//
+    .cnrflash-popular{
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        z-index: 1;
+        overflow: hidden;
+        width: 70px;
+        height: 70px;
+    }
+
+    .cnrflash-inner-popular{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 99px;
+        height: 50px;
+        -ms-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        -webkit-transform-origin: 100% 100%;
+        -ms-transform-origin: 100% 100%;
+        -o-transform-origin: 100% 100%;
+        -moz-transform-origin: 100% 100%;
+        background-image: linear-gradient(90deg, transparent 50%, rgba(255, 255, 255, 0.1) 50%), linear-gradient(0deg, transparent 0%, rgba(1, 1, 1, 0.2) 50%);
+        background-size: 4px, auto, auto, auto;
+        background-color: darkorange;
+        box-shadow: 0 3px 3px 0 rgba(1, 1, 1, 0.5), 0 1px 0 0 rgba(1, 1, 1, 0.5), inset 0 -1px 8px 0 rgba(255, 255, 255, 0.3), inset 0 -1px 0 0 rgba(255, 255, 255,0);
+    }
+
+    .cnrflash-label-popular{
+        position: absolute;
+        bottom: -7px;
+        font-size: 12px;
+        left: 0;
+        display: block;
+        width: 100%;
+        padding-bottom: 15px;
+        color: #fff;
+        text-shadow: 0 1px 1px rgba(1, 1, 1, 0.8);
+        font-size: 0.95em;
+        font-weight: bold;
+        text-align: center;
+    }
+    //===- END POPULAR -===//
+
+    //===- RECOMENDED -===//
+    .cnrflash-recomended{
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        z-index: 1;
+        overflow: hidden;
+        width: 83px;
+        height: 83px;
+    }
+
+    .cnrflash-inner-recomended{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 118px;
+        height: 60px;
+        -ms-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        -webkit-transform-origin: 100% 100%;
+        -ms-transform-origin: 100% 100%;
+        -o-transform-origin: 100% 100%;
+        -moz-transform-origin: 100% 100%;
+        background-image: linear-gradient(90deg, transparent 50%, rgba(255, 255, 255, 0.1) 50%), linear-gradient(0deg, transparent 0%, rgba(1, 1, 1, 0.2) 50%);
+        background-size: 4px, auto, auto, auto;
+        background-color: violet;
+        box-shadow: 0 3px 3px 0 rgba(1, 1, 1, 0.5), 0 1px 0 0 rgba(1, 1, 1, 0.5), inset 0 -1px 8px 0 rgba(255, 255, 255, 0.3), inset 0 -1px 0 0 rgba(255, 255, 255,0);
+    }
+
+    .cnrflash-label-recomended{
+        position: absolute;
+        bottom: 3px;
+        font-size: 12px;
+        left: 1px;
+        display: block;
+        width: 100%;
+        //padding-bottom: 15px;
+        color: #fff;
+        text-shadow: 0 1px 1px rgba(1, 1, 1, 0.8);
+        font-size: 0.95em;
+        font-weight: bold;
+        text-align: center;
+    }
+    //===- END RECOMENDED -===//
+
+    //===- EDITOR PICK -===//
+    .cnrflash-editor-pick{
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        z-index: 1;
+        overflow: hidden;
+        width: 83px;
+        height: 83px;
+    }
+
+    .cnrflash-inner-editor-pick{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 118px;
+        height: 60px;
+        -ms-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        -webkit-transform-origin: 100% 100%;
+        -ms-transform-origin: 100% 100%;
+        -o-transform-origin: 100% 100%;
+        -moz-transform-origin: 100% 100%;
+        background-image: linear-gradient(90deg, transparent 50%, rgba(255, 255, 255, 0.1) 50%), linear-gradient(0deg, transparent 0%, rgba(1, 1, 1, 0.2) 50%);
+        background-size: 4px, auto, auto, auto;
+        background-color: gold;
+        box-shadow: 0 3px 3px 0 rgba(1, 1, 1, 0.5), 0 1px 0 0 rgba(1, 1, 1, 0.5), inset 0 -1px 8px 0 rgba(255, 255, 255, 0.3), inset 0 -1px 0 0 rgba(255, 255, 255,0);
+    }
+
+    .cnrflash-label-editor-pick{
+        position: absolute;
+        bottom: 3px;
+        font-size: 12px;
+        left: 1px;
+        display: block;
+        width: 100%;
+        //padding-bottom: 15px;
+        color: #fff;
+        text-shadow: 0 1px 1px rgba(1, 1, 1, 0.8);
+        font-size: 0.95em;
+        font-weight: bold;
+        text-align: center;
+    }
+    //===- END EDITOR PICK -===//
+
+    .toolbar-background, .toolbar-background-ios{
+        border-style: hidden !important;
+    }
+
+    .login-indicator-false{
+        color: red;
+    }
+
+    .login-indicator-true{
+        color: green;
+    }
+
+    .fav-bookmark{
+       padding: 0;
+    }
+
+    .btn-2{
+        margin-top: 0;
+    }
+
+    .read-btn{
+        position: relative;
+        top: 63px;
+    }
+
+    .desc{
+        margin: 2.5px 0;
+    }
+
+    .mt-25{
+        margin-top: 2.5px;
+    }
+
+    .card, .card-md{
+        box-shadow: none;
+    }
+}

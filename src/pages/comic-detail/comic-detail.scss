@@ -1,0 +1,50 @@
+page-comic-detail {
+    ion-card-content{
+		padding: 10px !important;
+	}
+
+	.grid{
+		padding: 0 !important;
+    }
+    
+    .text-bold{
+        font-weight: 400;
+        padding: 0;
+    }
+
+    .card, .card-md{
+        margin: 0;
+        width: 100%;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .bold{
+        font-weight: 600;
+        padding: 10px;
+        background-color: lightgray;
+    }
+
+    .scroll{
+        height: 160px;
+        overflow-x: scroll;
+        overflow-y: hidden;
+    }
+
+    .list, .list-md{
+        margin: 0.5rem;
+    }
+
+    .list:nth-child(1), .list-md:nth-child(1){
+        margin-top: 0;
+    }
+
+    .login-indicator-false{
+        color: red;
+    }
+
+    .login-indicator-true{
+        color: green;
+    }
+
+}

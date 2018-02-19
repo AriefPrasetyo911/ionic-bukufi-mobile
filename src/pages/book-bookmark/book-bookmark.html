@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Your Bookmark Book</ion-title>
+    <ion-buttons end>
+      <div *ngIf="loggedin == false; else loginTrue">
+        <button ion-button class="login-indicator-false">
+          <ion-icon name="sunny" end></ion-icon>
+        </button>
+      </div>
+      <ng-template #loginTrue>
+          <div *ngIf="isFacebookLogin == true">
+            <button ion-button class="login-indicator-true">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </button>
+          </div>
+          <div *ngIf="isGoogleLogin == true">
+            <button ion-button class="login-indicator-true">
+              <ion-icon name="logo-googleplus"></ion-icon>
+            </button>
+          </div>
+      </ng-template>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list inset>
+    <div *ngIf="myBookmark.length > 0; else notExist">
+      <button ion-item *ngFor="let bookmark of myBookmark" (tap)="showDetailBook(bookmark.book_title)">
+        <h2>{{bookmark.book_title.replace(regex, ' ')}}</h2>
+        <h3>{{bookmark.book_author.replace(regex, ' ')}}</h3>
+        <h3>{{bookmark.book_release}}</h3>
+      </button> 
+    </div>
+    <ng-template #notExist>
+      <button ion-item text-center class="takAda">
+        <h2>You not have bookmark for any book</h2>
+      </button>
+    </ng-template>
+  </ion-list>
+
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content 
+        pullingText="Pull to refresh"
+        pullingIcon="arrow-dropdown"
+        refreshingSpinner="circles"
+        refreshingText="fetching data ...">
+      </ion-refresher-content>
+  </ion-refresher>
+</ion-content>

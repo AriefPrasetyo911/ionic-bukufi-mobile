@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "447326809905",
+    "firebase_url": "https://bukufi-mobile-02.firebaseio.com",
+    "project_id": "bukufi-mobile-02",
+    "storage_bucket": "bukufi-mobile-02.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:447326809905:android:5f75d70204854e9f",
+        "android_client_info": {
+          "package_name": "io.ionic.bukufiM2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "447326809905-7s7uvsjc89bkuuuoke0tvbpcvv6fms0j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.ionic.bukufiM2",
+            "certificate_hash": "824f73ea7c6ddfafa7cc43ac7d93027ec667b635"
+          }
+        },
+        {
+          "client_id": "447326809905-3q4ogrru30sncvsqua93bovt8qd5ihhc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAks0zw_B9kUiH8D54_gXsnAZ1BfdiqNgU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "447326809905-3q4ogrru30sncvsqua93bovt8qd5ihhc.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "447326809905-0k31qccs1dghoojhvhbsubnoivlfkul5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "io.ionic.bukufiM2",
+                "app_store_id": "13246"
+              }
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

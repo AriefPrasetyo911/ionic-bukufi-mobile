@@ -1,0 +1,49 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Book List</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-searchbar [(ngModel)]="val" (ionInput)="getItems($event)" [debounce]="500" placeholder="Enter Keyword here ..."></ion-searchbar>
+  <ion-list>
+    <ion-item *ngFor="let book of allBooks">
+      <ion-thumbnail item-start>
+        <img src="http://bukufi.com/storage/book/book_cover/{{book.book_image}}">
+      </ion-thumbnail>
+      <h2>{{book.book_title_nodash}}</h2>
+      <p>{{book.book_author_nodash}}</p>
+      <p>{{book.book_release}}</p>
+      <p style="padding-top: 3px;"><ion-icon name="pricetags"></ion-icon> {{book.book_stikcer}}</p>
+      <button ion-button outline item-end (click)="showDetailBook(book.book_title)">View</button>
+    </ion-item>
+  </ion-list>
+
+  <!--FAB BOTTOM RIGHT-->
+  <ion-fab right bottom #fab2>
+    <button ion-fab mini color="primary"><ion-icon name="apps"></ion-icon></button>
+    <ion-fab-list side="top">
+      <div *ngIf="loggedin == true; else loginfirst">
+        <button ion-fab (click)="loginFirst()">
+          <ion-icon name="information-circle"></ion-icon>
+        </button>
+      </div>
+      <ng-template #loginfirst>
+        <button ion-fab (click)="loginFirst()">
+          <ion-icon name="log-in"></ion-icon>
+        </button>
+      </ng-template>
+    </ion-fab-list>
+  </ion-fab>
+
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content 
+    pullingText="Pull to refresh"
+    pullingIcon="arrow-dropdown"
+    refreshingSpinner="circles"
+    refreshingText="fetching data ..."></ion-refresher-content>
+  </ion-refresher>
+</ion-content>

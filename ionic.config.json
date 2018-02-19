@@ -1,0 +1,14 @@
+{
+  "name": "ionic-epubjs",
+  "app_id": "92fa9fd7",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  },
+  "proxies": [
+    {
+      "path": "/api",
+      "proxyUrl": "http://bukufi.com/api"
+    }
+  ]
+}
