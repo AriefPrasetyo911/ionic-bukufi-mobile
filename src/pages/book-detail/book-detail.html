@@ -1,30 +1,29 @@
 <ion-header>
-    <ion-navbar>
-      <ion-title *ngFor="let book of book_detail">
-        {{book.book_title_nodash}}
-      </ion-title>
-      <ion-buttons end>
-        <div *ngIf="loggedin == false; else loginTrue">
-          <button ion-button class="login-indicator-false">
-            <ion-icon name="sunny" end></ion-icon>
-          </button>
-        </div>
-        <ng-template #loginTrue>
-            <div *ngIf="isFacebookLogin == true">
-              <button ion-button class="login-indicator-true">
-                <ion-icon name="logo-facebook"></ion-icon>
-              </button>
-            </div>
-            <div *ngIf="isGoogleLogin == true">
-              <button ion-button class="login-indicator-true">
-                <ion-icon name="logo-googleplus"></ion-icon>
-              </button>
-            </div>
-        </ng-template>
-      </ion-buttons>
-    </ion-navbar>
-  </ion-header>
-
+  <ion-navbar>
+    <ion-title *ngFor="let book of book_detail">
+      {{book.book_title_nodash}}
+    </ion-title>
+    <ion-buttons end>
+      <div *ngIf="loggedin == false; else loginTrue">
+        <button ion-button class="login-indicator-false">
+          <ion-icon name="sunny" end></ion-icon>
+        </button>
+      </div>
+      <ng-template #loginTrue>
+          <div *ngIf="isFacebookLogin == true">
+            <button ion-button class="login-indicator-true">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </button>
+          </div>
+          <div *ngIf="isGoogleLogin == true">
+            <button ion-button class="login-indicator-true">
+              <ion-icon name="logo-googleplus"></ion-icon>
+            </button>
+          </div>
+      </ng-template>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
 
 <ion-content>
   <ion-card *ngFor="let book of book_detail">
@@ -200,6 +199,29 @@
         </ion-col>
       </ion-row>
     </ion-grid>
+  </ion-card>
+
+  <!--for review-->
+  <ion-card>
+    <ion-card-header class="user-review-hdr">
+      User Review
+    </ion-card-header>
+    <div *ngIf="checkAvailableReview == 1; else noReview">
+      <ion-list class="no-padding-top" *ngFor="let review of bookReveiew">
+        <button ion-item>
+            {{review.user_book_review}}
+            <p text-right>~ {{review.user_name}}</p>
+        </button>
+      </ion-list>
+    </div>
+
+    <ng-template #noReview>
+      <ion-list class="no-review">
+        <button ion-item>
+          <p text-center>No Review Yet</p>
+        </button>
+      </ion-list>
+    </ng-template>
   </ion-card>
 
   <!--FAB BOTTOM RIGHT-->

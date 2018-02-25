@@ -23,7 +23,6 @@
   </ion-navbar>
 </ion-header>
 
-
 <ion-content>
   <ion-card *ngFor="let comic of comic_detail?.data1">
     <ion-grid>
@@ -33,7 +32,35 @@
         </ion-col>
         <ion-col col-6>
 
-          <div *ngIf="loggedin">
+          <div>
+            <div class="counterRating" *ngIf="isHaveCounter == true">
+              <div *ngFor="let counter of comicCounterExist">
+                  <ion-icon name="eye"></ion-icon> <b>{{counter.counter}}</b>
+              </div>
+            </div>
+          </div>
+
+          <div class="counterRating" *ngIf="isHaveCounter == false">
+            <ion-icon name="eye"></ion-icon> <b>0</b>
+          </div>
+
+            <!-- batas -->
+            
+          <div class="counterRating2" *ngIf="isHaveStatistic == true">
+            <p text-end class="black">
+              <b>{{comicStatisticExist}} % <ion-icon name="thumbs-up"></ion-icon></b>
+            </p>
+          </div>
+
+          <div *ngIf="isHaveStatistic == false">
+            <div class="counterRating2">
+              <p text-end class="black">
+                <b>No Statistic yet</b>
+              </p>
+            </div>
+          </div>
+
+            <div *ngIf="loggedin">
               <button ion-button outline small block color="secondary" icon-left (click)="addBookmarkComic()">
                 <ion-icon name="bookmark"></ion-icon>Bookmark
                 <!-- <input type="hidden" value="{{book.book_title}}" name="bookmark"> -->
@@ -102,6 +129,29 @@
           </button>
         </ion-list>
     </ion-card-content>
+  </ion-card>
+
+  <!--for review-->
+  <ion-card class="review">
+    <ion-card-header class="user-review-hdr">
+      User Review
+    </ion-card-header>
+    <div *ngIf="checkAvailableReview == 1; else noReview">
+      <ion-list class="no-padding-top" *ngFor="let review of comicReview">
+        <button ion-item>
+            {{review.user_comic_review}}
+            <p text-right>~ {{review.user_name}}</p>
+        </button>
+      </ion-list>
+    </div>
+
+    <ng-template #noReview>
+      <ion-list class="no-review">
+        <button ion-item>
+          <p text-center>No Review Yet</p>
+        </button>
+      </ion-list>
+    </ng-template>
   </ion-card>
 
   <!--FAB BOTTOM RIGHT-->

@@ -26030,6 +26030,38 @@ page-book-detail .card, page-book-detail .card-md {
   box-shadow: none;
 }
 
+page-book-detail .user-review-hdr {
+  text-align: center;
+  font-weight: 700;
+  background-color: darkseagreen;
+  color: white;
+}
+
+page-book-detail .item, page-book-detail .item-block, page-book-detail .item-md {
+  padding-left: 0;
+}
+
+page-book-detail .label, page-book-detail .label-md {
+  margin-top: 5px;
+  margin-bottom: 0;
+  margin-right: 0;
+  background-color: gainsboro;
+  padding: 10px;
+}
+
+page-book-detail .item-inner {
+  padding-left: 8px;
+}
+
+page-book-detail .no-review .label, page-book-detail .no-review .label-md {
+  border-radius: 0;
+  padding: 10px;
+}
+
+page-book-detail .no-review .text-center {
+  font-weight: 700;
+}
+
 page-book-favourite .item, page-book-favourite .item-block, page-book-favourite .item-md {
   padding-left: 0;
 }
@@ -26429,6 +26461,59 @@ page-comic-detail .login-indicator-false {
 
 page-comic-detail .login-indicator-true {
   color: green;
+}
+
+page-comic-detail .label, page-comic-detail .label-md {
+  margin-top: 5px;
+  margin-bottom: 0;
+  margin-right: 0;
+  background-color: gainsboro;
+  padding: 10px;
+}
+
+page-comic-detail .item-inner {
+  padding-left: 8px;
+}
+
+page-comic-detail .no-review .label, page-comic-detail .no-review .label-md {
+  border-radius: 0;
+  padding: 10px;
+}
+
+page-comic-detail .no-review .text-center {
+  font-weight: 700;
+}
+
+page-comic-detail .user-review-hdr {
+  text-align: center;
+  font-weight: 700;
+  background-color: darkseagreen;
+  color: white;
+}
+
+page-comic-detail .item, page-comic-detail .item-block, page-comic-detail .item-md {
+  padding-left: 0;
+}
+
+page-comic-detail .review {
+  margin-top: 15px;
+}
+
+page-comic-detail .counterRating {
+  background-color: gainsboro;
+  padding: 5px;
+  text-align: center !important;
+}
+
+page-comic-detail .counterRating2 {
+  background-color: linen;
+  padding: 5px;
+  text-align: center !important;
+}
+
+page-comic-detail .black {
+  color: black;
+  text-align: center !important;
 }
 
 page-comic-favourite .login-indicator-false {

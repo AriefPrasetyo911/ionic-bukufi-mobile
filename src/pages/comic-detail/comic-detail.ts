@@ -32,7 +32,16 @@ export class ComicDetailPage {
   comicAuthor: any;
   comicGenre: any;
   comicRelease: number;
+  comicReview: any;
+  checkAvailableReview: number = 0;
 
+  comicCounter: any;
+  isHaveCounter: boolean = false;
+  comicCounterExist: any;
+
+  comicStatistic: any;
+  isHaveStatistic: boolean;
+  comicStatisticExist: any;
 
   public myFavourite: Array<any> = [];
   public favouriteRef: firebase.database.Reference = firebase.database().ref(`/Favourite-Comic`);
@@ -53,6 +62,9 @@ export class ComicDetailPage {
       console.log('==> parameter from home :',this.comic);
 
       this.getDetail();
+      this.getComicReview();
+      this.getComicCounter();
+      this.getComicStatistic();
 
       //create database reference
       this.favouriteComic = afDatabase.list('/Favourite-Comic');
@@ -372,4 +384,57 @@ export class ComicDetailPage {
     }, 2000);
   }
 
+  getComicReview(){
+    this.bukufiRest.getComicReview(this.comic).then(res => {
+      this.comicReview = res;
+      console.log('==> Comic review :', this.comicReview);
+      
+      if(this.comicReview.length > 0){
+        this.checkAvailableReview = 1;
+        console.log('=-> Ada Review Buku :', this.checkAvailableReview);
+      }
+      else{
+        this.checkAvailableReview = 0;
+        console.log('=-> Tidak Ada Review Buku :', this.checkAvailableReview);
+      }
+    })
+  }
+
+  //===- GET COUNTER -===//
+  getComicCounter(){
+    this.bukufiRest.getCounterComic(this.comic).then(data => {
+      this.comicCounter = data;
+      console.log('==> Comic Counter :',data);
+      if(this.comicCounter){
+        this.isHaveCounter = true;
+        this.comicCounterExist = this.comicCounter;
+        console.log('==> Comic counter EXIST');
+      }
+      else{
+        console.log('==> Comic counter NOT EXIST');
+        this.isHaveCounter = false;
+      }
+    });
+  }
+  //===- END GET COUNTER -===//
+  
+  /*===- GET COMIC STATISTIC -===*/
+  getComicStatistic(){
+    this.bukufiRest.getComicStatisticonProsen(this.comic).then(data => {
+      this.comicStatistic  = data;
+      console.log('==> Comic statistic :',data);
+      if(this.comicStatistic){
+        this.isHaveStatistic = true;
+        this.comicStatisticExist = this.comicStatistic;
+        console.log('=> Comic Statistic EXIST', this.comicStatisticExist);
+      }
+      else{
+        this.isHaveStatistic = false;
+        console.log("=> Comic Statistic DOESN'T EXIST");
+      }
+    }, err => {
+      console.log(err);
+    })
+  }
+  /*===- END COMIC STATISTIC -===*/
 }

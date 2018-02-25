@@ -312,4 +312,41 @@ page-book-detail {
     .card, .card-md{
         box-shadow: none;
     }
+
+    .user-review-hdr{
+        text-align: center;
+        font-weight: 700;
+        background-color: darkseagreen;
+        color: white;
+    }
+
+    .item, .item-block, .item-md{
+        padding-left: 0;
+    }
+
+    .label, .label-md{
+        margin-top: 5px;
+        margin-bottom: 0;
+        margin-right: 0;
+        background-color: gainsboro;
+        // border-top-right-radius: 15px;
+        // border-bottom-left-radius: 15px;
+        padding: 10px;
+    }
+
+    .item-inner{
+        padding-left: 8px;
+    }
+
+    .no-review{
+
+        .label, .label-md {
+            border-radius: 0;
+            padding: 10px;
+        } 
+        
+        .text-center{
+            font-weight: 700;
+        }
+    }
 }

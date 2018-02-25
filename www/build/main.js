@@ -1521,15 +1521,15 @@ var map = {
 		9
 	],
 	"../pages/book-list/book-list.module": [
-		528,
+		521,
 		8
 	],
 	"../pages/comic-bookmark/comic-bookmark.module": [
-		521,
+		522,
 		7
 	],
 	"../pages/comic-detail/comic-detail.module": [
-		522,
+		525,
 		6
 	],
 	"../pages/comic-favourite/comic-favourite.module": [
@@ -1541,19 +1541,19 @@ var map = {
 		4
 	],
 	"../pages/comic-list/comic-list.module": [
-		529,
+		526,
 		3
 	],
 	"../pages/comic/comic.module": [
-		525,
+		528,
 		2
 	],
 	"../pages/login/login.module": [
-		526,
+		527,
 		1
 	],
 	"../pages/search/search.module": [
-		527,
+		529,
 		0
 	]
 };
@@ -1957,6 +1957,7 @@ var BukufiRestProvider = (function () {
         this.allComics = "http://bukufi.com/api/v1/comic/all";
         console.log('Hello BukufiRestProvider Provider');
     }
+    /*==== HOME ====*/
     /*===- POPULAR BOOK -===*/
     BukufiRestProvider.prototype.getPopBooks = function () {
         var _this = this;
@@ -1981,6 +1982,32 @@ var BukufiRestProvider = (function () {
         });
     };
     /*===- END POPULAR COMIC -===*/
+    /*==== END HOME ====*/
+    /*==== BOOK ====*/
+    /*===- NEW BOOK -===*/
+    BukufiRestProvider.prototype.getNewBook = function () {
+        var _this = this;
+        return new Promise(function (resolve) {
+            _this.http.get(_this.newBooks).subscribe(function (data) {
+                resolve(data);
+            }, function (err) {
+                console.log(err);
+            });
+        });
+    };
+    /*===- END NEW BOOK -===*/
+    /*===- ALL BOOK -===*/
+    BukufiRestProvider.prototype.getAllBook = function () {
+        var _this = this;
+        return new Promise(function (resolve) {
+            _this.http.get(_this.allBooks).subscribe(function (data) {
+                resolve(data);
+            }, function (err) {
+                console.log(err);
+            });
+        });
+    };
+    /*===- END ALL BOOK -===*/
     /*===- DETAIL BOOK -===*/
     BukufiRestProvider.prototype.getDetailBook = function (book) {
         var _this = this;
@@ -2005,7 +2032,7 @@ var BukufiRestProvider = (function () {
         });
     };
     /*===- END BOOK COUNTER -===*/
-    /*===- BOOK REVIEW -===*/
+    /*===- BOOK STATISTIC -===*/
     BukufiRestProvider.prototype.getBookStatisticonProsen = function (book) {
         var _this = this;
         return new Promise(function (resolve) {
@@ -2016,7 +2043,21 @@ var BukufiRestProvider = (function () {
             });
         });
     };
+    /*===- END BOOK STATISTIC -===*/
+    /*===- BOOK REVIEW -===*/
+    BukufiRestProvider.prototype.getReviewBook = function (book) {
+        var _this = this;
+        return new Promise(function (resolve) {
+            _this.http.get("http://bukufi.com/api/v1/book/book-review/" + book).subscribe(function (data) {
+                resolve(data);
+            }, function (err) {
+                console.log(err);
+            });
+        });
+    };
     /*===- END BOOK REVIEW -===*/
+    /*==== END BOOK ====*/
+    /*==== COMIC ====*/
     /*===- DETAIL COMIC -===*/
     BukufiRestProvider.prototype.getDetailComic = function (comic) {
         var _this = this;
@@ -2053,30 +2094,6 @@ var BukufiRestProvider = (function () {
         });
     };
     /*===- END READ COMIC NON LOGIN USER-===*/
-    /*===- NEW BOOK -===*/
-    BukufiRestProvider.prototype.getNewBook = function () {
-        var _this = this;
-        return new Promise(function (resolve) {
-            _this.http.get(_this.newBooks).subscribe(function (data) {
-                resolve(data);
-            }, function (err) {
-                console.log(err);
-            });
-        });
-    };
-    /*===- END NEW BOOK -===*/
-    /*===- ALL BOOK -===*/
-    BukufiRestProvider.prototype.getAllBook = function () {
-        var _this = this;
-        return new Promise(function (resolve) {
-            _this.http.get(_this.allBooks).subscribe(function (data) {
-                resolve(data);
-            }, function (err) {
-                console.log(err);
-            });
-        });
-    };
-    /*===- END ALL BOOK -===*/
     /*===- NEW COMIC -===*/
     BukufiRestProvider.prototype.getNewComic = function () {
         var _this = this;
@@ -2094,6 +2111,42 @@ var BukufiRestProvider = (function () {
         var _this = this;
         return new Promise(function (resolve) {
             _this.http.get(_this.allComics).subscribe(function (data) {
+                resolve(data);
+            }, function (err) {
+                console.log(err);
+            });
+        });
+    };
+    /*===- END ALL COMICS -===*/
+    /*===- COMIC COUNTER -===*/
+    BukufiRestProvider.prototype.getCounterComic = function (comic) {
+        var _this = this;
+        return new Promise(function (resolve) {
+            _this.http.get("http://bukufi.com/api/v1/comic/comic-counter/" + comic).subscribe(function (data) {
+                resolve(data);
+            }, function (err) {
+                console.log(err);
+            });
+        });
+    };
+    /*===- END COMIC COUNTER -===*/
+    /*===- COMIC REVIEW -===*/
+    BukufiRestProvider.prototype.getComicReview = function (comic) {
+        var _this = this;
+        return new Promise(function (resolve) {
+            _this.http.get("http://bukufi.com/api/v1/comic/comic-review/" + comic).subscribe(function (data) {
+                resolve(data);
+            }, function (err) {
+                console.log(err);
+            });
+        });
+    };
+    /*===- END COMIC REVIEW -===*/
+    /*===- BOOK STATISTIC -===*/
+    BukufiRestProvider.prototype.getComicStatisticonProsen = function (comic) {
+        var _this = this;
+        return new Promise(function (resolve) {
+            _this.http.get("http://bukufi.com/api/v1/comic/comic-statistic/" + comic).subscribe(function (data) {
                 resolve(data);
             }, function (err) {
                 console.log(err);
@@ -2491,15 +2544,15 @@ AppModule = __decorate([
                     { loadChildren: '../pages/book-detail/book-detail.module#BookDetailPageModule', name: 'BookDetailPage', segment: 'book-detail', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/book-favourite/book-favourite.module#BookFavouritePageModule', name: 'BookFavouritePage', segment: 'book-favourite', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/book-front/book-front.module#BookFrontPageModule', name: 'BookFrontPage', segment: 'book-front', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/book-list/book-list.module#BookListPageModule', name: 'BookListPage', segment: 'book-list', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/comic-bookmark/comic-bookmark.module#ComicBookmarkPageModule', name: 'ComicBookmarkPage', segment: 'comic-bookmark', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/comic-detail/comic-detail.module#ComicDetailPageModule', name: 'ComicDetailPage', segment: 'comic-detail', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/comic-favourite/comic-favourite.module#ComicFavouritePageModule', name: 'ComicFavouritePage', segment: 'comic-favourite', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/comic-front/comic-front.module#ComicFrontPageModule', name: 'ComicFrontPage', segment: 'comic-front', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/comic/comic.module#ComicPageModule', name: 'ComicPage', segment: 'comic', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/comic-detail/comic-detail.module#ComicDetailPageModule', name: 'ComicDetailPage', segment: 'comic-detail', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/comic-list/comic-list.module#ComicListPageModule', name: 'ComicListPage', segment: 'comic-list', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/search/search.module#SearchPageModule', name: 'SearchPage', segment: 'search', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/book-list/book-list.module#BookListPageModule', name: 'BookListPage', segment: 'book-list', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/comic-list/comic-list.module#ComicListPageModule', name: 'ComicListPage', segment: 'comic-list', priority: 'low', defaultHistory: [] }
+                    { loadChildren: '../pages/comic/comic.module#ComicPageModule', name: 'ComicPage', segment: 'comic', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/search/search.module#SearchPageModule', name: 'SearchPage', segment: 'search', priority: 'low', defaultHistory: [] }
                 ]
             })
         ],
@@ -2891,6 +2944,7 @@ var BookDetailPage = (function () {
         this.isFacebookLogin = false;
         this.isGoogleLogin = false;
         this.userProfile = null;
+        this.checkAvailableReview = 0;
         this.myFav = [];
         this.favoRef = __WEBPACK_IMPORTED_MODULE_9_firebase___default.a.database().ref("/Favourite-book");
         this.myBookmark = [];
@@ -2899,6 +2953,7 @@ var BookDetailPage = (function () {
         console.log('==> Parameter from HomePage: ', this.book);
         this.getDetail();
         this.getCounter();
+        this.getBookReview();
         this.getBookProsenStatistic();
         this.checkFacebookLoginStatus();
         this.checkGoogleLoginStatus();
@@ -2942,6 +2997,22 @@ var BookDetailPage = (function () {
         });
     };
     //===- END GET COUNTER -===//
+    /*===- GET BOOK REVIEW -===*/
+    BookDetailPage.prototype.getBookReview = function () {
+        var _this = this;
+        this.bukufiRest.getReviewBook(this.book).then(function (data) {
+            _this.bookReveiew = data;
+            if (_this.bookReveiew.length > 0) {
+                _this.checkAvailableReview = 1;
+                console.log('=-> Ada Review Buku :', _this.checkAvailableReview);
+            }
+            else {
+                _this.checkAvailableReview = 0;
+                console.log('=-> Tidak Ada Review Buku :', _this.checkAvailableReview);
+            }
+        });
+    };
+    /*===- END GET BOOK REVIEW -===*/
     /*===- GET BOOK STATISTIC -===*/
     BookDetailPage.prototype.getBookProsenStatistic = function () {
         var _this = this;
@@ -3241,7 +3312,7 @@ var BookDetailPage = (function () {
 }());
 BookDetailPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-        selector: 'page-book-detail',template:/*ion-inline-start:"C:\Users\riser\Desktop\ionic-epubjs\src\pages\book-detail\book-detail.html"*/'<ion-header>\n    <ion-navbar>\n      <ion-title *ngFor="let book of book_detail">\n        {{book.book_title_nodash}}\n      </ion-title>\n      <ion-buttons end>\n        <div *ngIf="loggedin == false; else loginTrue">\n          <button ion-button class="login-indicator-false">\n            <ion-icon name="sunny" end></ion-icon>\n          </button>\n        </div>\n        <ng-template #loginTrue>\n            <div *ngIf="isFacebookLogin == true">\n              <button ion-button class="login-indicator-true">\n                <ion-icon name="logo-facebook"></ion-icon>\n              </button>\n            </div>\n            <div *ngIf="isGoogleLogin == true">\n              <button ion-button class="login-indicator-true">\n                <ion-icon name="logo-googleplus"></ion-icon>\n              </button>\n            </div>\n        </ng-template>\n      </ion-buttons>\n    </ion-navbar>\n  </ion-header>\n\n\n<ion-content>\n  <ion-card *ngFor="let book of book_detail">\n    <ion-grid>\n      <ion-row>\n        <ion-col col-6>\n            <div *ngIf="book.book_stikcer == \'New\'">\n              <div class="cnrflash-new">\n                <div class="cnrflash-inner-new">\n                    <span class="cnrflash-label-new">\n                      NEW\n                    </span>\n                </div>\n              </div>\n            </div>\n  \n            <div *ngIf="book.book_stikcer == \'Popular\'">\n              <div class="cnrflash-popular">\n                <div class="cnrflash-inner-popular">\n                    <span class="cnrflash-label-popular">\n                      POPULAR\n                    </span>\n                </div>\n              </div>\n            </div>\n  \n            <div *ngIf="book.book_stikcer == \'Recomended\'">\n              <div class="cnrflash-recomended">\n                <div class="cnrflash-inner-recomended">\n                    <span class="cnrflash-label-recomended">\n                      RECOMENDED\n                    </span>\n                </div>\n              </div>\n            </div>\n  \n            <div *ngIf="book.book_stikcer == \'Editor Pick\'">\n              <div class="cnrflash-editor-pick">\n                <div class="cnrflash-inner-editor-pick">\n                    <span class="cnrflash-label-editor-pick">\n                      EDITOR <br> PICK\n                    </span>\n                </div>\n              </div>\n            </div>\n\n            <img src="http://bukufi.com/storage/book/book_cover/{{book.book_image}}"/>\n        </ion-col>\n        <ion-col col-6>\n          <div>\n            <div class="counterRating" *ngIf="isHaveCounter == true">\n              <div *ngFor="let counter of book_counter_exist">\n                  <ion-icon name="eye"></ion-icon> <b>{{counter.counter}}</b>\n              </div>\n              \n            </div>\n          </div>\n\n          <div class="counterRating" *ngIf="isHaveCounter == false">\n            <ion-icon name="eye"></ion-icon> <b>0</b>\n          </div>\n\n            <!-- batas -->\n            \n          <div class="counterRating2" *ngIf="isHaveStatistic == true">\n            <p text-end class="black">\n              <b>{{book_statistic_exist}} % <ion-icon name="thumbs-up"></ion-icon></b>\n            </p>\n          </div>\n\n          <div *ngIf="isHaveStatistic == false">\n            <div class="counterRating2">\n              <p text-end class="black">\n                <b>No Statistic yet</b>\n              </p>\n            </div>\n          </div>\n\n            <!-- fb: {{isFacebookLogin}} - gp: {{isGoogleLogin}} - LGD {{loggedin}} -->\n\n            <!-- batas -->\n\n          <div *ngIf="loggedin; else loginfirst">\n            <!-- <div *ngIf="isHaveBookmark == true">\n              <button ion-button outline small block color="secondary" icon-left disabled>\n                <ion-icon name="bookmark"></ion-icon>Bookmark\n              </button>\n            </div> -->\n            \n            <!-- <div *ngIf="isHaveBookmark == false"> -->\n              <button ion-button outline small block color="secondary" icon-left (tap)="addBookmarkBook()">\n                <ion-icon name="bookmark"></ion-icon>Bookmark\n              </button>\n            <!-- </div> -->\n          </div>\n          <ng-template #loginfirst>\n            <button ion-button outline small block color="secondary" icon-left disabled>\n              <ion-icon name="bookmark"></ion-icon>Bookmark\n            </button>\n          </ng-template>\n\n            <!-- batas -->\n\n          <div *ngIf="loggedin; else loginzero">\n            <!-- <div *ngIf="isHavefavourite == true; else BookmarkNotFound">\n              <button ion-button outline small block icon-left class="btn-2" disabled>\n                  <ion-icon name="heart"></ion-icon> Favourite\n              </button>\n            </div> -->\n            <!-- <ng-template #BookmarkNotFound> -->\n              <button ion-button outline small block icon-left class="btn-2" (click)="addFavouriteBook()">\n                  <ion-icon name="heart"></ion-icon> Favourite\n              </button>\n            <!-- </ng-template> -->\n          </div>\n\n          <ng-template #loginzero>\n            <button ion-button outline small block icon-left class="btn-2" disabled>\n                <ion-icon name="heart"></ion-icon> Favourite\n            </button>\n          </ng-template>\n\n            <!-- batas -->\n\n          <div *ngIf="loggedin; else nologin">\n            <div *ngIf="isFacebookLogin == true; else googlelogin">\n              <div>\n                <button ion-button block icon-left (tap)="show(book.book_file)" class="read-btn">\n                  <ion-icon ios="ios-book" md="md-book"></ion-icon> Read Book\n                </button>\n              </div>\n            </div>\n\n            <ng-template #googlelogin>\n              <button ion-button block icon-left (tap)="show(book.book_file)" class="read-btn">\n                <ion-icon ios="ios-book" md="md-book"></ion-icon> Read Book\n              </button>\n            </ng-template>\n          </div>\n\n          <ng-template #nologin>\n            <button ion-button block icon-left (tap)="show(book.book_file)" class="read-btn" disabled>\n              <ion-icon ios="ios-book" md="md-book"></ion-icon> Read Book\n            </button>\n          </ng-template>\n          \n        </ion-col>\n        <!-- description area -->\n        <ion-col col-12>\n          <ion-row class="desc">\n            <ion-col col-4 class="no-padding-left-right"><strong>Author</strong></ion-col>\n            <ion-col col-1>:</ion-col>\n            <ion-col col-7 class="no-padding-left-right no-padd-top-btm">\n              <p class="mt-25">{{book.book_author_nodash}}</p>\n            </ion-col>\n            <hr>\n          </ion-row>\n          <ion-row class="desc">\n            <ion-col col-4 class="no-padding-left-right"><strong>Publisher</strong></ion-col>\n            <ion-col col-1>:</ion-col>\n            <ion-col col-7 class="no-padding-left-right no-padd-top-btm">\n              <p class="mt-25">{{book.book_publisher_nodash}}</p>\n            </ion-col>\n            <hr>\n          </ion-row>\n          <ion-row class="desc">\n            <ion-col col-4 class="no-padding-left-right"><strong>Year of Release</strong></ion-col>\n            <ion-col col-1>:</ion-col>\n            <ion-col col-7 class="no-padding-left-right no-padd-top-btm">\n              <p class="mt-25">{{book.book_release}}</p>\n            </ion-col>\n          </ion-row>\n        </ion-col>\n      </ion-row>\n    </ion-grid>\n  </ion-card>\n\n  <!--FAB BOTTOM RIGHT-->\n  <ion-fab right bottom #fab2>\n    <button ion-fab mini color="primary"><ion-icon name="apps"></ion-icon></button>\n    <ion-fab-list side="top">\n      <div *ngIf="loggedin == true; else loginfirst">\n        <button ion-fab (click)="loginFirst()">\n          <ion-icon name="information-circle"></ion-icon>\n        </button>\n      </div>\n      <ng-template #loginfirst>\n        <button ion-fab (click)="loginFirst()">\n          <ion-icon name="log-in"></ion-icon>\n        </button>\n      </ng-template>\n      <button ion-fab (click)="search()">\n        <ion-icon name="search"></ion-icon>\n      </button>\n    </ion-fab-list>\n  </ion-fab>\n\n  <ion-refresher (ionRefresh)="doRefresh($event)">\n    <ion-refresher-content \n      pullingText="Pull to refresh"\n      pullingIcon="arrow-dropdown"\n      refreshingSpinner="circles"\n      refreshingText="fetching data ...">\n    </ion-refresher-content>\n  </ion-refresher>\n</ion-content>\n'/*ion-inline-end:"C:\Users\riser\Desktop\ionic-epubjs\src\pages\book-detail\book-detail.html"*/,
+        selector: 'page-book-detail',template:/*ion-inline-start:"C:\Users\riser\Desktop\ionic-epubjs\src\pages\book-detail\book-detail.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title *ngFor="let book of book_detail">\n      {{book.book_title_nodash}}\n    </ion-title>\n    <ion-buttons end>\n      <div *ngIf="loggedin == false; else loginTrue">\n        <button ion-button class="login-indicator-false">\n          <ion-icon name="sunny" end></ion-icon>\n        </button>\n      </div>\n      <ng-template #loginTrue>\n          <div *ngIf="isFacebookLogin == true">\n            <button ion-button class="login-indicator-true">\n              <ion-icon name="logo-facebook"></ion-icon>\n            </button>\n          </div>\n          <div *ngIf="isGoogleLogin == true">\n            <button ion-button class="login-indicator-true">\n              <ion-icon name="logo-googleplus"></ion-icon>\n            </button>\n          </div>\n      </ng-template>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-card *ngFor="let book of book_detail">\n    <ion-grid>\n      <ion-row>\n        <ion-col col-6>\n            <div *ngIf="book.book_stikcer == \'New\'">\n              <div class="cnrflash-new">\n                <div class="cnrflash-inner-new">\n                    <span class="cnrflash-label-new">\n                      NEW\n                    </span>\n                </div>\n              </div>\n            </div>\n  \n            <div *ngIf="book.book_stikcer == \'Popular\'">\n              <div class="cnrflash-popular">\n                <div class="cnrflash-inner-popular">\n                    <span class="cnrflash-label-popular">\n                      POPULAR\n                    </span>\n                </div>\n              </div>\n            </div>\n  \n            <div *ngIf="book.book_stikcer == \'Recomended\'">\n              <div class="cnrflash-recomended">\n                <div class="cnrflash-inner-recomended">\n                    <span class="cnrflash-label-recomended">\n                      RECOMENDED\n                    </span>\n                </div>\n              </div>\n            </div>\n  \n            <div *ngIf="book.book_stikcer == \'Editor Pick\'">\n              <div class="cnrflash-editor-pick">\n                <div class="cnrflash-inner-editor-pick">\n                    <span class="cnrflash-label-editor-pick">\n                      EDITOR <br> PICK\n                    </span>\n                </div>\n              </div>\n            </div>\n\n            <img src="http://bukufi.com/storage/book/book_cover/{{book.book_image}}"/>\n        </ion-col>\n        <ion-col col-6>\n          <div>\n            <div class="counterRating" *ngIf="isHaveCounter == true">\n              <div *ngFor="let counter of book_counter_exist">\n                  <ion-icon name="eye"></ion-icon> <b>{{counter.counter}}</b>\n              </div>\n              \n            </div>\n          </div>\n\n          <div class="counterRating" *ngIf="isHaveCounter == false">\n            <ion-icon name="eye"></ion-icon> <b>0</b>\n          </div>\n\n            <!-- batas -->\n            \n          <div class="counterRating2" *ngIf="isHaveStatistic == true">\n            <p text-end class="black">\n              <b>{{book_statistic_exist}} % <ion-icon name="thumbs-up"></ion-icon></b>\n            </p>\n          </div>\n\n          <div *ngIf="isHaveStatistic == false">\n            <div class="counterRating2">\n              <p text-end class="black">\n                <b>No Statistic yet</b>\n              </p>\n            </div>\n          </div>\n\n            <!-- fb: {{isFacebookLogin}} - gp: {{isGoogleLogin}} - LGD {{loggedin}} -->\n\n            <!-- batas -->\n\n          <div *ngIf="loggedin; else loginfirst">\n            <!-- <div *ngIf="isHaveBookmark == true">\n              <button ion-button outline small block color="secondary" icon-left disabled>\n                <ion-icon name="bookmark"></ion-icon>Bookmark\n              </button>\n            </div> -->\n            \n            <!-- <div *ngIf="isHaveBookmark == false"> -->\n              <button ion-button outline small block color="secondary" icon-left (tap)="addBookmarkBook()">\n                <ion-icon name="bookmark"></ion-icon>Bookmark\n              </button>\n            <!-- </div> -->\n          </div>\n          <ng-template #loginfirst>\n            <button ion-button outline small block color="secondary" icon-left disabled>\n              <ion-icon name="bookmark"></ion-icon>Bookmark\n            </button>\n          </ng-template>\n\n            <!-- batas -->\n\n          <div *ngIf="loggedin; else loginzero">\n            <!-- <div *ngIf="isHavefavourite == true; else BookmarkNotFound">\n              <button ion-button outline small block icon-left class="btn-2" disabled>\n                  <ion-icon name="heart"></ion-icon> Favourite\n              </button>\n            </div> -->\n            <!-- <ng-template #BookmarkNotFound> -->\n              <button ion-button outline small block icon-left class="btn-2" (click)="addFavouriteBook()">\n                  <ion-icon name="heart"></ion-icon> Favourite\n              </button>\n            <!-- </ng-template> -->\n          </div>\n\n          <ng-template #loginzero>\n            <button ion-button outline small block icon-left class="btn-2" disabled>\n                <ion-icon name="heart"></ion-icon> Favourite\n            </button>\n          </ng-template>\n\n            <!-- batas -->\n\n          <div *ngIf="loggedin; else nologin">\n            <div *ngIf="isFacebookLogin == true; else googlelogin">\n              <div>\n                <button ion-button block icon-left (tap)="show(book.book_file)" class="read-btn">\n                  <ion-icon ios="ios-book" md="md-book"></ion-icon> Read Book\n                </button>\n              </div>\n            </div>\n\n            <ng-template #googlelogin>\n              <button ion-button block icon-left (tap)="show(book.book_file)" class="read-btn">\n                <ion-icon ios="ios-book" md="md-book"></ion-icon> Read Book\n              </button>\n            </ng-template>\n          </div>\n\n          <ng-template #nologin>\n            <button ion-button block icon-left (tap)="show(book.book_file)" class="read-btn" disabled>\n              <ion-icon ios="ios-book" md="md-book"></ion-icon> Read Book\n            </button>\n          </ng-template>\n          \n        </ion-col>\n        <!-- description area -->\n        <ion-col col-12>\n          <ion-row class="desc">\n            <ion-col col-4 class="no-padding-left-right"><strong>Author</strong></ion-col>\n            <ion-col col-1>:</ion-col>\n            <ion-col col-7 class="no-padding-left-right no-padd-top-btm">\n              <p class="mt-25">{{book.book_author_nodash}}</p>\n            </ion-col>\n            <hr>\n          </ion-row>\n          <ion-row class="desc">\n            <ion-col col-4 class="no-padding-left-right"><strong>Publisher</strong></ion-col>\n            <ion-col col-1>:</ion-col>\n            <ion-col col-7 class="no-padding-left-right no-padd-top-btm">\n              <p class="mt-25">{{book.book_publisher_nodash}}</p>\n            </ion-col>\n            <hr>\n          </ion-row>\n          <ion-row class="desc">\n            <ion-col col-4 class="no-padding-left-right"><strong>Year of Release</strong></ion-col>\n            <ion-col col-1>:</ion-col>\n            <ion-col col-7 class="no-padding-left-right no-padd-top-btm">\n              <p class="mt-25">{{book.book_release}}</p>\n            </ion-col>\n          </ion-row>\n        </ion-col>\n      </ion-row>\n    </ion-grid>\n  </ion-card>\n\n  <!--for review-->\n  <ion-card>\n    <ion-card-header class="user-review-hdr">\n      User Review\n    </ion-card-header>\n    <div *ngIf="checkAvailableReview == 1; else noReview">\n      <ion-list class="no-padding-top" *ngFor="let review of bookReveiew">\n        <button ion-item>\n            {{review.user_book_review}}\n            <p text-right>~ {{review.user_name}}</p>\n        </button>\n      </ion-list>\n    </div>\n\n    <ng-template #noReview>\n      <ion-list class="no-review">\n        <button ion-item>\n          <p text-center>No Review Yet</p>\n        </button>\n      </ion-list>\n    </ng-template>\n  </ion-card>\n\n  <!--FAB BOTTOM RIGHT-->\n  <ion-fab right bottom #fab2>\n    <button ion-fab mini color="primary"><ion-icon name="apps"></ion-icon></button>\n    <ion-fab-list side="top">\n      <div *ngIf="loggedin == true; else loginfirst">\n        <button ion-fab (click)="loginFirst()">\n          <ion-icon name="information-circle"></ion-icon>\n        </button>\n      </div>\n      <ng-template #loginfirst>\n        <button ion-fab (click)="loginFirst()">\n          <ion-icon name="log-in"></ion-icon>\n        </button>\n      </ng-template>\n      <button ion-fab (click)="search()">\n        <ion-icon name="search"></ion-icon>\n      </button>\n    </ion-fab-list>\n  </ion-fab>\n\n  <ion-refresher (ionRefresh)="doRefresh($event)">\n    <ion-refresher-content \n      pullingText="Pull to refresh"\n      pullingIcon="arrow-dropdown"\n      refreshingSpinner="circles"\n      refreshingText="fetching data ...">\n    </ion-refresher-content>\n  </ion-refresher>\n</ion-content>\n'/*ion-inline-end:"C:\Users\riser\Desktop\ionic-epubjs\src\pages\book-detail\book-detail.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
@@ -3305,6 +3376,8 @@ var ComicDetailPage = (function () {
         this.isGoogleLogin = false;
         this.isFacebookLogin = false;
         this.userProfile = null;
+        this.checkAvailableReview = 0;
+        this.isHaveCounter = false;
         this.myFavourite = [];
         this.favouriteRef = __WEBPACK_IMPORTED_MODULE_8_firebase___default.a.database().ref("/Favourite-Comic");
         this.myBookmark = [];
@@ -3312,6 +3385,9 @@ var ComicDetailPage = (function () {
         this.comic = this.navParams.get('comic');
         console.log('==> parameter from home :', this.comic);
         this.getDetail();
+        this.getComicReview();
+        this.getComicCounter();
+        this.getComicStatistic();
         //create database reference
         this.favouriteComic = afDatabase.list('/Favourite-Comic');
         this.BookmarkComic = afDatabase.list('/Bookmark-Comic');
@@ -3615,11 +3691,63 @@ var ComicDetailPage = (function () {
             refresher.complete();
         }, 2000);
     };
+    ComicDetailPage.prototype.getComicReview = function () {
+        var _this = this;
+        this.bukufiRest.getComicReview(this.comic).then(function (res) {
+            _this.comicReview = res;
+            console.log('==> Comic review :', _this.comicReview);
+            if (_this.comicReview.length > 0) {
+                _this.checkAvailableReview = 1;
+                console.log('=-> Ada Review Buku :', _this.checkAvailableReview);
+            }
+            else {
+                _this.checkAvailableReview = 0;
+                console.log('=-> Tidak Ada Review Buku :', _this.checkAvailableReview);
+            }
+        });
+    };
+    //===- GET COUNTER -===//
+    ComicDetailPage.prototype.getComicCounter = function () {
+        var _this = this;
+        this.bukufiRest.getCounterComic(this.comic).then(function (data) {
+            _this.comicCounter = data;
+            console.log('==> Comic Counter :', data);
+            if (_this.comicCounter) {
+                _this.isHaveCounter = true;
+                _this.comicCounterExist = _this.comicCounter;
+                console.log('==> Comic counter EXIST');
+            }
+            else {
+                console.log('==> Comic counter NOT EXIST');
+                _this.isHaveCounter = false;
+            }
+        });
+    };
+    //===- END GET COUNTER -===//
+    /*===- GET COMIC STATISTIC -===*/
+    ComicDetailPage.prototype.getComicStatistic = function () {
+        var _this = this;
+        this.bukufiRest.getComicStatisticonProsen(this.comic).then(function (data) {
+            _this.comicStatistic = data;
+            console.log('==> Comic statistic :', data);
+            if (_this.comicStatistic) {
+                _this.isHaveStatistic = true;
+                _this.comicStatisticExist = _this.comicStatistic;
+                console.log('=> Comic Statistic EXIST', _this.comicStatisticExist);
+            }
+            else {
+                _this.isHaveStatistic = false;
+                console.log("=> Comic Statistic DOESN'T EXIST");
+            }
+        }, function (err) {
+            console.log(err);
+        });
+    };
     return ComicDetailPage;
 }());
 ComicDetailPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-        selector: 'page-comic-detail',template:/*ion-inline-start:"C:\Users\riser\Desktop\ionic-epubjs\src\pages\comic-detail\comic-detail.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Comic Detail</ion-title>\n    <ion-buttons end>\n      <div *ngIf="loggedin == false; else loginTrue">\n        <button ion-button class="login-indicator-false">\n          <ion-icon name="sunny" end></ion-icon>\n        </button>\n      </div>\n      <ng-template #loginTrue>\n          <div *ngIf="isFacebookLogin == true">\n            <button ion-button class="login-indicator-true">\n              <ion-icon name="logo-facebook"></ion-icon>\n            </button>\n          </div>\n          <div *ngIf="isGoogleLogin == true">\n            <button ion-button class="login-indicator-true">\n              <ion-icon name="logo-googleplus"></ion-icon>\n            </button>\n          </div>\n      </ng-template>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content>\n  <ion-card *ngFor="let comic of comic_detail?.data1">\n    <ion-grid>\n      <ion-row>\n        <ion-col col-6>\n          <img src="http://bukufi.com/storage/comic/comic_cover/{{comic.comic_image}}"/>\n        </ion-col>\n        <ion-col col-6>\n\n          <div *ngIf="loggedin">\n              <button ion-button outline small block color="secondary" icon-left (click)="addBookmarkComic()">\n                <ion-icon name="bookmark"></ion-icon>Bookmark\n                <!-- <input type="hidden" value="{{book.book_title}}" name="bookmark"> -->\n              </button>\n            </div>\n\n            <div *ngIf="!loggedin">\n              <button ion-button outline small block color="secondary" icon-left disabled>\n                <ion-icon name="bookmark"></ion-icon>Bookmark\n                <!-- <input type="hidden" value="{{book.book_title}}" name="bookmark"> -->\n              </button>\n            </div>\n\n            <div *ngIf="loggedin">\n              <button ion-button outline small block icon-left class="btn-2" (click)="addFavouriteComic()">\n                  <ion-icon name="heart"></ion-icon> Favourite\n              </button>\n            </div>\n\n            <div *ngIf="!loggedin">\n              <button ion-button outline small block icon-left class="btn-2" disabled>\n                  <ion-icon name="heart"></ion-icon> Favourite\n              </button>\n            </div>\n        </ion-col>\n        <!-- description area -->\n        <ion-col col-12>\n          <ion-row>\n            <ion-col col-4><strong>Author</strong></ion-col>\n            <ion-col col-1>:</ion-col>\n            <ion-col col-7>{{comic.comic_author_nodash}}</ion-col>\n          </ion-row>\n          <ion-row>\n            <ion-col col-4><strong>Genre</strong></ion-col>\n            <ion-col col-1>:</ion-col>\n            <ion-col col-7>{{comic.comic_genre}}</ion-col>\n          </ion-row>\n          <ion-row>\n            <ion-col col-4><strong>Release</strong></ion-col>\n            <ion-col col-1>:</ion-col>\n            <ion-col col-7>{{comic.comic_release}}</ion-col>\n          </ion-row>\n          <ion-row>\n            <ion-col col-4><strong>Status</strong></ion-col>\n            <ion-col col-1>:</ion-col>\n            <ion-col col-7>{{comic.comic_status}}</ion-col>\n          </ion-row>\n          <ion-row>\n            <ion-col col-4><strong>Description</strong></ion-col>\n            <ion-col col-1>:</ion-col>\n            <ion-col col-7>{{comic.comic_description}}</ion-col>\n          </ion-row>\n        </ion-col>\n      </ion-row>\n    </ion-grid>\n  </ion-card>\n\n  <ion-card>\n    <ion-card-header class="bold">\n      Comic Chapter\n    </ion-card-header>\n    <ion-card-content class="scroll">\n        <ion-list *ngFor="let comic of comic_detail?.data2">\n          <button ion-button outline full (click)="readComic(comic.comic_title, comic.comic_chapter)">\n              <i class="fa fa-caret-right" aria-hidden="true"></i> Chapter {{comic.comic_chapter}} : {{comic.chapter_title}}\n          </button>\n        </ion-list>\n    </ion-card-content>\n  </ion-card>\n\n  <!--FAB BOTTOM RIGHT-->\n  <ion-fab right bottom #fab2>\n    <button ion-fab mini color="primary"><ion-icon name="apps"></ion-icon></button>\n    <ion-fab-list side="top">\n      <div *ngIf="loggedin == true; else loginfirst">\n        <button ion-fab (click)="loginFirst()">\n          <ion-icon name="information-circle"></ion-icon>\n        </button>\n      </div>\n      <ng-template #loginfirst>\n        <button ion-fab (click)="loginFirst()">\n          <ion-icon name="log-in"></ion-icon>\n        </button>\n      </ng-template>\n      <button ion-fab (click)="search()">\n        <ion-icon name="search"></ion-icon>\n      </button>\n    </ion-fab-list>\n  </ion-fab>\n\n  <ion-refresher (ionRefresh)="doRefresh($event)">\n    <ion-refresher-content \n      pullingText="Pull to refresh"\n      pullingIcon="arrow-dropdown"\n      refreshingSpinner="circles"\n      refreshingText="fetching data ...">\n    </ion-refresher-content>\n  </ion-refresher>\n</ion-content>\n'/*ion-inline-end:"C:\Users\riser\Desktop\ionic-epubjs\src\pages\comic-detail\comic-detail.html"*/,
+        selector: 'page-comic-detail',template:/*ion-inline-start:"C:\Users\riser\Desktop\ionic-epubjs\src\pages\comic-detail\comic-detail.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Comic Detail</ion-title>\n    <ion-buttons end>\n      <div *ngIf="loggedin == false; else loginTrue">\n        <button ion-button class="login-indicator-false">\n          <ion-icon name="sunny" end></ion-icon>\n        </button>\n      </div>\n      <ng-template #loginTrue>\n          <div *ngIf="isFacebookLogin == true">\n            <button ion-button class="login-indicator-true">\n              <ion-icon name="logo-facebook"></ion-icon>\n            </button>\n          </div>\n          <div *ngIf="isGoogleLogin == true">\n            <button ion-button class="login-indicator-true">\n              <ion-icon name="logo-googleplus"></ion-icon>\n            </button>\n          </div>\n      </ng-template>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-card *ngFor="let comic of comic_detail?.data1">\n    <ion-grid>\n      <ion-row>\n        <ion-col col-6>\n          <img src="http://bukufi.com/storage/comic/comic_cover/{{comic.comic_image}}"/>\n        </ion-col>\n        <ion-col col-6>\n\n          <div>\n            <div class="counterRating" *ngIf="isHaveCounter == true">\n              <div *ngFor="let counter of comicCounterExist">\n                  <ion-icon name="eye"></ion-icon> <b>{{counter.counter}}</b>\n              </div>\n            </div>\n          </div>\n\n          <div class="counterRating" *ngIf="isHaveCounter == false">\n            <ion-icon name="eye"></ion-icon> <b>0</b>\n          </div>\n\n            <!-- batas -->\n            \n          <div class="counterRating2" *ngIf="isHaveStatistic == true">\n            <p text-end class="black">\n              <b>{{comicStatisticExist}} % <ion-icon name="thumbs-up"></ion-icon></b>\n            </p>\n          </div>\n\n          <div *ngIf="isHaveStatistic == false">\n            <div class="counterRating2">\n              <p text-end class="black">\n                <b>No Statistic yet</b>\n              </p>\n            </div>\n          </div>\n\n            <div *ngIf="loggedin">\n              <button ion-button outline small block color="secondary" icon-left (click)="addBookmarkComic()">\n                <ion-icon name="bookmark"></ion-icon>Bookmark\n                <!-- <input type="hidden" value="{{book.book_title}}" name="bookmark"> -->\n              </button>\n            </div>\n\n            <div *ngIf="!loggedin">\n              <button ion-button outline small block color="secondary" icon-left disabled>\n                <ion-icon name="bookmark"></ion-icon>Bookmark\n                <!-- <input type="hidden" value="{{book.book_title}}" name="bookmark"> -->\n              </button>\n            </div>\n\n            <div *ngIf="loggedin">\n              <button ion-button outline small block icon-left class="btn-2" (click)="addFavouriteComic()">\n                  <ion-icon name="heart"></ion-icon> Favourite\n              </button>\n            </div>\n\n            <div *ngIf="!loggedin">\n              <button ion-button outline small block icon-left class="btn-2" disabled>\n                  <ion-icon name="heart"></ion-icon> Favourite\n              </button>\n            </div>\n        </ion-col>\n        <!-- description area -->\n        <ion-col col-12>\n          <ion-row>\n            <ion-col col-4><strong>Author</strong></ion-col>\n            <ion-col col-1>:</ion-col>\n            <ion-col col-7>{{comic.comic_author_nodash}}</ion-col>\n          </ion-row>\n          <ion-row>\n            <ion-col col-4><strong>Genre</strong></ion-col>\n            <ion-col col-1>:</ion-col>\n            <ion-col col-7>{{comic.comic_genre}}</ion-col>\n          </ion-row>\n          <ion-row>\n            <ion-col col-4><strong>Release</strong></ion-col>\n            <ion-col col-1>:</ion-col>\n            <ion-col col-7>{{comic.comic_release}}</ion-col>\n          </ion-row>\n          <ion-row>\n            <ion-col col-4><strong>Status</strong></ion-col>\n            <ion-col col-1>:</ion-col>\n            <ion-col col-7>{{comic.comic_status}}</ion-col>\n          </ion-row>\n          <ion-row>\n            <ion-col col-4><strong>Description</strong></ion-col>\n            <ion-col col-1>:</ion-col>\n            <ion-col col-7>{{comic.comic_description}}</ion-col>\n          </ion-row>\n        </ion-col>\n      </ion-row>\n    </ion-grid>\n  </ion-card>\n\n  <ion-card>\n    <ion-card-header class="bold">\n      Comic Chapter\n    </ion-card-header>\n    <ion-card-content class="scroll">\n        <ion-list *ngFor="let comic of comic_detail?.data2">\n          <button ion-button outline full (click)="readComic(comic.comic_title, comic.comic_chapter)">\n              <i class="fa fa-caret-right" aria-hidden="true"></i> Chapter {{comic.comic_chapter}} : {{comic.chapter_title}}\n          </button>\n        </ion-list>\n    </ion-card-content>\n  </ion-card>\n\n  <!--for review-->\n  <ion-card class="review">\n    <ion-card-header class="user-review-hdr">\n      User Review\n    </ion-card-header>\n    <div *ngIf="checkAvailableReview == 1; else noReview">\n      <ion-list class="no-padding-top" *ngFor="let review of comicReview">\n        <button ion-item>\n            {{review.user_comic_review}}\n            <p text-right>~ {{review.user_name}}</p>\n        </button>\n      </ion-list>\n    </div>\n\n    <ng-template #noReview>\n      <ion-list class="no-review">\n        <button ion-item>\n          <p text-center>No Review Yet</p>\n        </button>\n      </ion-list>\n    </ng-template>\n  </ion-card>\n\n  <!--FAB BOTTOM RIGHT-->\n  <ion-fab right bottom #fab2>\n    <button ion-fab mini color="primary"><ion-icon name="apps"></ion-icon></button>\n    <ion-fab-list side="top">\n      <div *ngIf="loggedin == true; else loginfirst">\n        <button ion-fab (click)="loginFirst()">\n          <ion-icon name="information-circle"></ion-icon>\n        </button>\n      </div>\n      <ng-template #loginfirst>\n        <button ion-fab (click)="loginFirst()">\n          <ion-icon name="log-in"></ion-icon>\n        </button>\n      </ng-template>\n      <button ion-fab (click)="search()">\n        <ion-icon name="search"></ion-icon>\n      </button>\n    </ion-fab-list>\n  </ion-fab>\n\n  <ion-refresher (ionRefresh)="doRefresh($event)">\n    <ion-refresher-content \n      pullingText="Pull to refresh"\n      pullingIcon="arrow-dropdown"\n      refreshingSpinner="circles"\n      refreshingText="fetching data ...">\n    </ion-refresher-content>\n  </ion-refresher>\n</ion-content>\n'/*ion-inline-end:"C:\Users\riser\Desktop\ionic-epubjs\src\pages\comic-detail\comic-detail.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],

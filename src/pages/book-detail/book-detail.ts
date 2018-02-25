@@ -44,6 +44,10 @@ export class BookDetailPage {
   userProfile: any = null;
   userProfileLength: number;
 
+  //book review
+  bookReveiew: any;
+  checkAvailableReview: number = 0;
+
   //checking data favourite
   book_title_: any;
   isHavefavourite: boolean;
@@ -65,11 +69,12 @@ export class BookDetailPage {
     public gPlus: GooglePlus,
     public afDatabase: AngularFireDatabase, 
     public alertCtrl: AlertController) {
-    this.book = this.navParams.get('book');
-    console.log('==> Parameter from HomePage: ',this.book);
+      this.book = this.navParams.get('book');
+      console.log('==> Parameter from HomePage: ',this.book);
 
     this.getDetail();
     this.getCounter();
+    this.getBookReview();
     this.getBookProsenStatistic();
     
     this.checkFacebookLoginStatus();
@@ -116,6 +121,23 @@ export class BookDetailPage {
     });
   }
   //===- END GET COUNTER -===//
+
+  /*===- GET BOOK REVIEW -===*/
+  getBookReview(){
+   this.bukufiRest.getReviewBook(this.book).then(data => {
+      this.bookReveiew = data;
+
+      if(this.bookReveiew.length > 0){
+        this.checkAvailableReview = 1;
+        console.log('=-> Ada Review Buku :', this.checkAvailableReview);
+      }
+      else{
+        this.checkAvailableReview = 0;
+        console.log('=-> Tidak Ada Review Buku :', this.checkAvailableReview);
+      }
+    });
+  }
+  /*===- END GET BOOK REVIEW -===*/
 
   /*===- GET BOOK STATISTIC -===*/
   getBookProsenStatistic(){

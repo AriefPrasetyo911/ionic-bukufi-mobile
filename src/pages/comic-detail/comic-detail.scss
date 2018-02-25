@@ -47,4 +47,62 @@ page-comic-detail {
         color: green;
     }
 
+    .label, .label-md{
+        margin-top: 5px;
+        margin-bottom: 0;
+        margin-right: 0;
+        background-color: gainsboro;
+        // border-top-right-radius: 15px;
+        // border-bottom-left-radius: 15px;
+        padding: 10px;
+    }
+
+    .item-inner{
+        padding-left: 8px;
+    }
+
+    .no-review{
+
+        .label, .label-md {
+            border-radius: 0;
+            padding: 10px;
+        } 
+        
+        .text-center{
+            font-weight: 700;
+        }
+    }
+
+    .user-review-hdr{
+        text-align: center;
+        font-weight: 700;
+        background-color: darkseagreen;
+        color: white;
+    }
+
+    .item, .item-block, .item-md{
+        padding-left: 0;
+    }
+
+    .review{
+        margin-top: 15px;
+    }
+
+    //comic counter
+    .counterRating{
+        background-color: gainsboro;
+        padding: 5px;
+        text-align: center !important;
+    }
+
+    .counterRating2{
+        background-color: linen;
+        padding: 5px;
+        text-align: center !important;
+    }
+
+    .black{
+        color: black;
+        text-align: center !important;
+    }
 }
