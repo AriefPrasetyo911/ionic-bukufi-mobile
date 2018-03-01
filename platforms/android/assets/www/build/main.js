@@ -1513,11 +1513,11 @@ var map = {
 		11
 	],
 	"../pages/book-favourite/book-favourite.module": [
-		519,
+		520,
 		10
 	],
 	"../pages/book-front/book-front.module": [
-		520,
+		519,
 		9
 	],
 	"../pages/book-list/book-list.module": [
@@ -1525,31 +1525,31 @@ var map = {
 		8
 	],
 	"../pages/comic-bookmark/comic-bookmark.module": [
-		522,
+		523,
 		7
 	],
 	"../pages/comic-detail/comic-detail.module": [
-		525,
+		524,
 		6
 	],
 	"../pages/comic-favourite/comic-favourite.module": [
-		523,
+		522,
 		5
 	],
 	"../pages/comic-front/comic-front.module": [
-		524,
+		526,
 		4
 	],
 	"../pages/comic-list/comic-list.module": [
-		526,
+		525,
 		3
 	],
 	"../pages/comic/comic.module": [
-		528,
+		527,
 		2
 	],
 	"../pages/login/login.module": [
-		527,
+		528,
 		1
 	],
 	"../pages/search/search.module": [
@@ -2542,16 +2542,16 @@ AppModule = __decorate([
                 links: [
                     { loadChildren: '../pages/book-bookmark/book-bookmark.module#BookBookmarkPageModule', name: 'BookBookmarkPage', segment: 'book-bookmark', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/book-detail/book-detail.module#BookDetailPageModule', name: 'BookDetailPage', segment: 'book-detail', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/book-favourite/book-favourite.module#BookFavouritePageModule', name: 'BookFavouritePage', segment: 'book-favourite', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/book-front/book-front.module#BookFrontPageModule', name: 'BookFrontPage', segment: 'book-front', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/book-favourite/book-favourite.module#BookFavouritePageModule', name: 'BookFavouritePage', segment: 'book-favourite', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/book-list/book-list.module#BookListPageModule', name: 'BookListPage', segment: 'book-list', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/comic-bookmark/comic-bookmark.module#ComicBookmarkPageModule', name: 'ComicBookmarkPage', segment: 'comic-bookmark', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/comic-favourite/comic-favourite.module#ComicFavouritePageModule', name: 'ComicFavouritePage', segment: 'comic-favourite', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/comic-front/comic-front.module#ComicFrontPageModule', name: 'ComicFrontPage', segment: 'comic-front', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/comic-bookmark/comic-bookmark.module#ComicBookmarkPageModule', name: 'ComicBookmarkPage', segment: 'comic-bookmark', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/comic-detail/comic-detail.module#ComicDetailPageModule', name: 'ComicDetailPage', segment: 'comic-detail', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/comic-list/comic-list.module#ComicListPageModule', name: 'ComicListPage', segment: 'comic-list', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/comic-front/comic-front.module#ComicFrontPageModule', name: 'ComicFrontPage', segment: 'comic-front', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/comic/comic.module#ComicPageModule', name: 'ComicPage', segment: 'comic', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/search/search.module#SearchPageModule', name: 'SearchPage', segment: 'search', priority: 'low', defaultHistory: [] }
                 ]
             })

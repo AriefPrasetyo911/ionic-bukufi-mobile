@@ -36,7 +36,7 @@
     <name>Bukufi Mobile</name>
     <description>Bukufi Mobile for Android and iOS</description>
     <author email="arief.prasetyo911@gmail.com" href="https://google.com/">Arief Budi Prasetyo</author>
-    <content src="index.html" />
+    <content original-src="index.html" src="http://192.168.100.28:8100" />
     <access origin="*" />
     <allow-navigation href="http://ionic.local/*" />
     <allow-intent href="http://*/*" />
