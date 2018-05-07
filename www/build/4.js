@@ -1,14 +1,14 @@
 webpackJsonp([4],{
 
-/***/ 526:
+/***/ 534:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ComicFrontPageModule", function() { return ComicFrontPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserAccountPageModule", function() { return UserAccountPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__comic_front__ = __webpack_require__(166);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__user_account__ = __webpack_require__(40);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var ComicFrontPageModule = (function () {
-    function ComicFrontPageModule() {
+var UserAccountPageModule = (function () {
+    function UserAccountPageModule() {
     }
-    return ComicFrontPageModule;
+    return UserAccountPageModule;
 }());
-ComicFrontPageModule = __decorate([
+UserAccountPageModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__comic_front__["a" /* ComicFrontPage */],
+            __WEBPACK_IMPORTED_MODULE_2__user_account__["a" /* UserAccountPage */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__comic_front__["a" /* ComicFrontPage */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__user_account__["a" /* UserAccountPage */]),
         ],
     })
-], ComicFrontPageModule);
+], UserAccountPageModule);
 
-//# sourceMappingURL=comic-front.module.js.map
+//# sourceMappingURL=user-account.module.js.map
 
 /***/ })
 

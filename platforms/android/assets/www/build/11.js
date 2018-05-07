@@ -1,14 +1,14 @@
 webpackJsonp([11],{
 
-/***/ 518:
+/***/ 529:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BookDetailPageModule", function() { return BookDetailPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BookListPageModule", function() { return BookListPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__book_detail__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__book_list__ = __webpack_require__(99);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var BookDetailPageModule = (function () {
-    function BookDetailPageModule() {
+var BookListPageModule = (function () {
+    function BookListPageModule() {
     }
-    return BookDetailPageModule;
+    return BookListPageModule;
 }());
-BookDetailPageModule = __decorate([
+BookListPageModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__book_detail__["a" /* BookDetailPage */],
+            __WEBPACK_IMPORTED_MODULE_2__book_list__["a" /* BookListPage */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__book_detail__["a" /* BookDetailPage */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__book_list__["a" /* BookListPage */]),
         ],
     })
-], BookDetailPageModule);
+], BookListPageModule);
 
-//# sourceMappingURL=book-detail.module.js.map
+//# sourceMappingURL=book-list.module.js.map
 
 /***/ })
 

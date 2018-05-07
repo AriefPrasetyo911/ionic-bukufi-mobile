@@ -4,10 +4,19 @@ page-search {
     }
 
     .scroll-content{
-        background-image: url(/assets/imgs/search-bg.jpg);
+        // background-image: url(/assets/imgs/search-bg.jpg);
         background-position: center center;
         background-repeat:  no-repeat;
         background-attachment: fixed;
         background-size:  cover;
+    }
+
+    .biruMuda, .back-button {
+        color: #0fbab6 !important;
+        font-family: 'Libre Baskerville', serif;
+    }
+
+    .biruTua{
+        color: #007f79;
     }
 }

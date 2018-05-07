@@ -1,14 +1,14 @@
 webpackJsonp([12],{
 
-/***/ 517:
+/***/ 524:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BookBookmarkPageModule", function() { return BookBookmarkPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BookFrontPageModule", function() { return BookFrontPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__book_bookmark__ = __webpack_require__(160);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__book_front__ = __webpack_require__(163);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var BookBookmarkPageModule = (function () {
-    function BookBookmarkPageModule() {
+var BookFrontPageModule = (function () {
+    function BookFrontPageModule() {
     }
-    return BookBookmarkPageModule;
+    return BookFrontPageModule;
 }());
-BookBookmarkPageModule = __decorate([
+BookFrontPageModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__book_bookmark__["a" /* BookBookmarkPage */],
+            __WEBPACK_IMPORTED_MODULE_2__book_front__["a" /* BookFrontPage */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__book_bookmark__["a" /* BookBookmarkPage */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__book_front__["a" /* BookFrontPage */]),
         ],
     })
-], BookBookmarkPageModule);
+], BookFrontPageModule);
 
-//# sourceMappingURL=book-bookmark.module.js.map
+//# sourceMappingURL=book-front.module.js.map
 
 /***/ })
 

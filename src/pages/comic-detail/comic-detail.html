@@ -1,6 +1,8 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Comic Detail</ion-title>
+    <ion-title *ngFor="let comic of comic_detail?.data1">
+        <p class="biruMuda mb-0 mt-0">{{comic.comic_title_nodash}}</p>
+    </ion-title>
     <ion-buttons end>
       <div *ngIf="loggedin == false; else loginTrue">
         <button ion-button class="login-indicator-false">
@@ -24,155 +26,278 @@
 </ion-header>
 
 <ion-content>
-  <ion-card *ngFor="let comic of comic_detail?.data1">
-    <ion-grid>
-      <ion-row>
-        <ion-col col-6>
-          <img src="http://bukufi.com/storage/comic/comic_cover/{{comic.comic_image}}"/>
-        </ion-col>
-        <ion-col col-6>
+    <ion-card *ngFor="let comic of comic_detail?.data1">
+        <ion-grid>
+            <ion-row>
+                <ion-col col-6>
+                <img src="http://bukufi.com/storage/comic/comic_cover/{{comic.comic_image}}" class="comicCover"/>
+                </ion-col>
+                <ion-col col-6>
 
-          <div>
-            <div class="counterRating" *ngIf="isHaveCounter == true">
-              <div *ngFor="let counter of comicCounterExist">
-                  <ion-icon name="eye"></ion-icon> <b>{{counter.counter}}</b>
-              </div>
-            </div>
-          </div>
+                    <p class="text-bold biruTua">{{comic.comic_title_nodash}}</p>
+                    <p class="biruTua justify">{{comic.comic_author_nodash}}</p>
 
-          <div class="counterRating" *ngIf="isHaveCounter == false">
-            <ion-icon name="eye"></ion-icon> <b>0</b>
-          </div>
+                    <ion-row>
+                        <ion-col col-8 class="p-0">
+                            <!-- no star  -->
+                            <div id="rating" *ngIf="comicRating == 0 || comicRating == 0.0">
+                                <ion-icon name="star-outline" class="starReview"></ion-icon>
+                            </div>
 
-            <!-- batas -->
+                            <!-- star 1 -->
+                            <div id="rating" *ngIf="comicRating == 1 || comicRating == 1.0 || comicRating == 1.1 || comicRating == 1.2 || comicRating == 1.3 || comicRating == 1.4">
+                                <ion-icon name="star" class="starColor"></ion-icon>
+                            </div>
             
-          <div class="counterRating2" *ngIf="isHaveStatistic == true">
-            <p text-end class="black">
-              <b>{{comicStatisticExist}} % <ion-icon name="thumbs-up"></ion-icon></b>
-            </p>
-          </div>
+                            <div id="rating" *ngIf="comicRating == 1.5 || comicRating == 1.6 || comicRating == 1.7 || comicRating == 1.8 || comicRating == 1.9">
+                                <ion-icon name="star" class="starColor"></ion-icon>
+                                <ion-icon name="star-half" class="starColor"></ion-icon>
+                            </div>
 
-          <div *ngIf="isHaveStatistic == false">
-            <div class="counterRating2">
-              <p text-end class="black">
-                <b>No Statistic yet</b>
-              </p>
-            </div>
-          </div>
+                            <!-- star 2 -->
+                            <div id="rating" *ngIf="comicRating == 2 || comicRating == 2.0 || comicRating == 2.1 || comicRating == 2.2 || comicRating == 2.3 || comicRating == 2.4">
+                                <ion-icon name="star" class="starColor"></ion-icon>
+                                <ion-icon name="star" class="starColor"></ion-icon>
+                            </div>
+            
+                            <div id="rating" *ngIf="comicRating == 2.5 || comicRating == 2.6 || comicRating == 2.7 || comicRating == 2.8 || comicRating == 2.9">
+                                <ion-icon name="star" class="starColor"></ion-icon>
+                                <ion-icon name="star" class="starColor"></ion-icon>
+                                <ion-icon name="star-half" class="starColor"></ion-icon>
+                            </div>
 
-            <div *ngIf="loggedin">
-              <button ion-button outline small block color="secondary" icon-left (click)="addBookmarkComic()">
-                <ion-icon name="bookmark"></ion-icon>Bookmark
-                <!-- <input type="hidden" value="{{book.book_title}}" name="bookmark"> -->
-              </button>
-            </div>
+                            <!-- star 3 -->
+                            <div id="rating" *ngIf="comicRating == 3 || comicRating == 3.0 || comicRating == 3.1 || comicRating == 3.2 || comicRating == 3.3 || comicRating == 3.4">
+                                <ion-icon name="star" class="starColor"></ion-icon>
+                                <ion-icon name="star" class="starColor"></ion-icon>
+                                <ion-icon name="star" class="starColor"></ion-icon>
+                            </div>
+            
+                            <div id="rating" *ngIf="comicRating == 3.5 || comicRating == 3.6 || comicRating == 3.7 || comicRating == 3.8 || comicRating == 3.9">
+                                <ion-icon name="star" class="starColor"></ion-icon>
+                                <ion-icon name="star" class="starColor"></ion-icon>
+                                <ion-icon name="star" class="starColor"></ion-icon>
+                                <ion-icon name="star-half" class="starColor"></ion-icon>
+                            </div>
 
-            <div *ngIf="!loggedin">
-              <button ion-button outline small block color="secondary" icon-left disabled>
-                <ion-icon name="bookmark"></ion-icon>Bookmark
-                <!-- <input type="hidden" value="{{book.book_title}}" name="bookmark"> -->
-              </button>
-            </div>
+                            <!-- 4 star -->
+                            <div id="rating" *ngIf="comicRating == 4.0 || comicRating == 4.1 || comicRating == 4.2 || comicRating == 4.3 || comicRating == 4.4">
+                                <ion-icon name="star" class="starColor"></ion-icon>
+                                <ion-icon name="star" class="starColor"></ion-icon>
+                                <ion-icon name="star" class="starColor"></ion-icon>
+                                <ion-icon name="star" class="starColor"></ion-icon>
+                            </div>
+                            <div id="rating" *ngIf="comicRating == 4.5 || comicRating == 4.6 || comicRating == 4.7 || comicRating == 4.8 || comicRating == 4.9">
+                                <ion-icon name="star" class="starColor"></ion-icon>
+                                <ion-icon name="star" class="starColor"></ion-icon>
+                                <ion-icon name="star" class="starColor"></ion-icon>
+                                <ion-icon name="star" class="starColor"></ion-icon>
+                                <ion-icon name="star-half" class="starColor"></ion-icon>
+                            </div>
 
-            <div *ngIf="loggedin">
-              <button ion-button outline small block icon-left class="btn-2" (click)="addFavouriteComic()">
-                  <ion-icon name="heart"></ion-icon> Favourite
-              </button>
-            </div>
+                            <!-- 5 star -->
+                            <div id="rating" *ngIf="comicRating == 5 || comicRating == 5.0">
+                                <ion-icon name="star" class="starColor"></ion-icon>
+                                <ion-icon name="star" class="starColor"></ion-icon>
+                                <ion-icon name="star" class="starColor"></ion-icon>
+                                <ion-icon name="star" class="starColor"></ion-icon>
+                                <ion-icon name="star" class="starColor"></ion-icon>
+                            </div>
+                        </ion-col>
+                        <ion-col col-4 class="p-0">
+                            <div *ngIf="comicRating_totalView">
+                                <p class="biruTua mt-2">({{comicRating_totalView}})</p>
+                            </div>
+                            <div *ngIf="!comicRating_totalView">
+                                <p class="biruTua mt-2">(0)</p>
+                            </div>
+                        </ion-col>
+                    </ion-row>
 
-            <div *ngIf="!loggedin">
-              <button ion-button outline small block icon-left class="btn-2" disabled>
-                  <ion-icon name="heart"></ion-icon> Favourite
-              </button>
-            </div>
-        </ion-col>
-        <!-- description area -->
-        <ion-col col-12>
-          <ion-row>
-            <ion-col col-4><strong>Author</strong></ion-col>
-            <ion-col col-1>:</ion-col>
-            <ion-col col-7>{{comic.comic_author_nodash}}</ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col col-4><strong>Genre</strong></ion-col>
-            <ion-col col-1>:</ion-col>
-            <ion-col col-7>{{comic.comic_genre}}</ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col col-4><strong>Release</strong></ion-col>
-            <ion-col col-1>:</ion-col>
-            <ion-col col-7>{{comic.comic_release}}</ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col col-4><strong>Status</strong></ion-col>
-            <ion-col col-1>:</ion-col>
-            <ion-col col-7>{{comic.comic_status}}</ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col col-4><strong>Description</strong></ion-col>
-            <ion-col col-1>:</ion-col>
-            <ion-col col-7>{{comic.comic_description}}</ion-col>
-          </ion-row>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-card>
+                    <ion-row class="btn-action w-100">
+                        <div *ngIf="loggedin" class="w-100">
+                            <button ion-button round outline block icon-left class="buttonColor mt-15" (click)="addBookmarkComic()">
+                                <ion-icon name="ios-bookmark-outline"></ion-icon>
+                                BOOKMARK
+                            </button>
+                        </div>
+            
+                        <div *ngIf="!loggedin" class="w-100">
+                            <button ion-button round outline block icon-left class="buttonColor mt-15" disabled>
+                                <ion-icon name="ios-bookmark-outline"></ion-icon>
+                                BOOKMARK
+                            </button>
+                        </div>
+            
+                        <div *ngIf="loggedin" class="w-100">
+                            <button ion-button round outline block icon-left class="buttonColor mt-0" (click)="addFavouriteComic()">
+                                <ion-icon name="ios-heart-outline"></ion-icon>
+                                FAVOURITE
+                            </button>
+                        </div>
+            
+                        <div *ngIf="!loggedin" class="w-100">
+                            <button ion-button round outline block icon-left class="buttonColor mt-0" disabled>
+                                <ion-icon name="ios-heart-outline"></ion-icon>
+                                FAVOURITE
+                            </button>
+                        </div>
+                    </ion-row>
+                </ion-col>
+                <hr id="hr1">
+                <!-- description area -->
+                <ion-col col-12>
+                    <ion-row>
+                        <ion-col class="pt-0">
+                            <p class="text-bold text-center starColor">DETAILS</p>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col col-4><strong>Author</strong></ion-col>
+                        <ion-col col-1 id="colon">:</ion-col>
+                        <ion-col col-7>
+                            <p class="text-bold text-black">{{comic.comic_author_nodash}}</p>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col col-4><strong>Genre</strong></ion-col>
+                        <ion-col col-1 id="colon">:</ion-col>
+                        <ion-col col-7>
+                            <p class="text-bold text-black">{{comic.comic_genre}}</p>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col col-4><strong>Release</strong></ion-col>
+                        <ion-col col-1 id="colon">:</ion-col>
+                        <ion-col col-7>
+                            <p class="text-bold text-black">{{comic.comic_release}}</p>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col col-4><strong>Status</strong></ion-col>
+                        <ion-col col-1 id="colon">:</ion-col>
+                        <ion-col col-7>
+                            <p class="text-bold text-black">{{comic.comic_status}}</p>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col col-4><strong>Description</strong></ion-col>
+                        <ion-col col-1 id="colon">:</ion-col>
+                        <ion-col col-7>
+                            <p class="text-bold text-black">{{comic.comic_description}}</p>
+                        </ion-col>
+                    </ion-row>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-card>
+    <hr id="hr1">
+    <ion-card>
+        <ion-card-header class="bold">
+            <p class="text-center">COMIC CHAPTER</p>
+        </ion-card-header>
+        <hr id="hr2">
+        <ion-card-content class="scroll">
+            <ion-list *ngFor="let comic of comic_detail?.data2">
+                <button ion-button clear full (click)="readComic(comic.comic_title, comic.comic_chapter)">
+                    <i class="fa fa-caret-right" aria-hidden="true"></i> Chapter {{comic.comic_chapter}} : {{comic.chapter_title}}
+                </button>
+            </ion-list>
+        </ion-card-content>
+    </ion-card>
+    <hr id="hr1">
+    <!--for review-->
+    <ion-card class="review mt-0">
+        <ion-card-header class="user-review-hdr">
+            REVIEWS
+        </ion-card-header>
+        <hr id="hr2">
+        <div *ngIf="checkAvailableReview == 1" class="w-100">
+            <ion-row class="w-100" *ngFor="let review of comicReview">
+                <ion-col col-7>
+                    <p class="text-bold">{{review.user_name}}</p>
+                </ion-col>
 
-  <ion-card>
-    <ion-card-header class="bold">
-      Comic Chapter
-    </ion-card-header>
-    <ion-card-content class="scroll">
-        <ion-list *ngFor="let comic of comic_detail?.data2">
-          <button ion-button outline full (click)="readComic(comic.comic_title, comic.comic_chapter)">
-              <i class="fa fa-caret-right" aria-hidden="true"></i> Chapter {{comic.comic_chapter}} : {{comic.chapter_title}}
-          </button>
-        </ion-list>
-    </ion-card-content>
-  </ion-card>
-
-  <!--for review-->
-  <ion-card class="review">
-    <ion-card-header class="user-review-hdr">
-      User Review
-    </ion-card-header>
-    <div *ngIf="checkAvailableReview == 1; else noReview">
-      <ion-list class="no-padding-top" *ngFor="let review of comicReview">
-        <button ion-item>
-            {{review.user_comic_review}}
-            <p text-right>~ {{review.user_name}}</p>
-        </button>
-      </ion-list>
-    </div>
-
-    <ng-template #noReview>
-      <ion-list class="no-review">
-        <button ion-item>
-          <p text-center>No Review Yet</p>
-        </button>
-      </ion-list>
-    </ng-template>
-  </ion-card>
-
-  <!--FAB BOTTOM RIGHT-->
-  <ion-fab right bottom #fab2>
-    <button ion-fab mini color="primary"><ion-icon name="apps"></ion-icon></button>
-    <ion-fab-list side="top">
-      <div *ngIf="loggedin == true; else loginfirst">
-        <button ion-fab (click)="loginFirst()">
-          <ion-icon name="information-circle"></ion-icon>
-        </button>
-      </div>
-      <ng-template #loginfirst>
-        <button ion-fab (click)="loginFirst()">
-          <ion-icon name="log-in"></ion-icon>
-        </button>
-      </ng-template>
-      <button ion-fab (click)="search()">
-        <ion-icon name="search"></ion-icon>
-      </button>
-    </ion-fab-list>
-  </ion-fab>
+                <ion-col col-5 class="text-right">
+                    <!-- no star  -->
+                    <div id="rating" *ngIf="review.user_comic_rating == 0 || review.user_comic_rating == 0.0">
+                        <ion-icon name="star-outline" class="starReview"></ion-icon>
+                    </div> 
+    
+                    <!-- star 1 -->
+                    <div id="rating" *ngIf="review.user_comic_rating == 1 || review.user_comic_rating == 1.0 || review.user_comic_rating == 1.1 || review.user_comic_rating == 1.2 || review.user_comic_rating == 1.3 || review.user_comic_rating == 1.4">
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                    </div>
+    
+                    <div id="rating" *ngIf="review.user_comic_rating == 1.5 || review.user_comic_rating == 1.6 || review.user_comic_rating == 1.7 || review.user_comic_rating == 1.8 || review.user_comic_rating == 1.9">
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star-half" class="starColor"></ion-icon>
+                    </div>
+    
+                    <!-- star 2 -->
+                    <div id="rating" *ngIf="review.user_comic_rating == 2 || review.user_comic_rating == 2.0 || review.user_comic_rating == 2.1 || review.user_comic_rating == 2.2 || review.user_comic_rating == 2.3 || review.user_comic_rating == 2.4">
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                    </div>
+    
+                    <div id="rating" *ngIf="review.user_comic_rating == 2.5 || review.user_comic_rating == 2.6 || review.user_comic_rating == 2.7 || review.user_comic_rating == 2.8 || review.user_comic_rating == 2.9">
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star-half" class="starColor"></ion-icon>
+                    </div>
+    
+                    <!-- star 3 -->
+                    <div id="rating" *ngIf="review.user_comic_rating == 3 || review.user_comic_rating == 3.0 || review.user_comic_rating == 3.1 || review.user_comic_rating == 3.2 || review.user_comic_rating == 3.3 || review.user_comic_rating == 3.4">
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                    </div>
+    
+                    <div id="rating" *ngIf="review.user_comic_rating == 3.5 || review.user_comic_rating == 3.6 || review.user_comic_rating == 3.7 || review.user_comic_rating == 3.8 || review.user_comic_rating == 3.9">
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star-half" class="starColor"></ion-icon>
+                    </div>
+    
+                    <!-- 4 star -->
+                    <div id="rating" *ngIf="review.user_comic_rating == 4.0 || review.user_comic_rating == 4.1 || review.user_comic_rating == 4.2 || review.user_comic_rating == 4.3 || review.user_comic_rating == 4.4">
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                    </div>
+                    <div id="rating" *ngIf="review.user_comic_rating == 4.5 || review.user_comic_rating == 4.6 || review.user_comic_rating == 4.7 || review.user_comic_rating == 4.8 || review.user_comic_rating == 4.9">
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star-half" class="starColor"></ion-icon>
+                    </div>
+    
+                    <!-- 5 star -->
+                    <div id="rating" *ngIf="review.user_comic_rating == 5 || review.user_comic_rating == 5.0">
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                    </div>
+                </ion-col>
+                <ion-col class="pt-7">
+                    {{review.user_comic_review}}
+                </ion-col>
+                <hr id="hr2">
+            </ion-row>
+        </div>
+        <div *ngIf="checkAvailableReview == 0" class="w-100">
+            <ion-row>
+                <ion-col col-12>
+                    <p class="text-bold text-center biruTua">This comic has not had a review</p>
+                </ion-col>
+            </ion-row>
+        </div>
+    </ion-card>
 
   <ion-refresher (ionRefresh)="doRefresh($event)">
     <ion-refresher-content 

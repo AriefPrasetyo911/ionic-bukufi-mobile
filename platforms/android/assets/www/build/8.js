@@ -1,14 +1,14 @@
 webpackJsonp([8],{
 
-/***/ 521:
+/***/ 530:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BookListPageModule", function() { return BookListPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ComicListPageModule", function() { return ComicListPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__book_list__ = __webpack_require__(96);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__comic_list__ = __webpack_require__(100);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var BookListPageModule = (function () {
-    function BookListPageModule() {
+var ComicListPageModule = (function () {
+    function ComicListPageModule() {
     }
-    return BookListPageModule;
+    return ComicListPageModule;
 }());
-BookListPageModule = __decorate([
+ComicListPageModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__book_list__["a" /* BookListPage */],
+            __WEBPACK_IMPORTED_MODULE_2__comic_list__["a" /* ComicListPage */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__book_list__["a" /* BookListPage */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__comic_list__["a" /* ComicListPage */]),
         ],
     })
-], BookListPageModule);
+], ComicListPageModule);
 
-//# sourceMappingURL=book-list.module.js.map
+//# sourceMappingURL=comic-list.module.js.map
 
 /***/ })
 

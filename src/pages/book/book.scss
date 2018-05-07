@@ -22,4 +22,42 @@ page-book {
         overflow-y: hidden;
     }
 
+    //footer
+    .toolbar-md-light .toolbar-title-md{
+        font-weight: 300;
+    }
+
+    .green{
+        color: #0fbab6 !important;
+        font-size: 2rem;
+    }
+
+    .mr-15{
+        margin-right: 15px;
+    }
+
+    .biruMuda, .back-button {
+        color: #0fbab6 !important;
+        font-family: 'Libre Baskerville', serif;
+    }
+
+    .mt-0{
+        margin-top: 0;
+    }
+
+    .mb-0{
+        margin-bottom: 0;
+    }
+
+    .chapterList{
+        font-weight: 700;
+        color: #0fbab6 !important;
+        font-size: 2.5em !important;
+    }
+
+    .setting{
+        height: 25px;
+        width: auto;
+        margin-top: -7px;
+    }
 }

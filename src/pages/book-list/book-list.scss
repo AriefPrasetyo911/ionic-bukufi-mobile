@@ -1,3 +1,53 @@
 page-book-list {
+    .toolbar-title-md, .toolbar-title-ios,
+    .bar-button-default-ios, .bar-button-default.bar-button-ios-default, .bar-button-clear-ios-default,
+    .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default{
+        color: #0fbab6 ;
+    }
 
+    .card-content-md, .card-content-ios{
+        padding: 0 !important;
+    }
+
+    #title{
+        font-weight: bold;
+        font-family: 'Josefin Sans', sans-serif;
+        color: #007f79;
+        font-size: 15px;
+        margin-top: 0;
+        margin-bottom: 0;
+        line-height: 18px;
+    }
+
+    #author, #release{
+        font-weight: normal;
+        font-family: 'Josefin Sans', sans-serif;
+        color: #007f79;
+        font-size: 15px;
+        margin-top: 3px;
+        margin-bottom: 0;
+        line-height: 18px;
+    }
+
+    .login-indicator-false{
+        color: red;
+    }
+
+    .login-indicator-true{
+        color: green;
+    }
+
+    .fab-list-active{
+        .fab, .fab-md, .fab-in-list, .fab-md-in-list, .show{
+            background-color: white;
+        }
+
+        .icon, .icon-md{
+            color: #007f79;
+        }
+    }
+
+    .fab, .fab-md, .fab-md-primary{
+        background-color: #0fbab6;
+    }
 }

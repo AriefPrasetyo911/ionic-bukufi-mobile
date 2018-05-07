@@ -10,19 +10,21 @@ import { ComicListPage } from '../comic-list/comic-list';
 })
 export class SearchPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+    constructor(public navCtrl: NavController, public navParams: NavParams) {
+        console.clear();
+    }
 
-  ionViewDidLoad() {
-    console.log('===> SearchPage Loaded');
-  }
+    ionViewDidLoad() {
+        console.clear();
+        console.log('===> SearchPage Loaded');
+    }
 
-  bookSearch(){
-    this.navCtrl.push(BookListPage);
-  }
+    bookSearch(){
+        this.navCtrl.push(BookListPage);
+    }
 
-  comicSearch(){
-    this.navCtrl.push(ComicListPage);
-  }
+    comicSearch(){
+        this.navCtrl.push(ComicListPage);
+    }
 
 }

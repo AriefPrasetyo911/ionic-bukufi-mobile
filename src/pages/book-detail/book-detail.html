@@ -1,35 +1,36 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title *ngFor="let book of book_detail">
-      {{book.book_title_nodash}}
-    </ion-title>
-    <ion-buttons end>
-      <div *ngIf="loggedin == false; else loginTrue">
-        <button ion-button class="login-indicator-false">
-          <ion-icon name="sunny" end></ion-icon>
-        </button>
-      </div>
-      <ng-template #loginTrue>
-          <div *ngIf="isFacebookLogin == true">
-            <button ion-button class="login-indicator-true">
-              <ion-icon name="logo-facebook"></ion-icon>
-            </button>
-          </div>
-          <div *ngIf="isGoogleLogin == true">
-            <button ion-button class="login-indicator-true">
-              <ion-icon name="logo-googleplus"></ion-icon>
-            </button>
-          </div>
-      </ng-template>
-    </ion-buttons>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title *ngFor="let book of book_detail">
+            <p class="biruMuda mb-0 mt-0">{{book.book_title_nodash}}</p>
+        </ion-title>
+        <ion-buttons end>
+            <div *ngIf="loggedin == false; else loginTrue">
+                <button ion-button class="login-indicator-false">
+                <ion-icon name="sunny" end></ion-icon>
+                </button>
+            </div>
+            <ng-template #loginTrue>
+                <div *ngIf="isFacebookLogin == true">
+                    <button ion-button class="login-indicator-true">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                    </button>
+                </div>
+                <div *ngIf="isGoogleLogin == true">
+                    <button ion-button class="login-indicator-true">
+                    <ion-icon name="logo-googleplus"></ion-icon>
+                    </button>
+                </div>
+            </ng-template>
+        </ion-buttons>
+    </ion-navbar>
 </ion-header>
 
 <ion-content>
   <ion-card *ngFor="let book of book_detail">
     <ion-grid>
       <ion-row>
-        <ion-col col-6>
+        <!-- left side -->
+        <ion-col col-6 class="pl-10 pt-10">
             <div *ngIf="book.book_stikcer == 'New'">
               <div class="cnrflash-new">
                 <div class="cnrflash-inner-new">
@@ -70,179 +71,292 @@
               </div>
             </div>
 
-            <img src="http://bukufi.com/storage/book/book_cover/{{book.book_image}}"/>
+            <img src="http://bukufi.com/storage/book/book_cover/{{book.book_image}}" class="bookCover"/>
         </ion-col>
-        <ion-col col-6>
-          <div>
-            <div class="counterRating" *ngIf="isHaveCounter == true">
-              <div *ngFor="let counter of book_counter_exist">
-                  <ion-icon name="eye"></ion-icon> <b>{{counter.counter}}</b>
-              </div>
-              
+
+        <!-- right side -->
+        <ion-col col-6 class="pr-10 pt-10">
+            <p class="text-bold biruTua">{{book.book_title_nodash}}</p>
+            <p class="biruTua justify">{{book.book_author_nodash}}</p>
+            <p class="biruTua">1xx Pages</p>
+
+            <ion-row>
+                <ion-col col-8 class="pl-0">
+                    <!-- no star  -->
+                    <div id="rating" *ngIf="bookRating == 0 || bookRating == 0.0">
+                        <ion-icon name="star-outline" class="starReview"></ion-icon>
+                    </div>
+
+                    <!-- star 1 -->
+                    <div id="rating" *ngIf="bookRating == 1 || bookRating == 1.0 || bookRating == 1.1 || bookRating == 1.2 || bookRating == 1.3 || bookRating == 1.4">
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                    </div>
+    
+                    <div id="rating" *ngIf="bookRating == 1.5 || bookRating == 1.6 || bookRating == 1.7 || bookRating == 1.8 || bookRating == 1.9">
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star-half" class="starColor"></ion-icon>
+                    </div>
+
+                    <!-- star 2 -->
+                    <div id="rating" *ngIf="bookRating == 2 || bookRating == 2.0 || bookRating == 2.1 || bookRating == 2.2 || bookRating == 2.3 || bookRating == 2.4">
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                    </div>
+    
+                    <div id="rating" *ngIf="bookRating == 2.5 || bookRating == 2.6 || bookRating == 2.7 || bookRating == 2.8 || bookRating == 2.9">
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star-half" class="starColor"></ion-icon>
+                    </div>
+
+                    <!-- star 3 -->
+                    <div id="rating" *ngIf="bookRating == 3 || bookRating == 3.0 || bookRating == 3.1 || bookRating == 3.2 || bookRating == 3.3 || bookRating == 3.4">
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                    </div>
+    
+                    <div id="rating" *ngIf="bookRating == 3.5 || bookRating == 3.6 || bookRating == 3.7 || bookRating == 3.8 || bookRating == 3.9">
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star-half" class="starColor"></ion-icon>
+                    </div>
+
+                    <!-- 4 star -->
+                    <div id="rating" *ngIf="bookRating == 4.0 || bookRating == 4.1 || bookRating == 4.2 || bookRating == 4.3 || bookRating == 4.4">
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                    </div>
+                    <div id="rating" *ngIf="bookRating == 4.5 || bookRating == 4.6 || bookRating == 4.7 || bookRating == 4.8 || bookRating == 4.9">
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star-half" class="starColor"></ion-icon>
+                    </div>
+
+                    <!-- 5 star -->
+                    <div id="rating" *ngIf="bookRating == 5 || bookRating == 5.0">
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                    </div>
+                </ion-col>
+                <ion-col col-4 class="pl-0">
+                    <div *ngIf="bookRating_totalView">
+                        <p class="biruTua">({{bookRating_totalView}})</p>
+                    </div>
+                    <div *ngIf="!bookRating_totalView">
+                        <p class="biruTua mb-0">(0)</p>
+                    </div>
+                </ion-col>
+            </ion-row>
+
+            <ion-row class="btn-action w-100">
+                <div *ngIf="loggedin" class="w-100">
+                    <button *ngIf="bookmarkConfirm == 1" ion-button round outline block icon-left class="buttonColor mt-15" disabled>
+                        <ion-icon name="ios-bookmark-outline"></ion-icon>
+                        BOOKMARK dis
+                    </button>
+
+                    <button *ngIf="bookmarkConfirm == 0" ion-button round outline block icon-left class="buttonColor mt-15" (click)="addBookmarkBook()">
+                        <ion-icon name="ios-bookmark-outline"></ion-icon>
+                        BOOKMARK nondis
+                    </button>
+                </div>
+    
+                <div *ngIf="!loggedin" class="w-100">
+                    <button ion-button round outline block icon-left class="buttonColor mt-15" disabled>
+                        <ion-icon name="ios-bookmark-outline"></ion-icon>
+                        BOOKMARK
+                    </button>
+                </div>
+    
+                <div *ngIf="loggedin" class="w-100">
+                    <button ion-button round outline block icon-left class="buttonColor mt-0" (click)="addFavouriteBook()">
+                        <ion-icon name="ios-heart-outline"></ion-icon>
+                        FAVOURITE
+                    </button>
+                </div>
+    
+                <div *ngIf="!loggedin" class="w-100">
+                    <button ion-button round outline block icon-left class="buttonColor mt-0" disabled>
+                        <ion-icon name="ios-heart-outline"></ion-icon>
+                        FAVOURITE
+                    </button>
+                </div>
+            </ion-row>
+        </ion-col>
+
+        <!-- button -->
+        <ion-col col-12 class="pl-10 pr-10">
+            <!-- <button ion-button block class="readBook">READ BOOK</button> -->
+            <div *ngIf="loggedin; else nologin">
+                <!-- for login user -->
+                <div *ngIf="isFacebookLogin == true; else googlelogin">
+                    <button ion-button block class="readBook" (tap)="show(book.book_file)">
+                        READ BOOK
+                    </button>
+                </div>
+
+                <ng-template #googlelogin>
+                    <button ion-button block (tap)="show(book.book_file)" class="readBook">
+                        READ BOOK
+                    </button>
+                </ng-template>
             </div>
-          </div>
 
-          <div class="counterRating" *ngIf="isHaveCounter == false">
-            <ion-icon name="eye"></ion-icon> <b>0</b>
-          </div>
-
-            <!-- batas -->
-            
-          <div class="counterRating2" *ngIf="isHaveStatistic == true">
-            <p text-end class="black">
-              <b>{{book_statistic_exist}} % <ion-icon name="thumbs-up"></ion-icon></b>
-            </p>
-          </div>
-
-          <div *ngIf="isHaveStatistic == false">
-            <div class="counterRating2">
-              <p text-end class="black">
-                <b>No Statistic yet</b>
-              </p>
-            </div>
-          </div>
-
-            <!-- fb: {{isFacebookLogin}} - gp: {{isGoogleLogin}} - LGD {{loggedin}} -->
-
-            <!-- batas -->
-
-          <div *ngIf="loggedin; else loginfirst">
-            <!-- <div *ngIf="isHaveBookmark == true">
-              <button ion-button outline small block color="secondary" icon-left disabled>
-                <ion-icon name="bookmark"></ion-icon>Bookmark
-              </button>
-            </div> -->
-            
-            <!-- <div *ngIf="isHaveBookmark == false"> -->
-              <button ion-button outline small block color="secondary" icon-left (tap)="addBookmarkBook()">
-                <ion-icon name="bookmark"></ion-icon>Bookmark
-              </button>
-            <!-- </div> -->
-          </div>
-          <ng-template #loginfirst>
-            <button ion-button outline small block color="secondary" icon-left disabled>
-              <ion-icon name="bookmark"></ion-icon>Bookmark
-            </button>
-          </ng-template>
-
-            <!-- batas -->
-
-          <div *ngIf="loggedin; else loginzero">
-            <!-- <div *ngIf="isHavefavourite == true; else BookmarkNotFound">
-              <button ion-button outline small block icon-left class="btn-2" disabled>
-                  <ion-icon name="heart"></ion-icon> Favourite
-              </button>
-            </div> -->
-            <!-- <ng-template #BookmarkNotFound> -->
-              <button ion-button outline small block icon-left class="btn-2" (click)="addFavouriteBook()">
-                  <ion-icon name="heart"></ion-icon> Favourite
-              </button>
-            <!-- </ng-template> -->
-          </div>
-
-          <ng-template #loginzero>
-            <button ion-button outline small block icon-left class="btn-2" disabled>
-                <ion-icon name="heart"></ion-icon> Favourite
-            </button>
-          </ng-template>
-
-            <!-- batas -->
-
-          <div *ngIf="loggedin; else nologin">
-            <div *ngIf="isFacebookLogin == true; else googlelogin">
-              <div>
-                <button ion-button block icon-left (tap)="show(book.book_file)" class="read-btn">
-                  <ion-icon ios="ios-book" md="md-book"></ion-icon> Read Book
+            <ng-template #nologin>
+                <button ion-button block icon-left (tap)="show(book.book_file)" class="readBook" disabled>
+                        READ BOOK
                 </button>
-              </div>
-            </div>
-
-            <ng-template #googlelogin>
-              <button ion-button block icon-left (tap)="show(book.book_file)" class="read-btn">
-                <ion-icon ios="ios-book" md="md-book"></ion-icon> Read Book
-              </button>
             </ng-template>
-          </div>
+        </ion-col>
 
-          <ng-template #nologin>
-            <button ion-button block icon-left (tap)="show(book.book_file)" class="read-btn" disabled>
-              <ion-icon ios="ios-book" md="md-book"></ion-icon> Read Book
-            </button>
-          </ng-template>
-          
-        </ion-col>
+        <hr id="hr1">
+
         <!-- description area -->
-        <ion-col col-12>
-          <ion-row class="desc">
-            <ion-col col-4 class="no-padding-left-right"><strong>Author</strong></ion-col>
-            <ion-col col-1>:</ion-col>
-            <ion-col col-7 class="no-padding-left-right no-padd-top-btm">
-              <p class="mt-25">{{book.book_author_nodash}}</p>
-            </ion-col>
-            <hr>
-          </ion-row>
-          <ion-row class="desc">
-            <ion-col col-4 class="no-padding-left-right"><strong>Publisher</strong></ion-col>
-            <ion-col col-1>:</ion-col>
-            <ion-col col-7 class="no-padding-left-right no-padd-top-btm">
-              <p class="mt-25">{{book.book_publisher_nodash}}</p>
-            </ion-col>
-            <hr>
-          </ion-row>
-          <ion-row class="desc">
-            <ion-col col-4 class="no-padding-left-right"><strong>Year of Release</strong></ion-col>
-            <ion-col col-1>:</ion-col>
-            <ion-col col-7 class="no-padding-left-right no-padd-top-btm">
-              <p class="mt-25">{{book.book_release}}</p>
-            </ion-col>
-          </ion-row>
+        <ion-col col-12 class="pl-10 pr-10">
+            <ion-row>
+                <ion-col class="pt-0">
+                    <p class="text-bold text-center starColor">DETAILS</p>
+                </ion-col>
+            </ion-row>
+            <ion-row class="desc">
+                <ion-col col-4 class="no-padding-left-right">
+                    <p class="text-bold text-black">Author</p>
+                </ion-col>
+                <ion-col col-1 id="colon">:</ion-col>
+                <ion-col col-7 class="no-padding-left-right no-padding-btm">
+                <p class="text-bold text-black">{{book.book_author_nodash}}</p>
+                </ion-col>
+                <hr>
+            </ion-row>
+            <ion-row class="desc">
+                <ion-col col-4 class="no-padding-left-right">
+                    <p class="text-bold text-black">
+                        Publisher
+                    </p>
+                </ion-col>
+                <ion-col col-1 id="colon">:</ion-col>
+                <ion-col col-7 class="no-padding-left-right no-padding-btm">
+                <p class="text-bold text-black">{{book.book_publisher_nodash}}</p>
+                </ion-col>
+                <hr>
+            </ion-row>
+            <ion-row class="desc">
+                <ion-col col-4 class="no-padding-left-right">
+                    <p class="text-bold text-black">
+                        Release
+                    </p>
+                </ion-col>
+                <ion-col col-1 id="colon">:</ion-col>
+                <ion-col col-7 class="no-padding-left-right no-padding-btm">
+                <p class="text-bold text-black">{{book.book_release}}</p>
+                </ion-col>
+            </ion-row>
         </ion-col>
+        <hr id="hr1">
+        <!-- reviews -->
+        <ion-col col-12>
+                <p class="text-bold text-center starColor">REVIEWS</p>
+        </ion-col>
+
+        <hr id="hr2">
+        
+        <div *ngIf="checkAvailableReview == 1" class="w-100">
+            <ion-row class="w-100" *ngFor="let review of bookReveiew">
+                <ion-col col-7>
+                    <p class="text-bold">{{review.user_name}}</p>
+                </ion-col>
+
+                <ion-col col-5 class="text-right">
+                    <!-- no star  -->
+                    <div id="rating" *ngIf="review.user_book_rating == 0 || review.user_book_rating == 0.0">
+                        <ion-icon name="star-outline" class="starReview"></ion-icon>
+                    </div> 
+    
+                    <!-- star 1 -->
+                    <div id="rating" *ngIf="review.user_book_rating == 1 || review.user_book_rating == 1.0 || review.user_book_rating == 1.1 || review.user_book_rating == 1.2 || review.user_book_rating == 1.3 || review.user_book_rating == 1.4">
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                    </div>
+    
+                    <div id="rating" *ngIf="review.user_book_rating == 1.5 || review.user_book_rating == 1.6 || review.user_book_rating == 1.7 || review.user_book_rating == 1.8 || review.user_book_rating == 1.9">
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star-half" class="starColor"></ion-icon>
+                    </div>
+    
+                    <!-- star 2 -->
+                    <div id="rating" *ngIf="review.user_book_rating == 2 || review.user_book_rating == 2.0 || review.user_book_rating == 2.1 || review.user_book_rating == 2.2 || review.user_book_rating == 2.3 || review.user_book_rating == 2.4">
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                    </div>
+    
+                    <div id="rating" *ngIf="review.user_book_rating == 2.5 || review.user_book_rating == 2.6 || review.user_book_rating == 2.7 || review.user_book_rating == 2.8 || review.user_book_rating == 2.9">
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star-half" class="starColor"></ion-icon>
+                    </div>
+    
+                    <!-- star 3 -->
+                    <div id="rating" *ngIf="review.user_book_rating == 3 || review.user_book_rating == 3.0 || review.user_book_rating == 3.1 || review.user_book_rating == 3.2 || review.user_book_rating == 3.3 || review.user_book_rating == 3.4">
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                    </div>
+    
+                    <div id="rating" *ngIf="review.user_book_rating == 3.5 || review.user_book_rating == 3.6 || review.user_book_rating == 3.7 || review.user_book_rating == 3.8 || review.user_book_rating == 3.9">
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star-half" class="starColor"></ion-icon>
+                    </div>
+    
+                    <!-- 4 star -->
+                    <div id="rating" *ngIf="review.user_book_rating == 4.0 || review.user_book_rating == 4.1 || review.user_book_rating == 4.2 || review.user_book_rating == 4.3 || review.user_book_rating == 4.4">
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                    </div>
+                    <div id="rating" *ngIf="review.user_book_rating == 4.5 || review.user_book_rating == 4.6 || review.user_book_rating == 4.7 || review.user_book_rating == 4.8 || review.user_book_rating == 4.9">
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star-half" class="starColor"></ion-icon>
+                    </div>
+    
+                    <!-- 5 star -->
+                    <div id="rating" *ngIf="review.user_book_rating == 5 || review.user_book_rating == 5.0">
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                        <ion-icon name="star" class="starColor"></ion-icon>
+                    </div>
+                </ion-col>
+                <ion-col class="pt-7">
+                    {{review.user_book_review}}
+                </ion-col>
+                <hr id="hr2">
+            </ion-row>
+        </div>
+        <div *ngIf="checkAvailableReview == 0" class="w-100">
+            <ion-row>
+                <ion-col col-12>
+                    <p class="text-bold text-center biruTua">This book has not had a review</p>
+                </ion-col>
+            </ion-row>
+        </div>
       </ion-row>
     </ion-grid>
   </ion-card>
-
-  <!--for review-->
-  <ion-card>
-    <ion-card-header class="user-review-hdr">
-      User Review
-    </ion-card-header>
-    <div *ngIf="checkAvailableReview == 1; else noReview">
-      <ion-list class="no-padding-top" *ngFor="let review of bookReveiew">
-        <button ion-item>
-            {{review.user_book_review}}
-            <p text-right>~ {{review.user_name}}</p>
-        </button>
-      </ion-list>
-    </div>
-
-    <ng-template #noReview>
-      <ion-list class="no-review">
-        <button ion-item>
-          <p text-center>No Review Yet</p>
-        </button>
-      </ion-list>
-    </ng-template>
-  </ion-card>
-
-  <!--FAB BOTTOM RIGHT-->
-  <ion-fab right bottom #fab2>
-    <button ion-fab mini color="primary"><ion-icon name="apps"></ion-icon></button>
-    <ion-fab-list side="top">
-      <div *ngIf="loggedin == true; else loginfirst">
-        <button ion-fab (click)="loginFirst()">
-          <ion-icon name="information-circle"></ion-icon>
-        </button>
-      </div>
-      <ng-template #loginfirst>
-        <button ion-fab (click)="loginFirst()">
-          <ion-icon name="log-in"></ion-icon>
-        </button>
-      </ng-template>
-      <button ion-fab (click)="search()">
-        <ion-icon name="search"></ion-icon>
-      </button>
-    </ion-fab-list>
-  </ion-fab>
 
   <ion-refresher (ionRefresh)="doRefresh($event)">
     <ion-refresher-content 

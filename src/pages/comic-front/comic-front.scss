@@ -1,47 +1,20 @@
 page-comic-front {
-    ion-card{
-        border-radius: 0;
+    //button fab
+    .fab, .fab-ios, .fab-ios-primary{
+        background-color: #0fbab6;
     }
-    
-    ion-title, .card-header{
-        font-weight: bold;
-    }
-    
-    .card-header{
-        background-color: cadetblue;
+
+    .whiteBlue{
         color: white;
     }
-
-    .card-header{
-        padding: 10px;
-    }
-
-    .card-content{
-        padding: 0;
-        border-radius: 0;
-    }
-
-    .swiper-slide{
-        width: 100% !important;
-    }
-
-    ion-grid, ion-col{
-        padding: 0 !important;
-    }
-
-    .card ,.card-md{
-        margin: 0;
-        width: 100%;
-        border-radius: 0;
-    }
-
+    
     .margin-10px{
         margin-top: 10px;
     }
 
     .segment-activated{
         background-color: gainsboro !important;
-        color: darkorange !important;
+        color: #007f79 !important
     }
 
     .segment-ios, .segment-button, .segment-activated{
@@ -60,10 +33,10 @@ page-comic-front {
         color: green;
     }
 
-    .book_cover{
-        height: 495px;
-        width: 100%;
-        object-fit: unset;
+    .img{
+        -webkit-box-shadow: 0px 3px 5px 0px rgba(138,131,138,1);
+        -moz-box-shadow: 0px 3px 5px 0px rgba(138,131,138,1);
+        box-shadow: 0px 3px 5px 0px rgba(138,131,138,1);
     }
 
     .more-btn{
@@ -73,5 +46,103 @@ page-comic-front {
 
     .no-padding{
         padding: 0;
+    }
+
+    .w-100{
+        width: 100%;
+    }
+
+    .text-title{
+        font-weight: bold;
+        letter-spacing: 3px;
+        color: white;
+        position: absolute;
+        z-index: 2;
+        font-size: 30px;
+        top: 7%;
+        left: 34%;
+    }
+
+    .mb--4{
+        margin-bottom: -4px;
+    }
+
+    .segment-md .segment-button, .segment-md .segment-button.segment-activated{
+        border-color: transparent;
+        height: auto;
+        font-size: 1.5rem;
+        color: black;
+        margin-bottom: 1px;
+        border-bottom: 2px solid gainsboro;
+    }
+
+    .segment-ios .segment-button{
+        border-color: transparent;
+        height: auto;
+        font-size: 1.5rem;
+        color: black;
+        margin-bottom: 1px;
+        border-bottom: 2px solid gainsboro;
+    }
+
+    #title{
+        font-weight: bold;
+        font-family: 'Josefin Sans', sans-serif;
+        color: #007f79;
+        font-size: 18px;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    #author, #publisher{
+        font-weight: normal;
+        font-family: 'Josefin Sans', sans-serif;
+        color: #007f79;
+        font-size: 16px;
+        margin-top: 3px;
+        margin-bottom: 0;
+    }
+
+    .custom{
+        border: 2px solid #0fbab6;
+        color: #007f79 !important;
+        letter-spacing: 3px;
+    }
+
+    .text-position{
+        position: relative;
+        left: 18%;
+    }
+
+    .text-biruMuda{
+        color: #0fbab6 !important;
+    }
+
+    .toolbar-title-md{
+        color: #0fbab6 !important;
+        font-size: 35px;
+        font-family: 'Libre Baskerville', serif;
+        text-align: center;
+    }
+
+    .toolbar-title-ios{
+        color: #0fbab6 !important;
+        font-size: 30px;
+        font-family: 'Libre Baskerville', serif;
+        font-weight: normal;
+    }
+
+    .fab-list-active{
+        .fab, .fab-md, .fab-in-list, .fab-md-in-list, .show{
+            background-color: white;
+        }
+
+        .icon, .icon-md{
+            color: #007f79;
+        }
+    }
+
+    .menu{
+        color: #0fbab6 !important;
     }
 }

@@ -20,10 +20,20 @@ page-settings {
 
   .text-smaller {
     font-size: 12px;
+
+    &:hover{
+        background-color:  #0fbab6;
+        color: white;
+    }
   }
 
   .text-larger {
     font-size: 16px;
+
+    &:hover{
+        background-color:  #0fbab6;
+        color: white;
+    }
   }
 
   // Color
@@ -32,19 +42,20 @@ page-settings {
     text-align: center;
 
     .dot {
-      height: 30px;
-      width: 30px;
-      border-radius: 50%;
-      margin: 10px auto;
-      position: relative;
-    border-width: 2px;
-    border-color: #999;
-    border-style: solid;
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+        margin: 10px auto;
+        position: relative;
+        border-width: 2px;
+        border-color: #999;
+        border-style: solid;
     }
   }
 
   .dot-white {
     background-color: rgb(255,255,255);
+    border-color: #0fbab6 !important;
   }
 
   .dot-tan {
@@ -93,6 +104,22 @@ page-settings {
 
   .text-times-new-roman {
     font-family: "Times New Roman";
+  }
+
+  ion-item.item-radio-checked{
+      background-color: #0fbab6 !important;
+
+      .label, .label-md{
+          color: white;
+      }
+
+      .radio-icon, .radio-checked{
+          border-color: white;
+
+          .radio-inner{
+              background-color: white;
+          }
+      }
   }
 
 }

@@ -1,12 +1,13 @@
 page-login {
     .branding{
-        h3{
+        h1, h2, h3{
             text-align: center;
         }
         img{
-            width: 100%;
+            width: 45%;
             margin: 0 auto;
             display: block;
+            margin-bottom: 1.5em;
         }
     }
 
@@ -17,7 +18,7 @@ page-login {
     }
 
     .satu .scroll-content{
-        background-image: url(./assets/imgs/login-bg.jpg);
+        // background-image: url(./assets/imgs/login-bg.jpg);
         background-position: center center;
         background-repeat:  no-repeat;
         background-attachment: fixed;
@@ -26,7 +27,7 @@ page-login {
 
     .satu .card, .satu .card-md{
         // margin-top: 50px;
-    }
+    } 
 
     .content, .content-md{
         padding: 0 !important;
@@ -66,18 +67,21 @@ page-login {
         padding-top: 0;
     }
 
-    .segment, .segment-md{
-        background-color: ghostwhite;
-    }
-
-    .segment-button, .segment-activated{
-        background-color: darkgray !important;
-        color: white !important;
-        font-weight: 700;
+    .segment-activated p{
+        background-color: darkseagreen !important;
+        color: #007f79 !important;
+        font-weight: bold !important;
         border-color: darkgray !important;
     }
 
-    .segment-ios, .segment-button, .segment-activated{
+    .segment-ios, .segment-button{
+        background-color: darkseagreen !important;
+        color: black;
+        font-weight: bold !important;
+        border-color: darkgray !important;
+    }
+
+    .segment-ios, .segment-button{
         border-radius: 0 !important;   
     }
 
@@ -87,5 +91,131 @@ page-login {
 
     .login-indicator-true{
         color: green;
+    }
+
+    .biruMuda, .back-button {
+        color: #0fbab6;
+    }
+
+    .bg-biruMuda{
+        background-color:  #0fbab6;
+    }
+
+    .text-center{
+        text-align: center;
+    }
+
+    .font-18{
+        font-size: 18px;
+    }
+
+    .text-bold{
+        font-weight: bold;
+    }
+
+    p{
+        margin-top: 0;
+    }
+
+    .mb-0{
+        margin-bottom: 0;
+    }
+
+    .facebook, .google{
+        border-radius: 25px;
+        letter-spacing: 3px;
+    }
+
+    .customFont{
+        font-family: 'Josefin Sans', sans-serif;
+    }
+
+    img.image-rounded{
+        border-radius: 50%;
+        overflow: hidden;
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        top: 15%;
+        left: 36%;
+    }
+
+    .wrapperIMG{
+        height: 40px;
+    }
+
+    .mt-10{
+        margin-top: 10px;
+    }
+
+    .mt-5{
+        margin-top: 5px !important;
+    }
+
+    .pl-0{
+        padding-left: 0;
+    }
+
+    .pr-0{
+        padding-right: 0;
+    }
+
+    .pt-0{
+        padding-top: 0;
+    }
+
+    .pb-0{
+        padding-bottom: 0 !important;
+    }
+
+    .pt-5{
+        padding-top: 5px;
+    }
+
+    .pb-5{
+        padding-bottom: 5px;
+    }
+
+    .w-100{
+        width: 100%;
+    }
+
+    .p-10{
+        padding: 10px !important;
+    }
+
+    .p0{
+        padding: 0 !important;
+    }
+
+    .border2{
+        border: 2px solid lightgray;
+    }
+
+    .item-inner{
+        padding-right: 0;
+    }
+
+    .bookmarkBook-content{
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        margin-bottom: 5px !important;
+        // box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+        border: 2px solid lightgray;
+
+    }
+
+    .bookmarkBook-content:nth-child(1){
+        margin-top: 5px;
+    }
+    
+    .card-content-md, .card-content-ios{
+        padding: 7.5px 0;
+    }
+
+    .contentBook{
+        overflow: hidden;
+        overflow-y: auto;
+        height: 265px;
     }
 }

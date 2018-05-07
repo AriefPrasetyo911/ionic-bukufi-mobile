@@ -1,0 +1,209 @@
+page-user-account {
+    .branding{
+        h1, h2, h3{
+            text-align: center;
+        }
+        img{
+            width: 45%;
+            margin: 0 auto;
+            display: block;
+            margin-bottom: 1.5em;
+        }
+    }
+
+    #login-text{
+        -vendor-animation-duration: 5s;
+        -vendor-animation-delay: 1s;
+        //-vendor-animation-iteration-count: infinite;
+    }
+
+    .content, .content-md{
+        padding: 0 !important;
+    }
+
+    .noMargin{
+        margin: 0;
+        padding: 5px 10px;
+    }
+
+    .card, .card-md{
+        width: 100%;
+        box-shadow: none;
+        margin: 0;
+    }
+
+    .login{
+        margin-top: 10px;
+    }
+
+    .item, .item-block, .item-md{
+        padding-left: 0;
+    }
+
+    .label, .label-md{
+        margin-top: 0;
+        margin-bottom: 0;
+        margin-right: 0;
+        width: 100%;
+    }
+
+    .grid{
+        padding-top: 0;
+    }
+
+    .segment-activated p{
+        background-color: darkseagreen !important;
+        color: #007f79 !important;
+        font-weight: bold !important;
+        border-color: darkgray !important;
+    }
+
+    .segment-ios, .segment-button{
+        background-color: darkseagreen !important;
+        color: black;
+        font-weight: bold !important;
+        border-color: darkgray !important;
+    }
+
+    .segment-ios, .segment-button{
+        border-radius: 0 !important;   
+    }
+
+    .login-indicator-false{
+        color: red;
+    }
+
+    .login-indicator-true{
+        color: green;
+    }
+
+    .biruMuda, .back-button {
+        color: #0fbab6;
+    }
+
+    .bg-biruMuda{
+        background-color:  #0fbab6;
+    }
+
+    .text-center{
+        text-align: center;
+    }
+
+    .font-18{
+        font-size: 18px;
+    }
+
+    .text-bold{
+        font-weight: bold;
+    }
+
+    p{
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .mb-0{
+        margin-bottom: 0;
+    }
+
+    .facebook, .google{
+        border-radius: 25px;
+        letter-spacing: 3px;
+    }
+
+    .customFont{
+        font-family: 'Josefin Sans', sans-serif;
+    }
+
+    img.image-rounded{
+        border-radius: 50%;
+        overflow: hidden;
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        top: 15%;
+        left: 36%;
+    }
+
+    .wrapperIMG{
+        height: 40px;
+    }
+
+    .mt-10{
+        margin-top: 10px;
+    }
+
+    .mt-5{
+        margin-top: 5px !important;
+    }
+
+    .pl-0{
+        padding-left: 0;
+    }
+
+    .pr-0{
+        padding-right: 0;
+    }
+
+    .pt-0{
+        padding-top: 0;
+    }
+
+    .pb-0{
+        padding-bottom: 0 !important;
+    }
+
+    .pt-5{
+        padding-top: 5px;
+    }
+
+    .pb-5{
+        padding-bottom: 5px;
+    }
+
+    .w-100{
+        width: 100%;
+    }
+
+    .p-10{
+        padding: 10px !important;
+    }
+
+    .p0{
+        padding: 0 !important;
+    }
+
+    .border2{
+        border: 2px solid lightgray;
+    }
+
+    .item-inner{
+        padding-right: 0;
+    }
+
+    .bookmarkBook-content{
+        margin-bottom: 5px;
+        // box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+        border: 2px solid lightgray;
+        border-radius: 3px;
+
+    }
+
+    .bookmarkBook-content:nth-child(1){
+        margin-top: 5px;
+    }
+    
+    .card-content-md, .card-content-ios{
+        padding: 5px;
+    }
+
+    .contentBook{
+        overflow: hidden;
+        overflow-y: auto;
+        height: 265px;
+    }
+
+    .accountCover{
+        margin-top: 0;
+    }
+}

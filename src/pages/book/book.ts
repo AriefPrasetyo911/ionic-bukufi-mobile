@@ -28,7 +28,7 @@ export class BookPage {
     public navParams: NavParams,
   ) {
     let book = this.navParams.get('book');
-    console.log('Param from detail book :', book);
+    // console.log('Param from detail book :', book);
 
     this.platform.ready().then(() => {
       // load book
@@ -53,12 +53,13 @@ export class BookPage {
     });
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad BookPage');
-
-    // render book
-    this.book.renderTo("book"); // TODO We should work with ready somehow here I think
-  }
+    ionViewDidLoad() {
+        console.clear();
+        console.log('BookPage Success Load');
+        
+        // render book
+        this.book.renderTo("book"); // TODO We should work with ready somehow here I think
+    }
 
   _subscribeToEvents() {
     console.log('subscribe to events');

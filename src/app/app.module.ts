@@ -7,6 +7,9 @@ import { HttpClientModule } from '@angular/common/http';
 
 import firebase from 'firebase';
 import { BukufiRestProvider } from '../providers/bukufi-rest/bukufi-rest';
+import { SocialLoginProvider } from '../providers/social-login/social-login';
+import { EpubProvider } from '../providers/epub/epub';
+
 import { Facebook } from '@ionic-native/facebook';
 import { GooglePlus } from '@ionic-native/google-plus';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -27,12 +30,7 @@ import { ComicFrontPage } from '../pages/comic-front/comic-front';
 import { ComicListPage } from '../pages/comic-list/comic-list';
 import { LoginPage } from '../pages/login/login';
 import { SearchPage } from '../pages/search/search';
-import { ComicBookmarkPage } from '../pages/comic-bookmark/comic-bookmark';
-import { ComicFavouritePage } from '../pages/comic-favourite/comic-favourite';
-import { BookBookmarkPage } from '../pages/book-bookmark/book-bookmark';
-import { BookFavouritePage } from '../pages/book-favourite/book-favourite';
-import { SocialLoginProvider } from '../providers/social-login/social-login';
-
+import { UserAccountPage } from '../pages/user-account/user-account';
 
 var config = {
   apiKey: "AIzaSyDl2k9vLUopVsu3hOfxxUTQht_Oc-kCAkw",
@@ -60,10 +58,7 @@ firebase.initializeApp(config);
     ComicListPage,
     LoginPage,
     SearchPage,
-    BookBookmarkPage,
-    BookFavouritePage,
-    ComicBookmarkPage,
-    ComicFavouritePage
+    UserAccountPage
   ],
   imports: [
     BrowserModule,
@@ -89,10 +84,7 @@ firebase.initializeApp(config);
     ComicListPage,
     LoginPage,
     SearchPage,
-    BookBookmarkPage,
-    BookFavouritePage,
-    ComicBookmarkPage,
-    ComicFavouritePage
+    UserAccountPage
   ],
   providers: [
     StatusBar,
@@ -101,7 +93,8 @@ firebase.initializeApp(config);
     BukufiRestProvider,
     Facebook,
     GooglePlus,
-    SocialLoginProvider
+    SocialLoginProvider,
+    EpubProvider
   ]
 })
 export class AppModule {}

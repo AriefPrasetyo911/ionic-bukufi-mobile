@@ -1,4 +1,18 @@
 page-home {
+    //button fab
+    .fab, .fab-ios, .fab-ios-primary{
+        background-color: #0fbab6;
+    }
+
+    .whiteBlue{
+        color: white;
+    }
+
+    // .fab-in-list.show{
+    //     background-color: white;
+    //     color: #0fbab6;
+    // }
+
     ion-title, .card-header{
         font-weight: bold;
     }
@@ -18,14 +32,12 @@ page-home {
         padding: 10px;
     }
 
-    .swiper-slide{
-        width: 100% !important;
-    }
-
-    .book_cover{
-        height: 495px;
+    .swiper-slide img{
         width: 100%;
-        object-fit: unset;
+        height: 225px;
+        -webkit-box-shadow: 0px 3px 5px 0px #8a838a;
+        box-shadow: 0px 3px 5px 0px #8a838a;
+        margin-left: 3px;
     }
 
     .card ,.card-md{
@@ -51,23 +63,56 @@ page-home {
     .segment-ios, .segment-button, .segment-activated{
         border-radius: 0 !important;   
     }
+
+    .toolbar-title-md{
+        color: #0fbab6 !important;
+        font-size: 35px;
+        font-family: 'Libre Baskerville', serif;
+        text-align: center;
+    }
+
+    .toolbar-title-ios{
+        color: #0fbab6 !important;
+        font-size: 30px;
+        font-family: 'Libre Baskerville', serif;
+        font-weight: normal;
+    }
+
+    .menu{
+        color: #0fbab6 !important;
+    }
+
+    .text-center{
+        text-align: center;
+    }
+
+    .text-color{
+        color: #007f79;
+    }
+
+    .font-18{
+        font-size: 20px;
+        margin-bottom: 0;
+        font-weight: normal;
+    }
+
     //===- NEW -===//
         .cnrflash-new{
             position: absolute;
             top: 0;
-            right: 0;
+            right: -4px;
             z-index: 1;
             overflow: hidden;
-            width: 100px;
-            height: 100px;
+            width: 80px;
+            height: 80px;
         }
 
         .cnrflash-inner-new{
             position: absolute;
             bottom: 0;
             right: 0;
-            width: 141px;
-            height: 72px;
+            width: 113px;
+            height: 57px;
             -ms-transform: rotate(45deg);
             -o-transform: rotate(45deg);
             -moz-transform: rotate(45deg);
@@ -79,6 +124,7 @@ page-home {
             background-image: linear-gradient(90deg, transparent 50%, rgba(255, 255, 255, 0.1) 50%), linear-gradient(0deg, transparent 0%, rgba(1, 1, 1, 0.2) 50%);
             background-size: 4px, auto, auto, auto;
             background-color: lightseagreen;
+            opacity: 0.7;
             //box-shadow: 0 3px 3px 0 rgba(1, 1, 1, 0.5), 0 1px 0 0 rgba(1, 1, 1, 0.5), inset 0 -1px 8px 0 rgba(255, 255, 255, 0.3), inset 0 -1px 0 0 rgba(255, 255, 255,0);
         }
 
@@ -91,7 +137,7 @@ page-home {
             padding-bottom: 15px;
             color: #fff;
             text-shadow: 0 1px 1px rgba(1, 1, 1, 0.8);
-            font-size: 0.95em;
+            font-size: 0.7em;
             font-weight: bold;
             text-align: center;
         }
@@ -101,19 +147,19 @@ page-home {
         .cnrflash-popular{
             position: absolute;
             top: 0;
-            right: 0;
+            right: -4px;
             z-index: 1;
             overflow: hidden;
-            width: 105PX;
-            height: 105PX;
+            width: 80px;
+            height: 80px;
         }
 
         .cnrflash-inner-popular{
             position: absolute;
             bottom: 0;
             right: 0;
-            width: 150px;
-            height: 75px;
+            width: 113px;
+            height: 57px;
             -ms-transform: rotate(45deg);
             -o-transform: rotate(45deg);
             -moz-transform: rotate(45deg);
@@ -125,6 +171,7 @@ page-home {
             background-image: linear-gradient(90deg, transparent 50%, rgba(255, 255, 255, 0.1) 50%), linear-gradient(0deg, transparent 0%, rgba(1, 1, 1, 0.2) 50%);
             background-size: 4px, auto, auto, auto;
             background-color: darkorange;
+            opacity: 0.7
             //box-shadow: 0 3px 3px 0 rgba(1, 1, 1, 0.5), 0 1px 0 0 rgba(1, 1, 1, 0.5), inset 0 -1px 8px 0 rgba(255, 255, 255, 0.3), inset 0 -1px 0 0 rgba(255, 255, 255,0);
         }
 
@@ -138,7 +185,7 @@ page-home {
             padding-bottom: 15px;
             color: #fff;
             text-shadow: 0 1px 1px rgba(1, 1, 1, 0.8);
-            font-size: 0.95em;
+            font-size: 0.7em;
             font-weight: bold;
             text-align: center;
         }
@@ -148,19 +195,19 @@ page-home {
         .cnrflash-recomended{
             position: absolute;
             top: 0;
-            right: 0;
+            right: -4px;
             z-index: 1;
             overflow: hidden;
-            width: 110PX;
-            height: 110PX;
+            width: 80px;
+            height: 80px;
         }
 
         .cnrflash-inner-recomended{
             position: absolute;
             bottom: 0;
             right: 0;
-            width: 157px;
-            height: 80px;
+            width: 113px;
+            height: 57px;
             -ms-transform: rotate(45deg);
             -o-transform: rotate(45deg);
             -moz-transform: rotate(45deg);
@@ -172,19 +219,20 @@ page-home {
             background-image: linear-gradient(90deg, transparent 50%, rgba(255, 255, 255, 0.1) 50%), linear-gradient(0deg, transparent 0%, rgba(1, 1, 1, 0.2) 50%);
             background-size: 4px, auto, auto, auto;
             background-color: violet;
+            opacity: 0.7
             //box-shadow: 0 3px 3px 0 rgba(1, 1, 1, 0.5), 0 1px 0 0 rgba(1, 1, 1, 0.5), inset 0 -1px 8px 0 rgba(255, 255, 255, 0.3), inset 0 -1px 0 0 rgba(255, 255, 255,0);
         }
 
         .cnrflash-label-recomended{
             position: absolute;
-            bottom: 0;
+            bottom: 5px;
             left: 0;
             display: block;
             width: 100%;
             //padding-bottom: 15px;
             color: #fff;
             text-shadow: 0 1px 1px rgba(1, 1, 1, 0.8);
-            font-size: 0.95em;
+            font-size: 0.6em;
             font-weight: bold;
             text-align: center;
         }
@@ -194,19 +242,19 @@ page-home {
         .cnrflash-editor-pick{
             position: absolute;
             top: 0;
-            right: 0;
+            right: -4px;
             z-index: 1;
             overflow: hidden;
-            width: 105px;
-            height: 105px;
+            width: 80px;
+            height: 80px;
         }
 
         .cnrflash-inner-editor-pick{
             position: absolute;
             bottom: 0;
             right: 0;
-            width: 150px;
-            height: 75px;
+            width: 113px;
+            height: 57px;
             -ms-transform: rotate(45deg);
             -o-transform: rotate(45deg);
             -moz-transform: rotate(45deg);
@@ -218,19 +266,20 @@ page-home {
             background-image: linear-gradient(90deg, transparent 50%, rgba(255, 255, 255, 0.1) 50%), linear-gradient(0deg, transparent 0%, rgba(1, 1, 1, 0.2) 50%);
             background-size: 4px, auto, auto, auto;
             background-color: gold;
+            opacity: 0.7
             //box-shadow: 0 3px 3px 0 rgba(1, 1, 1, 0.5), 0 1px 0 0 rgba(1, 1, 1, 0.5), inset 0 -1px 8px 0 rgba(255, 255, 255, 0.3), inset 0 -1px 0 0 rgba(255, 255, 255,0);
         }
 
         .cnrflash-label-editor-pick{
             position: absolute;
-            bottom: 0;
+            bottom: 5px;
             left: 3px;
             display: block;
             width: 100%;
             //padding-bottom: 15px;
             color: #fff;
             text-shadow: 0 1px 1px rgba(1, 1, 1, 0.8);
-            font-size: 0.95em;
+            font-size: 0.7em;
             font-weight: bold;
             text-align: center;
         }
@@ -243,4 +292,40 @@ page-home {
     .login-indicator-true{
         color: green;
     }
+
+    h1, h2, h3, h4, h5, h6, p{
+        margin-top: 0;
+    }
+
+    .ls-3{
+        letter-spacing: 3px;
+        text-align: center;
+        color: #007f79;
+    }
+
+    .fab-list-active{
+        .fab, .fab-md, .fab-in-list, .fab-md-in-list, .show{
+            background-color: white;
+        }
+
+        .icon, .icon-md{
+            color: #007f79;
+        }
+    }
+    
+    // .swiper-slide{
+    //     width: 45% !important;
+        
+    //     margin-right: 10px;
+    // }
+
+    // .swiper-container{
+    //     height: auto;
+    //     overflow: unset;
+    // }
+
+    // .scroll-content{
+    //     overflow-y: hidden;
+    // }
 }
+

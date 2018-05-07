@@ -1,38 +1,40 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>{{comic_title.replace(regex, ' ')}} - Chapter {{comic_chapter}}</ion-title>
-    <ion-buttons end>
-      <div *ngIf="loggedin == false; else loginTrue">
-        <button ion-button class="login-indicator-false">
-          <ion-icon name="sunny" end></ion-icon>
-        </button>
-      </div>
-      <ng-template #loginTrue>
-          <div *ngIf="isFacebookLogin == true">
-            <button ion-button class="login-indicator-true">
-              <ion-icon name="logo-facebook"></ion-icon>
-            </button>
-          </div>
-          <div *ngIf="isGoogleLogin == true">
-            <button ion-button class="login-indicator-true">
-              <ion-icon name="logo-googleplus"></ion-icon>
-            </button>
-          </div>
-      </ng-template>
-    </ion-buttons>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>
+            <p class="biruMuda m-0">{{comic_title.replace(regex, ' ')}} - Chapter {{comic_chapter}}</p>
+        </ion-title>
+        <ion-buttons end>
+            <div *ngIf="loggedin == false; else loginTrue">
+                <button ion-button class="login-indicator-false">
+                <ion-icon name="sunny" end></ion-icon>
+                </button>
+            </div>
+            <ng-template #loginTrue>
+                <div *ngIf="isFacebookLogin == true">
+                    <button ion-button class="login-indicator-true">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                    </button>
+                </div>
+                <div *ngIf="isGoogleLogin == true">
+                    <button ion-button class="login-indicator-true">
+                    <ion-icon name="logo-googleplus"></ion-icon>
+                    </button>
+                </div>
+            </ng-template>
+        </ion-buttons>
+    </ion-navbar>
 </ion-header>
 
 
 <ion-content>
-  <ion-slides pager *ngIf="loggedin">
+  <ion-slides pager *ngIf="loggedin" #slides>
     <ion-slide *ngFor="let login of comics">
       <img src="http://bukufi.com/storage/comic/comic_files/{{login.comic_title}}/{{login.comic_image}}" alt="{{login.comic_image}}">
-      }
     </ion-slide>
+
   </ion-slides>
 
-  <ion-slides pager *ngIf="!loggedin">
+  <ion-slides pager *ngIf="!loggedin" #slides>
     <ion-slide *ngFor="let comics of comicsNonLogin; let i=index">
       <div *ngIf="i<5">
         <img src="http://bukufi.com/storage/comic/comic_files/{{comics.comic_title}}/{{comics.comic_image}}" alt="{{comics.comic_image}}">
@@ -46,6 +48,7 @@
         </div>
       </div>
     </ion-slide>
+    
   </ion-slides>
 
   <ion-refresher (ionRefresh)="doRefresh($event)">
@@ -57,3 +60,49 @@
     </ion-refresher-content>
   </ion-refresher>
 </ion-content>
+
+<ion-footer>
+    <div *ngIf="!loggedin">
+        <ion-toolbar>
+            <ion-grid class="loginToolbarBtn">
+                <ion-row>
+                    <ion-col col-6>
+                        <p class="text-bold">{{countPagesNonLogin}} pages</p>
+                    </ion-col>
+                    <ion-col col-6 class="float-right">
+                        <button type="submit" float-left ion-button  outline small icon-left class="btnPrev" (click)="prev()">
+                            <ion-icon name="arrow-dropleft"></ion-icon>
+                            Prev
+                        </button>
+                        <button type="submit" float-right ion-button outline small icon-right class="btnNext" (click)="next()">
+                            Next
+                            <ion-icon name="arrow-dropright"></ion-icon>
+                        </button>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-toolbar>
+    </div>
+
+    <div *ngIf="loggedin">
+        <ion-toolbar>
+            <ion-grid class="loginToolbarBtn">
+                <ion-row>
+                    <ion-col col-6>
+                        <p class="text-bold">{{countPages}} pages</p>
+                    </ion-col>
+                    <ion-col col-6>
+                        <button type="submit" float-left ion-button  outline small icon-left class="btnPrev" (click)="prev()">
+                            <ion-icon name="arrow-dropleft"></ion-icon>
+                            Prev
+                        </button>
+                        <button type="submit" float-right ion-button outline small icon-right class="btnNext" (click)="next()">
+                            Next
+                            <ion-icon name="arrow-dropright"></ion-icon>
+                        </button>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-toolbar>
+    </div>
+</ion-footer>

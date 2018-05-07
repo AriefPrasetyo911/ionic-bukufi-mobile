@@ -1,9 +1,9 @@
 <ion-header>
   <ion-navbar>
     <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
+      <ion-icon name="menu" class="menu"></ion-icon>
     </button>
-    <ion-title>Comic</ion-title>
+    <ion-title>Bukufi</ion-title>
     <ion-buttons end>
       <div *ngIf="loggedin == false; else loginTrue">
         <button ion-button class="login-indicator-false">
@@ -28,50 +28,53 @@
 
 
 <ion-content>
-  <ion-segment [(ngModel)]="comic">
-    <ion-segment-button value="popular-comic">
-      <b>Popular Comics</b>
-    </ion-segment-button>
-    <ion-segment-button value="new-comic">
-      <b>New Comics</b>
-    </ion-segment-button>
-  </ion-segment>
+    <div class="w-100 mb--4">
+        <img src="./assets/imgs/comics-cover.png" alt="cover comic image">
+        <p class="text-title">COMICS</p>
+    </div>
+    
+    <ion-segment [(ngModel)]="comic">
+        <ion-segment-button value="popular-comic">
+            <b>Popular Comics</b>
+        </ion-segment-button>
+        <ion-segment-button value="new-comic">
+            <b>New Comics</b>
+        </ion-segment-button>
+    </ion-segment>
 
   <div [ngSwitch]="comic">
     <ion-list *ngSwitchCase="'popular-comic'">
-      <!-- popular books -->
-      <ion-card>
-        <ion-card-header>
-          Popular Comics
-        </ion-card-header>
-        <ion-card-content>
-          <ion-slides pager>
-            <ion-slide *ngFor="let comic of popularComic" (tap)="showDetailComic(comic.comic_title)">
-              <img class="book_cover" src="http://bukufi.com/storage/comic/comic_cover/{{comic.comic_image}}" alt="{{comic.comic_title}}">
-            </ion-slide>
-          </ion-slides>
-        </ion-card-content>
-      </ion-card>
+        <!-- popular books -->
+        <ion-grid>
+            <ion-row *ngFor="let comic of popularComic" (tap)="showDetailComic(comic.comic_title)">
+                <ion-col col-4>
+                    <img class="img" src="http://bukufi.com/storage/comic/comic_cover/{{comic.comic_image}}" alt="{{comic.comic_title}}">
+                </ion-col>
+                <ion-col col-8>
+                    <p id="title">{{comic.comic_title.replace(regex, ' ')}}</p>
+                    <p id="author">{{comic.comic_author.replace(regex, ' ')}}</p>
+                    <p id="publisher">{{comic.comic_genre}}</p>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
     </ion-list>
 
     <ion-list *ngSwitchCase="'new-comic'">
-      <ion-card>
-        <ion-card-header style="padding: 5px !important">
-          <ion-grid>
-            <ion-row>
-              <ion-col col-8 text-left style="padding: 5px !important">New Comic</ion-col>
-              <ion-col col-4 text-center color="primary" (click)="comicList()" class="more-btn" style="padding: 5px !important">More Comic</ion-col>
+        <ion-grid>
+            <ion-row *ngFor="let comic of newComic" (click)="showDetailComic(comic.comic_title)">
+                <ion-col col-4>
+                        <img class="img" src="http://bukufi.com/storage/comic/comic_cover/{{comic.comic_image}}" alt="{{comic.comic_title}}">
+                </ion-col>
+                <ion-col col-8>
+                    <p id="title">{{comic.comic_title_nodash}}</p>
+                    <p id="author">{{comic.comic_author_nodash}}</p>
+                    <p id="publisher">{{comic.comic_genre}}</p>
+                </ion-col>
             </ion-row>
-          </ion-grid>
-        </ion-card-header>
-        <ion-card-content>
-          <ion-slides pager>
-            <ion-slide *ngFor="let comic of newComic" (click)="showDetailComic(comic.comic_title)">
-              <img class="book_cover" src="http://bukufi.com/storage/comic/comic_cover/{{comic.comic_image}}" alt="{{comic.comic_title}}">
-            </ion-slide>
-          </ion-slides>
-        </ion-card-content>
-      </ion-card>
+            <ion-row>
+                <button ion-button block class="custom" outline (click)="comicList()">More Comics</button>
+            </ion-row>
+        </ion-grid>
     </ion-list>
   </div>
 
@@ -84,23 +87,23 @@
     </ion-refresher-content>
   </ion-refresher>
 
-  <!--FAB BOTTOM RIGHT-->
-  <ion-fab right bottom #fab2>
-    <button ion-fab mini color="primary"><ion-icon name="apps"></ion-icon></button>
-    <ion-fab-list side="top">
-      <div *ngIf="loggedin; else loginfirst">
-        <button ion-fab (click)="loginFirst()">
-          <ion-icon name="information-circle"></ion-icon>
-        </button>
-      </div>
-      <ng-template #loginfirst>
-        <button ion-fab (click)="loginFirst()">
-          <ion-icon name="log-in"></ion-icon>
-        </button>
-      </ng-template>
-      <button ion-fab (click)="search()">
-        <ion-icon name="search"></ion-icon>
-      </button>
-    </ion-fab-list>
-  </ion-fab>
+    <!--FAB BOTTOM RIGHT-->
+    <ion-fab right bottom #fab2>
+        <button ion-fab mini color="primary"><ion-icon name="apps"></ion-icon></button>
+        <ion-fab-list side="top">
+            <div *ngIf="loggedin; else loginfirst">
+            <button ion-fab (click)="userInformation()">
+                <ion-icon name="information-circle" class="whiteBlue"></ion-icon>
+            </button>
+            </div>
+            <ng-template #loginfirst>
+                <button ion-fab (click)="loginFirst()">
+                    <ion-icon name="log-in" class="whiteBlue"></ion-icon>
+                </button>
+            </ng-template>
+            <button ion-fab (click)="search()">
+                <ion-icon name="search" class="whiteBlue"></ion-icon>
+            </button>
+        </ion-fab-list>
+    </ion-fab>
 </ion-content>

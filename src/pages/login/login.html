@@ -1,165 +1,322 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Login</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title *ngIf="!loggedin"><p class="biruMuda mb-0">Login</p></ion-title>
+        <!-- <ion-title *ngIf="loggedin"><p class="biruMuda mb-0">Account</p></ion-title> -->
+    </ion-navbar>
 </ion-header>
 
+<!-- if not login -->
 <ion-content padding class="satu" *ngIf="!loggedin">
-  <div>
-    <div class="branding">
-      <h3 class="animated jackInTheBox" id="login-text">Please Login <br> to Use Full Feature App</h3>
-      <img src="./assets/imgs/login.png" />
+    <div>
+        <div class="branding">
+            <h2 class="animated jackInTheBox" id="login-text">HELLO!</h2>
+                <p class="text-center customFont">Login to use our full feature app</p>
+            <img src="./assets/imgs/login.png" />
+        </div>
+
+        <button class="facebook" ion-button icon-left outline block (click)="loginFacebook()">
+            <ion-icon name="logo-facebook"></ion-icon>
+            Login with Facebook
+        </button>
+
+        <div class="login">
+            <button class="google" ion-button icon-left outline block color="danger" (click)="loginGoogle()">
+                <ion-icon name="logo-googleplus"></ion-icon>
+                Login with Google+
+            </button>
+        </div>
     </div>
 
-    <button class="facebook" ion-button icon-left outline block (click)="loginFacebook()">
-      <ion-icon name="logo-facebook"></ion-icon>
-      Login with Facebook
-    </button>
-
-    <div class="login">
-      <button class="google" ion-button icon-left outline block color="danger" (click)="loginGoogle()">
-        <ion-icon name="logo-googleplus"></ion-icon>
-        Login with Google+
-      </button>
-    </div>
-  </div>
-
-  <ion-refresher (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content 
-      pullingText="Pull to refresh"
-      pullingIcon="arrow-dropdown"
-      refreshingSpinner="circles"
-      refreshingText="fetching data ...">
-    </ion-refresher-content>
-  </ion-refresher>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content 
+            pullingText="Pull to refresh"
+            pullingIcon="arrow-dropdown"
+            refreshingSpinner="circles"
+            refreshingText="fetching data ...">
+        </ion-refresher-content>
+    </ion-refresher>
 </ion-content>
 
-<ion-content *ngIf="loggedin" class="dua">
-
-  <ion-card *ngIf="isFacebookLogin" class="facebook"> 
-    <ion-item>
-      <ion-avatar item-left>
-        <img [src]="userProfile.photoURL">
-      </ion-avatar>
-      <h2>{{ userProfile.displayName }}</h2>
-      <h3>{{ userProfile.email }}</h3>      
-    </ion-item>
-
-    <img src="./assets/imgs/thank-you.png" alt="Profile Picture">
-
-    <ion-card-content>
-      <h5 text-center>Thank you already login to our application. <br> Now you can read our books and comics as many as you want. <br> Happy reading :)</h5>
-    </ion-card-content>
-
+<!-- if login -->
+<!--<ion-content *ngIf="loggedin" class="dua">
+    <img src="./assets/imgs/account-cover.png" alt="Account Cover">
     
-    <ion-segment [(ngModel)]="loginSegment">
-      <ion-segment-button value="Book">
-        Book
-      </ion-segment-button>
-      <ion-segment-button value="Comic">
-        Comic
-      </ion-segment-button>
-    </ion-segment>
+    if using facebook 
+    <ion-card *ngIf="isFacebookLogin" class="facebook"> 
+        <div class="wrapperIMG">
+            <img [src]="userProfile.photoURL" class="image-rounded">
+        </div>
+        <p class="text-center text-bold mt-10 font-18">{{ userProfile.displayName }}</p>
+        <p class="text-center">{{ userProfile.email }}</p>
+        
+        <ion-card-content class="text-center">
+                <button ion-button color="danger" round outline (click)="logoutFacebook()">LOGOUT FACEBOOK</button>
+        </ion-card-content>
 
-    <div [ngSwitch]="loginSegment">
-      <ion-list *ngSwitchCase="'Comic'">
-        <ion-item>
-          <ion-grid>
+        <ion-grid class="pr-0 pl-0">
+            bookmark and favourite book
             <ion-row>
-              <ion-col col-6>
-                <button ion-button outline block (tap)="gotoBookmarkComic()">Bookmark Comic</button>
-              </ion-col>
-              <ion-col col-6>
-                <button ion-button color="secondary" outline block (tap)="gotoFavouriteComic()">Favourite Comic</button>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </ion-item>
-      </ion-list>
+                <ion-col col-12 class="pr-0 pl-0 pb-0">
+                    <p class="text-bold text-center bg-biruMuda pt-5 pb-5">BOOKS</p>
+                </ion-col>
+                <ion-col col-12 class="pr-0 pl-0 pt-0">
+                    <ion-segment [(ngModel)]="loginSegment">
+                        <ion-segment-button value="BookmarkBook">
+                            <p class="text-bold mt-10">BOOKMARKED</p>
+                        </ion-segment-button>
+                        <ion-segment-button value="FavouriteBook">
+                            <p class="text-bold mt-10">FAVOURITES</p>
+                        </ion-segment-button>
+                    </ion-segment>
+            
+                    <div [ngSwitch]="loginSegment">
+                        <ion-list *ngSwitchCase="'BookmarkBook'">
+                            <div class="w-100 contentBook">
+                                <div *ngIf="myBookmark.length > 0; else notExist">
+                                    <ion-card *ngFor="let bookmark of myBookmark" class="bookmarkBook-content" (tap)="showDetailBook(bookmark.book_title)">
+                                        <ion-card-content>
+                                            <h2 class="text-bold">{{bookmark.book_title.replace(regex, ' ')}}</h2>
+                                            <h3>{{bookmark.book_author.replace(regex, ' ')}}</h3>
+                                            <h3>{{bookmark.book_release}}</h3>
+                                        </ion-card-content>
+                                    </ion-card>
+                                </div>
+                                <ng-template #notExist>
+                                    <ion-card>
+                                        <ion-card-content text-center class="takAda p-10 bookmarkBook-content">
+                                                <h2 class="text-bold">You not have bookmark for any book</h2>
+                                        </ion-card-content>
+                                    </ion-card>
+                                </ng-template>
+                            </div>
+                        </ion-list>
 
-      <ion-list *ngSwitchCase="'Book'">
-        <ion-item>
-          <ion-grid>
+                        <ion-list *ngSwitchCase="'FavouriteBook'">
+                            <div class="w-100 contentBook">
+                                <div *ngIf="myFav.length > 0; else notExist">
+                                    <ion-card *ngFor="let favourite of myFav" class="bookmarkBook-content">
+                                        <ion-card-content>
+                                            <h2 class="text-bold">{{favourite.book_title.replace(regex, ' ')}}</h2>
+                                            <h3>{{favourite.book_author.replace(regex, ' ')}}</h3>
+                                            <h3>{{favourite.book_release}}</h3>
+                                        </ion-card-content>
+                                    </ion-card>
+                                </div>
+                                <ng-template #notExist>
+                                    <ion-card>
+                                        <ion-card-content text-center class="takAda p-10 bookmarkBook-content">
+                                                <h2 class="text-bold">You not have bookmark for any book</h2>
+                                        </ion-card-content>
+                                    </ion-card>
+                                </ng-template>
+                            </div>
+                        </ion-list>            
+                    </div>
+                </ion-col>
+            </ion-row>
+
+            favourite and favourite comic
             <ion-row>
-              <ion-col col-6>
-                <button ion-button outline block (tap)="gotoBookmarkBook()">Bookmark Book</button>
-              </ion-col>
-              <ion-col col-6>
-                <button ion-button color="secondary" outline block (tap)="gotoFavouriteBook(isFacebookLogin)">Favourite Book</button>
-              </ion-col>
+                <ion-col col-12 class="pr-0 pl-0 pb-0">
+                    <p class="text-bold text-center bg-biruMuda pt-5 pb-5">COMICS</p>
+                </ion-col>
+                <ion-col col-12 class="pr-0 pl-0 pt-0">
+                    <ion-segment [(ngModel)]="loginSegment">
+                        <ion-segment-button value="BookmarkComic">
+                            <p class="text-bold mt-10">BOOKMARKED</p>
+                        </ion-segment-button>
+                        <ion-segment-button value="FavouriteComic">
+                            <p class="text-bold mt-10">FAVOURITES</p>
+                        </ion-segment-button>
+                    </ion-segment>
+            
+                    <div [ngSwitch]="loginSegment">
+                        <ion-list *ngSwitchCase="'BookmarkComic'">
+                            <div class="w-100 contentBook">
+                                <div *ngIf="myBookmarkComic.length > 0; else notExist">
+                                    <ion-card *ngFor="let bookmark of myBookmarkComic" (tap)="showDetailcomic(bookmark.comic_title)" class="bookmarkBook-content">
+                                        <ion-card-content>
+                                            <h2 class="text-bold">{{bookmark.comic_title.replace(regex, ' ')}}</h2>
+                                            <h3>{{bookmark.comic_author.replace(regex, ' ')}}</h3>
+                                            <h3>{{bookmark.comic_genre}}</h3>
+                                            <h3>{{bookmark.comic_release}}</h3>
+                                        </ion-card-content>
+                                    </ion-card>
+                                </div>
+                                <ng-template #notExist>
+                                    <ion-card>
+                                        <ion-card-content text-center class="takAda" class="bookmarkBook-content">
+                                            <h2>You not have bookmark for any comic</h2>
+                                        </ion-card-content>
+                                    </ion-card>
+                                </ng-template>
+                            </div>
+                        </ion-list>
+
+                        <ion-list *ngSwitchCase="'FavouriteComic'">
+                            <div class="w-100 contentBook">
+                                <div *ngIf="myComicFav.length > 0; else notExist">
+                                    <ion-card *ngFor="let favourite of myComicFav" class="bookmarkBook-content">
+                                        <ion-card-content>
+                                            <h2 class="text-bold">{{favourite.comic_title.replace(regex, ' ')}}</h2>
+                                            <h3>{{favourite.comic_author.replace(regex, ' ')}}</h3>
+                                            <h3>{{favourite.comic_Genre}}</h3>
+                                            <h3>{{favourite.comic_release}}</h3>
+                                        </ion-card-content>
+                                    </ion-card>
+                                </div>
+                                <ng-template #notExist>
+                                    <button ion-item text-center class="takAda">
+                                        <h2>You not have bookmark for any book</h2>
+                                    </button>
+                                </ng-template>
+                            </div>
+                        </ion-list>            
+                    </div>
+                </ion-col>
             </ion-row>
-          </ion-grid>
-        </ion-item>
-      </ion-list>
-    </div>
+        </ion-grid>
+    </ion-card>
 
-    <button ion-button block outline iocn-left color="danger" (click)="logoutFacebook()">
-      <ion-icon name="log-out"></ion-icon> Logout Facebook
-    </button>
-  </ion-card>
+    if using google plus
+    <ion-card *ngIf="isGoogleLogin" class="googleplus"> 
+        <div class="wrapperIMG">
+            <img [src]="userProfile.imageUrl" class="image-rounded">
+        </div>
+        <p class="text-center text-bold mt-10 font-18">{{ userProfile.displayName }}</p>
+        <p class="text-center">{{ userProfile.email }}</p>
+        
+        <ion-card-content class="text-center">
+                <button ion-button color="danger" round outline (click)="logoutGooglePlus()">LOGOUT FACEBOOK</button>
+        </ion-card-content>
 
-  <!-- batas -->
-  
-  <ion-card *ngIf="isGoogleLogin" class="googleplus"> 
-    <ion-item>
-      <ion-avatar item-left>
-        <img [src]="userProfile.imageUrl">
-      </ion-avatar>
-      <h2>{{ userProfile.displayName }}</h2>
-      <h3>{{ userProfile.email }}</h3>      
-    </ion-item>
-
-    <img src="../assets/imgs/thank-you.png" alt="">
-
-    <ion-card-content>
-      <h5 text-center>Thank you already login to our application. <br> Now you can read our books and comics as many as you want. <br> Happy reading :)</h5>
-    </ion-card-content>
-
-    <ion-segment [(ngModel)]="loginSegment">
-      <ion-segment-button value="Book">
-        Book
-      </ion-segment-button>
-      <ion-segment-button value="Comic">
-        Comic
-      </ion-segment-button>
-    </ion-segment>
-
-    <div [ngSwitch]="loginSegment">
-      <ion-list *ngSwitchCase="'Comic'">
-        <ion-item>
-          <ion-grid>
+        <ion-grid class="pr-0 pl-0">
+            bookmark and favourite book
             <ion-row>
-              <ion-col col-6>
-                <button ion-button outline block (tap)="gotoBookmarkComic()">Bookmark Comic</button>
-              </ion-col>
-              <ion-col col-6>
-                <button ion-button color="secondary" outline block (tap)="gotoFavouriteComic()">Favourite Comic</button>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </ion-item>
-      </ion-list>
+                <ion-col col-12 class="pr-0 pl-0 pb-0">
+                    <p class="text-bold text-center bg-biruMuda pt-5 pb-5">BOOKS</p>
+                </ion-col>
+                <ion-col col-12 class="pr-0 pl-0 pt-0">
+                    <ion-segment [(ngModel)]="loginSegment">
+                        <ion-segment-button value="BookmarkBook">
+                            <p class="text-bold mt-10">BOOKMARKED</p>
+                        </ion-segment-button>
+                        <ion-segment-button value="FavouriteBook">
+                            <p class="text-bold mt-10">FAVOURITES</p>
+                        </ion-segment-button>
+                    </ion-segment>
+            
+                    <div [ngSwitch]="loginSegment">
+                        <ion-list *ngSwitchCase="'BookmarkBook'">
+                            <div class="w-100 contentBook">
+                                <div *ngIf="myBookmark.length > 0; else notExist">
+                                    <ion-card *ngFor="let bookmark of myBookmark" class="bookmarkBook-content" (tap)="showDetailBook(bookmark.book_title)">
+                                        <ion-card-content>
+                                            <h2 class="text-bold">{{bookmark.book_title.replace(regex, ' ')}}</h2>
+                                            <h3>{{bookmark.book_author.replace(regex, ' ')}}</h3>
+                                            <h3>{{bookmark.book_release}}</h3>
+                                        </ion-card-content>
+                                    </ion-card>
+                                </div>
+                                <ng-template #notExist>
+                                    <ion-card class="p0 mt-5">
+                                        <ion-card-content text-center class="takAda p-10 border2">
+                                                <h2 class="text-bold">You not have bookmark for any book</h2>
+                                        </ion-card-content>
+                                    </ion-card>
+                                </ng-template>
+                            </div>
+                        </ion-list>
 
-      <ion-list *ngSwitchCase="'Book'">
-        <ion-item>
-          <ion-grid>
+                        <ion-list *ngSwitchCase="'FavouriteBook'">
+                            <div class="w-100 contentBook">
+                                <div *ngIf="myFav.length > 0; else notExist">
+                                    <ion-card *ngFor="let favourite of myFav" class="bookmarkBook-content">
+                                        <ion-card-content>
+                                            <h2 class="text-bold">{{favourite.book_title.replace(regex, ' ')}}</h2>
+                                            <h3>{{favourite.book_author.replace(regex, ' ')}}</h3>
+                                            <h3>{{favourite.book_release}}</h3>
+                                        </ion-card-content>
+                                    </ion-card>
+                                </div>
+                                <ng-template #notExist>
+                                    <ion-card class="p0 mt-5">
+                                        <ion-card-content text-center class="takAda p-10 border2">
+                                                <h2 class="text-bold">You not have favourite for any book</h2>
+                                        </ion-card-content>
+                                    </ion-card>
+                                </ng-template>
+                            </div>
+                        </ion-list>            
+                    </div>
+                </ion-col>
+            </ion-row>
+
+            favourite and favourite comic
             <ion-row>
-              <ion-col col-6>
-                <button ion-button outline block (tap)="gotoBookmarkBook()">Bookmark Book</button>
-              </ion-col>
-              <ion-col col-6>
-                <button ion-button color="secondary" outline block (tap)="gotoFavouriteBook(isFacebookLogin)">Favourite Book</button>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </ion-item>
-      </ion-list>
-    </div>
+                <ion-col col-12 class="pr-0 pl-0 pb-0">
+                    <p class="text-bold text-center bg-biruMuda pt-5 pb-5">COMICS</p>
+                </ion-col>
+                <ion-col col-12 class="pr-0 pl-0 pt-0">
+                    <ion-segment [(ngModel)]="loginSegment">
+                        <ion-segment-button value="BookmarkComic">
+                            <p class="text-bold mt-10">BOOKMARKED</p>
+                        </ion-segment-button>
+                        <ion-segment-button value="FavouriteComic">
+                            <p class="text-bold mt-10">FAVOURITES</p>
+                        </ion-segment-button>
+                    </ion-segment>
+            
+                    <div [ngSwitch]="loginSegment">
+                        <ion-list *ngSwitchCase="'BookmarkComic'">
+                            <div class="w-100 contentBook">
+                                <div *ngIf="myBookmarkComic.length > 0; else notExist">
+                                    <ion-card *ngFor="let bookmark of myBookmarkComic" (tap)="showDetailcomic(bookmark.comic_title)" class="bookmarkBook-content">
+                                        <ion-card-content>
+                                            <h2 class="text-bold">{{bookmark.comic_title.replace(regex, ' ')}}</h2>
+                                            <h3>{{bookmark.comic_author.replace(regex, ' ')}}</h3>
+                                            <h3>{{bookmark.comic_genre}}</h3>
+                                            <h3>{{bookmark.comic_release}}</h3>
+                                        </ion-card-content>
+                                    </ion-card>
+                                </div>
+                                <ng-template #notExist>
+                                    <ion-card class="p0 mt-5">
+                                        <ion-card-content text-center class="takAda p-10 border2">
+                                                <h2 class="text-bold">You not have bookmark for any comic</h2>
+                                        </ion-card-content>
+                                    </ion-card>
+                                </ng-template>
+                            </div>
+                        </ion-list>
 
-    <button ion-button block outline iocn-left color="danger" (click)="logoutGooglePlus()">
-      <ion-icon name="log-out"></ion-icon> Logout Google Plus
-    </button>      
-  </ion-card>
+                        <ion-list *ngSwitchCase="'FavouriteComic'">
+                            <div class="w-100 contentBook">
+                                <div *ngIf="myComicFav.length > 0; else notExist">
+                                    <ion-card *ngFor="let favourite of myComicFav" class="bookmarkBook-content">
+                                        <ion-card-content>
+                                            <h2 class="text-bold">{{favourite.comic_title.replace(regex, ' ')}}</h2>
+                                            <h3>{{favourite.comic_author.replace(regex, ' ')}}</h3>
+                                            <h3>{{favourite.comic_Genre}}</h3>
+                                            <h3>{{favourite.comic_release}}</h3>
+                                        </ion-card-content>
+                                    </ion-card>
+                                </div>
+                                <ng-template #notExist>
+                                    <ion-card class="p0 mt-5">
+                                        <ion-card-content text-center class="takAda p-10 border2">
+                                                <h2 class="text-bold">You not have favourite for any comic</h2>
+                                        </ion-card-content>
+                                    </ion-card>
+                                </ng-template>
+                            </div>
+                        </ion-list>            
+                    </div>
+                </ion-col>
+            </ion-row>
+
+        </ion-grid>
+    </ion-card>
 
   <ion-refresher (ionRefresh)="doRefresh($event)">
     <ion-refresher-content 
@@ -169,4 +326,4 @@
       refreshingText="fetching data ...">
     </ion-refresher-content>
   </ion-refresher>
-</ion-content>
+</ion-content> -->

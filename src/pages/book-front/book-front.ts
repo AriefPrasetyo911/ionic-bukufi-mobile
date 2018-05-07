@@ -8,6 +8,7 @@ import { SearchPage } from '../search/search';
 import { Facebook } from '@ionic-native/facebook';
 import { GooglePlus } from '@ionic-native/google-plus';
 import firebase from 'firebase';
+import { UserAccountPage } from '../user-account/user-account';
 
 @IonicPage()
 @Component({
@@ -15,174 +16,179 @@ import firebase from 'firebase';
   templateUrl: 'book-front.html',
 })
 export class BookFrontPage {
-  popularBooks: any;
-  newBooks: any;
-  book:string;
+    popularBooks: any;
+    newBooks: any;
+    book:string;
+    
+    FBData: any;
+    loggedin: boolean = false;
+    
+    isGoogleLogin: boolean = false;
+    isFacebookLogin: boolean = false;
+    userProfile: any = null;
+    
+    providerIDs: any;
+    emailIDs: any;
+    userIDs: any;
+    regex = /\-/gi;
 
-  FBData: any;
-  loggedin: boolean = false;
+    constructor(public navCtrl: NavController, public navParams: NavParams, public bukufiRest: BukufiRestProvider, public fb: Facebook, public gPlus: GooglePlus) {
+        this.getPopularBooks();
+        this.getNewBooks();
+        
+        //segment
+        this.book = 'popular-book';
 
-  isGoogleLogin: boolean = false;
-  isFacebookLogin: boolean = false;
-  userProfile: any = null;
+        this.checkGoogleLoginStatus();
+        this.checkFacebookLoginStatus();
+    }
 
-  providerIDs: any;
-  emailIDs: any;
-  userIDs: any;
+    ionViewDidLoad() {
+        console.clear();
+        console.log('====================');
+        console.log('%c BookFrontPage Loaded', 'color: green; font-weight: bold;');
+        console.log('====================');
+        this.checkGoogleLoginStatus();
+        this.checkFacebookLoginStatus();
+    }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public bukufiRest: BukufiRestProvider, public fb: Facebook, public gPlus: GooglePlus) {
-    this.getPopularBooks();
-    this.getNewBooks();
+    getPopularBooks() {
+        this.bukufiRest.getPopBooks()
+        .then(data => {
+            this.popularBooks = data;
+            console.log('==> Popular Book :', this.popularBooks);
+        });
+    }
 
-    //segment
-    this.book = 'popular-book';
-  }
+    getNewBooks(){
+        this.bukufiRest.getNewBook()
+        .then(data => {
+            this.newBooks = data;
+            console.log('==> New Books :', data);
+        })
+    }
 
-  ionViewDidLoad() {
-    console.log('===> BookFrontPage Loaded');
-    this.checkGoogleLoginStatus();
-    this.checkFacebookLoginStatus();
-  }
+    showDetailBook(book) {
+        console.log('=> show detail book', book);
+        this.navCtrl.push(BookDetailPage, {
+            book: book
+        });
+    }
 
-  getPopularBooks() {
-    this.bukufiRest.getPopBooks()
-    .then(data => {
-      this.popularBooks = data;
-      console.log('==> Popular Book :', this.popularBooks);
-    });
-  }
+    //BOOK LISTS
+    bookList(){
+        this.navCtrl.push(BookListPage);
+    }
+  
+    doRefresh(refresher) {
+        console.log('Begin async operation', refresher);
+        this.getPopularBooks();
+        this.getNewBooks();
+        this.checkGoogleLoginStatus();
+        this.checkFacebookLoginStatus();
+        setTimeout(() => {
+            this.checkGoogleLoginStatus();
+            this.checkFacebookLoginStatus();
+            console.log('Async operation has ended');
+            refresher.complete();
+        }, 2000);
+    }
+    
+    userInformation(){
+        this.navCtrl.push(UserAccountPage)
+    }
 
-  getNewBooks(){
-    this.bukufiRest.getNewBook()
-    .then(data => {
-      this.newBooks = data;
-      console.log('==> New Books :', data);
-    })
-  }
+    loginFirst(){
+        this.navCtrl.push(LoginPage);
+    }
 
-  showDetailBook(book) {
-    console.log('=> show detail book', book);
-    this.navCtrl.push(BookDetailPage, {
-      book: book
-    });
-  }
+    search(){
+        this.navCtrl.push(SearchPage);
+    }
 
-  //BOOK LISTS
-  bookList(){
-    this.navCtrl.push(BookListPage);
-  }
-
-  //--------------------
-  doRefresh(refresher) {
-    console.log('Begin async operation', refresher);
-    this.getPopularBooks();
-    this.getNewBooks();
-    this.checkGoogleLoginStatus();
-    this.checkFacebookLoginStatus();
-    setTimeout(() => {
-      this.checkGoogleLoginStatus();
-      this.checkFacebookLoginStatus();
-      console.log('Async operation has ended');
-      refresher.complete();
-    }, 2000);
-  }
-  //--------------------
-
-  loginFirst(){
-    this.navCtrl.push(LoginPage);
-  }
-
-  search(){
-    this.navCtrl.push(SearchPage);
-  }
-
-  //===- FACEBOOK CHECK -===//
+    //===- FACEBOOK CHECK -===//
     checkFacebookLoginStatus(){
-      this.fb.getLoginStatus().then(res => {
+        this.fb.getLoginStatus().then(res => {
         
         if(res.status == 'connect' || res.status == 'connected'){
-          firebase.auth().onAuthStateChanged(user => {
-            if(user){
-              console.log("==========================");
-              console.log("   FACEBOOK LOGIN CHECK   ");
-              console.log("--------------------------");
-              this.userProfile  = user;
-              console.log('==> User Facebook Login Data', this.userProfile);
-              this.loggedin = true;
-              this.isFacebookLogin  = true;
-              console.log('==> Facebook Login Status :: CONNECTED');
-              console.log("=> isFacebookLogin status", this.isFacebookLogin);
-              
-              
-              this.providerIDs = "Facebook";
-              this.userIDs     = this.userProfile.uid;
-              this.emailIDs    = this.userProfile.email;
-              console.log("=> Facebook User ID", this.userIDs);
-              console.log("==========================");
-            }
-            else{
-              this.isFacebookLogin  = false;
-              console.log("==========================");
-              console.log("   FACEBOOK LOGIN CHECK   ");
-              console.log("--------------------------");
-              this.isFacebookLogin  = false;
-              this.userProfile = null;
-              console.log('==> Facebook Login Status :: DISCONNECTED');
-              console.log("=> isFacebookLogin status", this.isFacebookLogin);
-              console.log("==========================");
-            }
-          })
-        }
-
-        else{
-          console.log('==> Facebook Login Status :: DISCONECTED');
-          this.loggedin  = false;
-          this.isFacebookLogin  = false;
-          console.log('=> isFacebookLogin status', this.isFacebookLogin);
-        }
-      }).catch(err => {
-        console.log(err);
-      });
-    }
-  //===- END -===//
-
-  //===- GOOGLE CHECK -===//
-    checkGoogleLoginStatus(){
-      this.gPlus.trySilentLogin({}).then(stats => {
-        if(stats){
-          console.log("==========================");
-          console.log(" GOOGLE PLUS LOGIN CHECK ");
-          console.log("--------------------------");
-          this.userProfile = stats;
-          console.log('==> Hmmm, waiting data for  (Google Plus) Login .....', this.userProfile);
-
-          this.loggedin  = true;
-          this.isGoogleLogin = true;
-          console.log('==> Google Plus Login Status :: CONNECTED');
-          console.log('=> isGoogleLogin status', this.isGoogleLogin);
-
-          this.providerIDs = "Google Plus";
-          this.userIDs     = this.userProfile.userId;
-          this.emailIDs    = this.userProfile.email;
-          console.log("=> Google Plus User ID", this.userIDs);
-          console.log("==========================");
+            firebase.auth().onAuthStateChanged(user => {
+                if(user){
+                    console.log("==========================");
+                    console.log("   FACEBOOK LOGIN CHECK   ");
+                    console.log("--------------------------");
+                    this.userProfile  = user;
+                //   console.log('==> User Facebook Login Data', this.userProfile);
+                    this.loggedin = true;
+                    this.isFacebookLogin  = true;
+                    console.log('==>%c Facebook Login Status :: CONNECTED ', 'background: green; color: white; font-weight: bold; display: block;');
+                    console.log("=>%c isFacebookLogin status", 'color: green; font-weight: bold;', this.isFacebookLogin);
+                    
+                    
+                    this.providerIDs = "Facebook";
+                    this.userIDs     = this.userProfile.uid;
+                    this.emailIDs    = this.userProfile.email;
+                    console.log("=>%c Facebook User ID", 'color: green; font-weight: bold;', this.userIDs);
+                    console.log("==========================");
+                } else {
+                    this.isFacebookLogin  = false;
+                    console.log("==========================");
+                    console.log("   FACEBOOK LOGIN CHECK   ");
+                    console.log("--------------------------");
+                    this.isFacebookLogin  = false;
+                    this.userProfile = null;
+                    console.log('==>%c Facebook Login Status :: DISCONNECTED ', 'background: red; color: white; font-weight: bold; display: block;');
+                    console.log("=>%c isFacebookLogin status", 'color: red; font-weight: bold;', this.isFacebookLogin);
+                    console.log("==========================");
+                }
+            })
         } else {
-          console.log('==> Hmmm, data for  (Google Plus) Login Not Found .....');
-          this.isGoogleLogin  = false;
-          this.loggedin  = false;
-          console.log('=> isGoogleLogin status', this.isGoogleLogin);
+            console.log('==>%c Facebook Login Status :: DISCONECTED ', 'background: red; color: white; font-weight: bold; display: block;');
+            this.loggedin  = false;
+            this.isFacebookLogin  = false;
+            console.log('=>%c isFacebookLogin status', 'color: red; font-weight: bold;', this.isFacebookLogin);
         }
-      }).catch(error => {
-        // this.userProfile = null;
-        // this.loggedin    = false;
-        console.log("==========================");
-        console.log(" GOOGLE PLUS LOGIN CHECK ");
-        console.log("--------------------------");
-        console.log('==> Google Plus Login Status :: DISCONNECTED');
-        this.isGoogleLogin  = false;
-        console.log('=> isGoogleLogin status', this.isGoogleLogin);
-        console.log("==========================");
-      });
+        }).catch(err => {
+            console.log(err);
+        });
     }
-  //===- END -===//
+    //===- END -===//
+
+    //===- GOOGLE CHECK -===//
+    checkGoogleLoginStatus(){
+        this.gPlus.trySilentLogin({}).then(stats => {
+            if(stats){
+                console.log("==========================");
+                console.log(" GOOGLE PLUS LOGIN CHECK ");
+                console.log("--------------------------");
+                this.userProfile = stats;
+        
+                this.loggedin  = true;
+                this.isGoogleLogin = true;
+                console.log('==>%c Google Plus Login Status :: CONNECTED ', 'background: green; color: white; font-weight: bold; display: block;');
+                console.log('=>%c isGoogleLogin status', 'color: green; font-weight: bold;', this.isGoogleLogin);
+        
+                this.providerIDs = "Google Plus";
+                this.userIDs     = this.userProfile.userId;
+                this.emailIDs    = this.userProfile.email;
+                console.log("=>%c Google Plus User ID", 'color: green; font-weight: bold;', this.userIDs);
+                console.log("==========================");
+            } else {
+                console.log('==>%c Google Plus Login Not Detected. Please Login', 'color: red; font-weight: bold;');
+                this.isGoogleLogin  = false;
+                this.loggedin  = false;
+                console.log('=>%c isGoogleLogin status', 'color: red; font-weight: bold;', this.isGoogleLogin);
+            }
+        }).catch(error => {
+            // this.userProfile = null;
+            // this.loggedin    = false;
+            console.log("==========================");
+            console.log(" GOOGLE PLUS LOGIN CHECK ");
+            console.log("--------------------------");
+            console.log('==>%c Google Plus Login Status :: DISCONNECTED ', 'background: red; color: white; font-weight: bold; display: block;');
+            this.isGoogleLogin  = false;
+            console.log('=>%c isGoogleLogin status', 'color: red; font-weight: bold;', this.isGoogleLogin);
+            console.log("==========================");
+        });
+    }
+    //===- END -===//
 }

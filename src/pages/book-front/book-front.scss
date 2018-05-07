@@ -1,4 +1,13 @@
 page-book-front {
+    //button fab
+    .fab, .fab-ios, .fab-ios-primary{
+        background-color: #0fbab6;
+    }
+
+    .whiteBlue{
+        color: white;
+    }
+    
     ion-title, .card-header{
         font-weight: bold;
     }
@@ -23,7 +32,7 @@ page-book-front {
     }
 
     .book_cover{
-        height: 495px;
+        height: 100%;
         width: 100%;
         object-fit: unset;
     }
@@ -45,29 +54,161 @@ page-book-front {
 
     .segment-activated{
         background-color: gainsboro !important;
-        color: darkorange !important;
+        color: #007f79 !important;
     }
 
     .segment-ios, .segment-button, .segment-activated{
-        border-radius: 0 !important;   
+        border-radius: 0 !important;  
+        border-bottom: 2px solid gainsboro; 
     }
+
+    .login-indicator-false{
+        color: red;
+    }
+
+    .login-indicator-true{
+        color: green;
+    }
+    
+    .more-btn{
+        color: crimson;
+        border: 1px solid lightsteelblue;
+    }
+
+    .card-header{
+        padding: 10px;
+    }
+
+    .text-title{
+        font-weight: bold;
+        letter-spacing: 3px;
+        color: white;
+        position: absolute;
+        z-index: 2;
+        font-size: 30px;
+        top: 12%;
+        left: 34%;
+    }
+
+    .text-center{
+        text-align: center;
+    }
+
+    .text-position{
+        position: relative;
+        left: 18%;
+    }
+
+    .toolbar-ios ion-title{
+        left: 0 !important;
+    }
+
+    .ios ion-nav > .ion-page > ion-header > .toolbar.statusbar-padding:first-child ion-title{
+        padding-top: 0 !important;
+    }
+
+    .text-biruMuda{
+        color: #0fbab6 !important;
+    }
+
+    .toolbar-title-md{
+        color: #0fbab6 !important;
+        font-size: 35px;
+        font-family: 'Libre Baskerville', serif;
+        text-align: center;
+    }
+
+    .toolbar-title-ios{
+        color: #0fbab6 !important;
+        font-size: 30px;
+        font-family: 'Libre Baskerville', serif;
+        font-weight: normal;
+    }
+
+    .mb--4{
+        margin-bottom: -4px;
+    }
+
+    .segment-md .segment-button, .segment-md .segment-button.segment-activated{
+        border-color: transparent;
+        height: auto;
+        font-size: 1.5rem;
+        color: black;
+        margin-bottom: 1px;
+        border-bottom: 2px solid gainsboro;
+    }
+
+    .segment-ios .segment-button{
+        border-color: transparent !important;
+        color: black;
+    }
+    
+    #title{
+        font-weight: bold;
+        font-family: 'Josefin Sans', sans-serif;
+        color: #007f79;
+        font-size: 16px;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    #author{
+        font-weight: normal;
+        font-family: 'Josefin Sans', sans-serif;
+        color: #007f79;
+        font-size: 15px;
+        margin-top: 3px;
+        margin-bottom: 0;
+    }
+
+    p{
+        margin-top: 0;
+        margin-bottom: 5px;
+    }
+
+    .img{
+        -webkit-box-shadow: 0px 3px 5px 0px rgba(138,131,138,1);
+        -moz-box-shadow: 0px 3px 5px 0px rgba(138,131,138,1);
+        box-shadow: 0px 3px 5px 0px rgba(138,131,138,1);
+    }
+
+    .custom{
+        border: 2px solid #0fbab6;
+        color: #007f79 !important;
+        letter-spacing: 3px;
+    }
+
+    .fab-list-active{
+        .fab, .fab-md, .fab-in-list, .fab-md-in-list, .show{
+            background-color: white;
+        }
+
+        .icon, .icon-md{
+            color: #007f79;
+        }
+    }
+
+    .menu{
+        color: #0fbab6 !important;
+    }
+
     //===- NEW -===//
         .cnrflash-new{
             position: absolute;
-            top: 0;
-            right: 0;
+            top: 5px;
+            right: 4px;
             z-index: 1;
             overflow: hidden;
-            width: 100px;
-            height: 100px;
+            width: 52px;
+            height: 52px;
         }
 
         .cnrflash-inner-new{
             position: absolute;
             bottom: 0;
             right: 0;
-            width: 141px;
-            height: 72px;
+            width: 74px;
+            height: 38px;
             -ms-transform: rotate(45deg);
             -o-transform: rotate(45deg);
             -moz-transform: rotate(45deg);
@@ -88,11 +229,11 @@ page-book-front {
             left: 0;
             display: block;
             width: 100%;
-            padding-bottom: 15px;
+            padding-bottom: 5px;
             color: #fff;
             text-shadow: 0 1px 1px rgba(1, 1, 1, 0.8);
             font-size: 0.95em;
-            font-weight: bold;
+            font-weight: normal;
             text-align: center;
         }
     //===- END NEW -===//
@@ -100,20 +241,20 @@ page-book-front {
     //===- POPULAR -===//
         .cnrflash-popular{
             position: absolute;
-            top: 0;
-            right: 0;
+            top: 5px;
+            right: 4px;
             z-index: 1;
             overflow: hidden;
-            width: 105PX;
-            height: 105PX;
+            width: 52px;
+            height: 52px;
         }
 
         .cnrflash-inner-popular{
             position: absolute;
             bottom: 0;
             right: 0;
-            width: 150px;
-            height: 75px;
+            width: 74px;
+            height: 38px;
             -ms-transform: rotate(45deg);
             -o-transform: rotate(45deg);
             -moz-transform: rotate(45deg);
@@ -130,16 +271,15 @@ page-book-front {
 
         .cnrflash-label-popular{
             position: absolute;
-            bottom: -7px;
-            font-size: 12px;
+            bottom: 0;
+            font-size: 10px;
             left: 0;
             display: block;
             width: 100%;
-            padding-bottom: 15px;
+            padding-bottom: 3px;
             color: #fff;
             text-shadow: 0 1px 1px rgba(1, 1, 1, 0.8);
-            font-size: 0.95em;
-            font-weight: bold;
+            font-weight: normal;
             text-align: center;
         }
     //===- END POPULAR -===//
@@ -147,20 +287,20 @@ page-book-front {
     //===- RECOMENDED -===//
         .cnrflash-recomended{
             position: absolute;
-            top: 0;
-            right: 0;
+            top: 5px;
+            right: 4px;
             z-index: 1;
             overflow: hidden;
-            width: 110PX;
-            height: 110PX;
+            width: 52px;
+            height: 52px;
         }
 
         .cnrflash-inner-recomended{
             position: absolute;
             bottom: 0;
             right: 0;
-            width: 157px;
-            height: 80px;
+            width: 74px;
+            height: 38px;
             -ms-transform: rotate(45deg);
             -o-transform: rotate(45deg);
             -moz-transform: rotate(45deg);
@@ -177,15 +317,15 @@ page-book-front {
 
         .cnrflash-label-recomended{
             position: absolute;
-            bottom: 0;
+            bottom: 2px;
             left: 0;
             display: block;
             width: 100%;
             //padding-bottom: 15px;
             color: #fff;
             text-shadow: 0 1px 1px rgba(1, 1, 1, 0.8);
-            font-size: 0.95em;
-            font-weight: bold;
+            font-size: 8px;
+            font-weight: normal;
             text-align: center;
         }
     //===- END RECOMENDED -===//
@@ -193,20 +333,20 @@ page-book-front {
     //===- EDITOR PICK -===//
         .cnrflash-editor-pick{
             position: absolute;
-            top: 0;
-            right: 0;
+            top: 5px;
+            right: 4px;
             z-index: 1;
             overflow: hidden;
-            width: 105px;
-            height: 105px;
+            width: 52px;
+            height: 52px;
         }
 
         .cnrflash-inner-editor-pick{
             position: absolute;
             bottom: 0;
             right: 0;
-            width: 150px;
-            height: 75px;
+            width: 74px;
+            height: 38px;
             -ms-transform: rotate(45deg);
             -o-transform: rotate(45deg);
             -moz-transform: rotate(45deg);
@@ -223,33 +363,16 @@ page-book-front {
 
         .cnrflash-label-editor-pick{
             position: absolute;
-            bottom: 0;
+            bottom: 2px;
             left: 3px;
             display: block;
             width: 100%;
             //padding-bottom: 15px;
             color: #fff;
             text-shadow: 0 1px 1px rgba(1, 1, 1, 0.8);
-            font-size: 0.95em;
-            font-weight: bold;
+            font-size: 9px;
+            font-weight: normal;
             text-align: center;
         }
     //===- END EDITOR PICK -===//
-
-    .login-indicator-false{
-        color: red;
-    }
-
-    .login-indicator-true{
-        color: green;
-    }
-    
-    .more-btn{
-        color: crimson;
-        border: 1px solid lightsteelblue;
-    }
-
-    .card-header{
-        padding: 10px;
-    }
 }

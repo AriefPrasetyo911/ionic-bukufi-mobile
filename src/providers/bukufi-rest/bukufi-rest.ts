@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/catch';
 
 /*
   Generated class for the BukufiRestProvider provider.
@@ -122,6 +124,30 @@ export class BukufiRestProvider {
         })
       }
     /*===- END BOOK REVIEW -===*/
+
+    /*===- BOOK RATING -===*/
+    getBookRating(book){
+        return new Promise(resolve => {
+          this.http.get(`http://bukufi.com/api/v1/book/book-rating/${book}`).subscribe(data => {
+            resolve(data);
+          }, err => {
+            console.log(err);
+          })
+        })
+      }
+    /*===- END BOOK RATING -===*/
+
+    /*===- BOOK BOOKMARK -===*/
+    getBookBookmark(book){
+        return new Promise(resolve => {
+          this.http.get(`http://bukufi.com/api/v1/book/book-bookmark/${book}`).subscribe(data => {
+            resolve(data);
+          }, err => {
+            console.log(err);
+          })
+        })
+      }
+    /*===- END BOOK BOOKMARK -===*/
   /*==== END BOOK ====*/
 
   /*==== COMIC ====*/
