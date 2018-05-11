@@ -206,4 +206,21 @@ page-user-account {
     .accountCover{
         margin-top: 0;
     }
+
+    //for iOS
+    .content-ios{
+        img.image-rounded{
+            border-radius: 50%;
+            overflow: hidden;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 11%;
+            left: 36%;
+        }
+
+        .text-bold{
+            margin-top: 0;
+        }
+    }
 }

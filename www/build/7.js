@@ -1,6 +1,6 @@
 webpackJsonp([7],{
 
-/***/ 531:
+/***/ 529:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -18,21 +18,21 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var ComicPageModule = (function () {
+var ComicPageModule = /** @class */ (function () {
     function ComicPageModule() {
     }
+    ComicPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__comic__["a" /* ComicPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__comic__["a" /* ComicPage */]),
+            ],
+        })
+    ], ComicPageModule);
     return ComicPageModule;
 }());
-ComicPageModule = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
-        declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__comic__["a" /* ComicPage */],
-        ],
-        imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__comic__["a" /* ComicPage */]),
-        ],
-    })
-], ComicPageModule);
 
 //# sourceMappingURL=comic.module.js.map
 

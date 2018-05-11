@@ -145,4 +145,13 @@ page-comic-front {
     .menu{
         color: #0fbab6 !important;
     }
+
+    //for iOS
+    .content-ios{
+        .text-title{
+            top: 10%;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+    }
 }

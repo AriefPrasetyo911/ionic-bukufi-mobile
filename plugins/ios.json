@@ -8,28 +8,28 @@
   },
   "installed_plugins": {
     "cordova-plugin-device": {
-      "PACKAGE_NAME": "io.ionic.bukufiM2"
+      "PACKAGE_NAME": "com.kaigangames.bukufi"
     },
     "cordova-plugin-facebook4": {
       "APP_ID": "438200793263252",
       "APP_NAME": "Bukufi Mobile App",
-      "PACKAGE_NAME": "io.ionic.bukufiM2"
+      "PACKAGE_NAME": "com.kaigangames.bukufi"
     },
     "cordova-plugin-googleplus": {
-      "REVERSED_CLIENT_ID": "com.googleusercontent.apps.447326809905-0k31qccs1dghoojhvhbsubnoivlfkul5",
-      "PACKAGE_NAME": "io.ionic.bukufiM2"
+      "REVERSED_CLIENT_ID": "com.googleusercontent.apps.447326809905-698kdaspnqqcsrq3rg8e704ga6cu7276",
+      "PACKAGE_NAME": "com.kaigangames.bukufi"
     },
     "cordova-plugin-splashscreen": {
-      "PACKAGE_NAME": "io.ionic.bukufiM2"
+      "PACKAGE_NAME": "com.kaigangames.bukufi"
     },
     "cordova-plugin-statusbar": {
-      "PACKAGE_NAME": "io.ionic.bukufiM2"
+      "PACKAGE_NAME": "com.kaigangames.bukufi"
     },
     "cordova-plugin-whitelist": {
-      "PACKAGE_NAME": "io.ionic.bukufiM2"
+      "PACKAGE_NAME": "com.kaigangames.bukufi"
     },
     "ionic-plugin-keyboard": {
-      "PACKAGE_NAME": "io.ionic.bukufiM2"
+      "PACKAGE_NAME": "com.kaigangames.bukufi"
     }
   },
   "dependent_plugins": {}

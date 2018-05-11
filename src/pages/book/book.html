@@ -1,6 +1,6 @@
-<ion-header>
+<ion-header *ngIf="platformNow == 'android'">
     <ion-navbar transparent [color]="toolbarColor" [hidden]="!showToolbars">
-        <ion-buttons start>
+        <ion-buttons start class="ios-only">
             <button ion-button icon-only (tap)="toc($event)">
                 <ion-icon class="chapterList" ios="ios-list" md="ios-list"></ion-icon>
             </button>
@@ -11,7 +11,24 @@
         <ion-buttons end>
             <button ion-button icon-only (tap)="settings($event)">
                 <!-- <ion-icon name="settings"></ion-icon> -->
+                <img src="./assets/imgs/fonts-button.png" alt="setting" class="setting">
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
 
+<ion-header *ngIf="platformNow == 'iOS'">
+    <ion-navbar transparent [color]="toolbarColor" [hidden]="!showToolbars">
+        <ion-title>
+            <p class="biruMuda mb-0 mt-0">{{pageTitle}}</p>
+        </ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only (tap)="toc($event)">
+                <ion-icon class="chapterList" ios="ios-list" md="ios-list"></ion-icon>
+            </button>
+
+            <button ion-button icon-only (tap)="settings($event)">
+                <!-- <ion-icon name="settings"></ion-icon> -->
                 <img src="./assets/imgs/fonts-button.png" alt="setting" class="setting">
             </button>
         </ion-buttons>

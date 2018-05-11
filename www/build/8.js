@@ -1,6 +1,6 @@
 webpackJsonp([8],{
 
-/***/ 530:
+/***/ 528:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -18,21 +18,21 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var ComicListPageModule = (function () {
+var ComicListPageModule = /** @class */ (function () {
     function ComicListPageModule() {
     }
+    ComicListPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__comic_list__["a" /* ComicListPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__comic_list__["a" /* ComicListPage */]),
+            ],
+        })
+    ], ComicListPageModule);
     return ComicListPageModule;
 }());
-ComicListPageModule = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
-        declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__comic_list__["a" /* ComicListPage */],
-        ],
-        imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__comic_list__["a" /* ComicListPage */]),
-        ],
-    })
-], ComicListPageModule);
 
 //# sourceMappingURL=comic-list.module.js.map
 

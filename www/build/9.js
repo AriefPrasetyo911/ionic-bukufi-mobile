@@ -1,6 +1,6 @@
 webpackJsonp([9],{
 
-/***/ 528:
+/***/ 527:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -18,21 +18,21 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var ComicFrontPageModule = (function () {
+var ComicFrontPageModule = /** @class */ (function () {
     function ComicFrontPageModule() {
     }
+    ComicFrontPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__comic_front__["a" /* ComicFrontPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__comic_front__["a" /* ComicFrontPage */]),
+            ],
+        })
+    ], ComicFrontPageModule);
     return ComicFrontPageModule;
 }());
-ComicFrontPageModule = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
-        declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__comic_front__["a" /* ComicFrontPage */],
-        ],
-        imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__comic_front__["a" /* ComicFrontPage */]),
-        ],
-    })
-], ComicFrontPageModule);
 
 //# sourceMappingURL=comic-front.module.js.map
 

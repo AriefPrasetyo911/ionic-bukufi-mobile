@@ -25739,6 +25739,10 @@ page-book .setting {
   margin-top: -7px;
 }
 
+page-book .platform-ios .ios-only {
+  float: right;
+}
+
 page-book-bookmark .login-indicator-false {
   color: red;
 }
@@ -26605,6 +26609,10 @@ page-book-front .cnrflash-label-editor-pick {
   text-align: center;
 }
 
+page-book-front .content-ios .text-title {
+  top: 10%;
+}
+
 page-book-list .toolbar-title-md, page-book-list .toolbar-title-ios,
 page-book-list .bar-button-default-ios, page-book-list .bar-button-default.bar-button-ios-default, page-book-list .bar-button-clear-ios-default,
 page-book-list .bar-button-default-md, page-book-list .bar-button-clear-md-default, page-book-list .bar-button-md-default {
@@ -27163,6 +27171,12 @@ page-comic-front .fab-list-active .icon, page-comic-front .fab-list-active .icon
 
 page-comic-front .menu {
   color: #0fbab6 !important;
+}
+
+page-comic-front .content-ios .text-title {
+  top: 10%;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 page-comic-list .toolbar-title-md, page-comic-list .toolbar-title-ios,
@@ -28066,5 +28080,19 @@ page-user-account .contentBook {
 }
 
 page-user-account .accountCover {
+  margin-top: 0;
+}
+
+page-user-account .content-ios img.image-rounded {
+  border-radius: 50%;
+  overflow: hidden;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 11%;
+  left: 36%;
+}
+
+page-user-account .content-ios .text-bold {
   margin-top: 0;
 }

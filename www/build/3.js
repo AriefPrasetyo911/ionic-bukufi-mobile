@@ -18,21 +18,21 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var BookBookmarkPageModule = (function () {
+var BookBookmarkPageModule = /** @class */ (function () {
     function BookBookmarkPageModule() {
     }
+    BookBookmarkPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__book_bookmark__["a" /* BookBookmarkPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__book_bookmark__["a" /* BookBookmarkPage */]),
+            ],
+        })
+    ], BookBookmarkPageModule);
     return BookBookmarkPageModule;
 }());
-BookBookmarkPageModule = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
-        declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__book_bookmark__["a" /* BookBookmarkPage */],
-        ],
-        imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__book_bookmark__["a" /* BookBookmarkPage */]),
-        ],
-    })
-], BookBookmarkPageModule);
 
 //# sourceMappingURL=book-bookmark.module.js.map
 
@@ -67,7 +67,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var BookBookmarkPage = (function () {
+var BookBookmarkPage = /** @class */ (function () {
     function BookBookmarkPage(navCtrl, navParams, afDatabase, fb, gPlus) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
@@ -197,14 +197,14 @@ var BookBookmarkPage = (function () {
             refresher.complete();
         }, 2000);
     };
+    BookBookmarkPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-book-bookmark',template:/*ion-inline-start:"/Users/user/Desktop/Kaigan Games/ACTIVE/ionic-bukufi-mobile/src/pages/book-bookmark/book-bookmark.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>Your Bookmark Book</ion-title>\n\n    <ion-buttons end>\n\n      <div *ngIf="loggedin == false; else loginTrue">\n\n        <button ion-button class="login-indicator-false">\n\n          <ion-icon name="sunny" end></ion-icon>\n\n        </button>\n\n      </div>\n\n      <ng-template #loginTrue>\n\n          <div *ngIf="isFacebookLogin == true">\n\n            <button ion-button class="login-indicator-true">\n\n              <ion-icon name="logo-facebook"></ion-icon>\n\n            </button>\n\n          </div>\n\n          <div *ngIf="isGoogleLogin == true">\n\n            <button ion-button class="login-indicator-true">\n\n              <ion-icon name="logo-googleplus"></ion-icon>\n\n            </button>\n\n          </div>\n\n      </ng-template>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-list inset>\n\n    <div *ngIf="myBookmark.length > 0; else notExist">\n\n      <button ion-item *ngFor="let bookmark of myBookmark" (tap)="showDetailBook(bookmark.book_title)">\n\n        <h2>{{bookmark.book_title.replace(regex, \' \')}}</h2>\n\n        <h3>{{bookmark.book_author.replace(regex, \' \')}}</h3>\n\n        <h3>{{bookmark.book_release}}</h3>\n\n      </button> \n\n    </div>\n\n    <ng-template #notExist>\n\n      <button ion-item text-center class="takAda">\n\n        <h2>You not have bookmark for any book</h2>\n\n      </button>\n\n    </ng-template>\n\n  </ion-list>\n\n\n\n  <ion-refresher (ionRefresh)="doRefresh($event)">\n\n      <ion-refresher-content \n\n        pullingText="Pull to refresh"\n\n        pullingIcon="arrow-dropdown"\n\n        refreshingSpinner="circles"\n\n        refreshingText="fetching data ...">\n\n      </ion-refresher-content>\n\n  </ion-refresher>\n\n</ion-content>\n\n'/*ion-inline-end:"/Users/user/Desktop/Kaigan Games/ACTIVE/ionic-bukufi-mobile/src/pages/book-bookmark/book-bookmark.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_facebook__["a" /* Facebook */], __WEBPACK_IMPORTED_MODULE_6__ionic_native_google_plus__["a" /* GooglePlus */]])
+    ], BookBookmarkPage);
     return BookBookmarkPage;
 }());
-BookBookmarkPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-        selector: 'page-book-bookmark',template:/*ion-inline-start:"C:\Users\riser\Desktop\ACTIVE\ionic-bukufi-mobile\src\pages\book-bookmark\book-bookmark.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>Your Bookmark Book</ion-title>\n\n    <ion-buttons end>\n\n      <div *ngIf="loggedin == false; else loginTrue">\n\n        <button ion-button class="login-indicator-false">\n\n          <ion-icon name="sunny" end></ion-icon>\n\n        </button>\n\n      </div>\n\n      <ng-template #loginTrue>\n\n          <div *ngIf="isFacebookLogin == true">\n\n            <button ion-button class="login-indicator-true">\n\n              <ion-icon name="logo-facebook"></ion-icon>\n\n            </button>\n\n          </div>\n\n          <div *ngIf="isGoogleLogin == true">\n\n            <button ion-button class="login-indicator-true">\n\n              <ion-icon name="logo-googleplus"></ion-icon>\n\n            </button>\n\n          </div>\n\n      </ng-template>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-list inset>\n\n    <div *ngIf="myBookmark.length > 0; else notExist">\n\n      <button ion-item *ngFor="let bookmark of myBookmark" (tap)="showDetailBook(bookmark.book_title)">\n\n        <h2>{{bookmark.book_title.replace(regex, \' \')}}</h2>\n\n        <h3>{{bookmark.book_author.replace(regex, \' \')}}</h3>\n\n        <h3>{{bookmark.book_release}}</h3>\n\n      </button> \n\n    </div>\n\n    <ng-template #notExist>\n\n      <button ion-item text-center class="takAda">\n\n        <h2>You not have bookmark for any book</h2>\n\n      </button>\n\n    </ng-template>\n\n  </ion-list>\n\n\n\n  <ion-refresher (ionRefresh)="doRefresh($event)">\n\n      <ion-refresher-content \n\n        pullingText="Pull to refresh"\n\n        pullingIcon="arrow-dropdown"\n\n        refreshingSpinner="circles"\n\n        refreshingText="fetching data ...">\n\n      </ion-refresher-content>\n\n  </ion-refresher>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\riser\Desktop\ACTIVE\ionic-bukufi-mobile\src\pages\book-bookmark\book-bookmark.html"*/,
-    }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_facebook__["a" /* Facebook */], __WEBPACK_IMPORTED_MODULE_6__ionic_native_google_plus__["a" /* GooglePlus */]])
-], BookBookmarkPage);
 
 //# sourceMappingURL=book-bookmark.js.map
 

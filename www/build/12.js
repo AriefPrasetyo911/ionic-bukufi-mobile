@@ -1,6 +1,6 @@
 webpackJsonp([12],{
 
-/***/ 524:
+/***/ 523:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -18,21 +18,21 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var BookFrontPageModule = (function () {
+var BookFrontPageModule = /** @class */ (function () {
     function BookFrontPageModule() {
     }
+    BookFrontPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__book_front__["a" /* BookFrontPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__book_front__["a" /* BookFrontPage */]),
+            ],
+        })
+    ], BookFrontPageModule);
     return BookFrontPageModule;
 }());
-BookFrontPageModule = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
-        declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__book_front__["a" /* BookFrontPage */],
-        ],
-        imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__book_front__["a" /* BookFrontPage */]),
-        ],
-    })
-], BookFrontPageModule);
 
 //# sourceMappingURL=book-front.module.js.map
 

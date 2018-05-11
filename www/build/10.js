@@ -1,6 +1,6 @@
 webpackJsonp([10],{
 
-/***/ 526:
+/***/ 531:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -18,21 +18,21 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var ComicDetailPageModule = (function () {
+var ComicDetailPageModule = /** @class */ (function () {
     function ComicDetailPageModule() {
     }
+    ComicDetailPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__comic_detail__["a" /* ComicDetailPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__comic_detail__["a" /* ComicDetailPage */]),
+            ],
+        })
+    ], ComicDetailPageModule);
     return ComicDetailPageModule;
 }());
-ComicDetailPageModule = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
-        declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__comic_detail__["a" /* ComicDetailPage */],
-        ],
-        imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__comic_detail__["a" /* ComicDetailPage */]),
-        ],
-    })
-], ComicDetailPageModule);
 
 //# sourceMappingURL=comic-detail.module.js.map
 

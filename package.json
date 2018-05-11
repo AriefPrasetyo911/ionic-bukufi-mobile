@@ -44,13 +44,13 @@
     "promise-polyfill": "7.0.0",
     "rxjs": "5.5.2",
     "sw-toolbox": "3.6.0",
+    "typescript": "^2.8.3",
     "zone.js": "0.8.18"
   },
   "devDependencies": {
     "@angular/cli": "^1.6.3",
     "@ionic/app-scripts": "3.1.9",
-    "epubjs": "^0.2.20",
-    "typescript": "2.3.4"
+    "epubjs": "^0.2.20"
   },
   "description": "Bukufi Mobile App for Android and iOS Platform",
   "cordova": {
@@ -66,7 +66,7 @@
         "APP_NAME": "Bukufi Mobile App"
       },
       "cordova-plugin-googleplus": {
-        "REVERSED_CLIENT_ID": "com.googleusercontent.apps.447326809905-0k31qccs1dghoojhvhbsubnoivlfkul5"
+        "REVERSED_CLIENT_ID": "com.googleusercontent.apps.447326809905-698kdaspnqqcsrq3rg8e704ga6cu7276"
       }
     },
     "platforms": [

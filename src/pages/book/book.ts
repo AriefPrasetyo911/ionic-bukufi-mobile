@@ -20,13 +20,15 @@ export class BookPage {
   bgColor: any;
   toolbarColor: string = 'light';
 
+  //platform
+  platformNow: string;
+
   constructor(
     public navCtrl: NavController,
     public platform: Platform,
     public popoverCtrl: PopoverController,
     public events: Events,
-    public navParams: NavParams,
-  ) {
+    public navParams: NavParams) {
     let book = this.navParams.get('book');
     // console.log('Param from detail book :', book);
 
@@ -50,6 +52,18 @@ export class BookPage {
 
       // subscribe to events coming from other pages
       this._subscribeToEvents();
+
+      //checkPlatform
+      if(this.platform.is('ios')){
+        console.log('Now Run on Platform iOS'); 
+        this.platformNow = 'iOS';
+      } else if (this.platform.is('android')){
+        console.log('Now Run on Platform Android');
+        this.platformNow = 'android';
+      } else {
+        console.log('Now Run on Platform Windows Mobile');
+        this.platformNow = 'windows';
+      }
     });
   }
 

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.ionic.bukufiM2" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.kaigangames.bukufi" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <feature name="Device">
         <param name="android-package" value="org.apache.cordova.device.Device" />
     </feature>
@@ -36,7 +36,7 @@
     <name>Bukufi Mobile</name>
     <description>Bukufi Mobile for Android and iOS</description>
     <author email="arief.prasetyo911@gmail.com" href="https://google.com/">Arief Budi Prasetyo</author>
-    <content original-src="index.html" src="http://192.168.100.247:8100" />
+    <content original-src="index.html" src="http://192.168.100.250:8100" />
     <access origin="*" />
     <allow-navigation href="http://ionic.local/*" />
     <allow-intent href="http://*/*" />
@@ -57,6 +57,9 @@
     <allow-navigation href="http://192.168.100.242:8100" />
     <allow-navigation href="http://192.168.100.243:8100" />
     <allow-navigation href="http://192.168.100.247:8100" />
+    <allow-navigation href="http://192.168.100.248:8100" />
+    <allow-navigation href="http://192.168.100.249:8100" />
+    <allow-navigation href="http://192.168.100.250:8100" />
     <allow-intent href="market:*" />
     <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
     <icon density="mdpi" src="resources/android/icon/drawable-mdpi-icon.png" />

@@ -1,6 +1,6 @@
 webpackJsonp([13],{
 
-/***/ 522:
+/***/ 534:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -18,21 +18,21 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var BookDetailPageModule = (function () {
+var BookDetailPageModule = /** @class */ (function () {
     function BookDetailPageModule() {
     }
+    BookDetailPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__book_detail__["a" /* BookDetailPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__book_detail__["a" /* BookDetailPage */]),
+            ],
+        })
+    ], BookDetailPageModule);
     return BookDetailPageModule;
 }());
-BookDetailPageModule = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
-        declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__book_detail__["a" /* BookDetailPage */],
-        ],
-        imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__book_detail__["a" /* BookDetailPage */]),
-        ],
-    })
-], BookDetailPageModule);
 
 //# sourceMappingURL=book-detail.module.js.map
 

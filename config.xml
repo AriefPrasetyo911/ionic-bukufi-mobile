@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.ionic.bukufiM2" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.kaigangames.bukufi" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Bukufi Mobile</name>
     <description>Bukufi Mobile for Android and iOS</description>
     <author email="arief.prasetyo911@gmail.com" href="https://google.com/">Arief Budi Prasetyo</author>
-    <content original-src="index.html" src="http://192.168.100.247:8100" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-navigation href="http://ionic.local/*" />
     <allow-intent href="http://*/*" />
@@ -93,8 +93,9 @@
     <allow-navigation href="http://192.168.100.242:8100" />
     <allow-navigation href="http://192.168.100.243:8100" />
     <allow-navigation href="http://192.168.100.247:8100" />
-    <engine name="android" spec="6.3.0" />
-    <engine name="ios" spec="4.5.4" />
+    <allow-navigation href="http://192.168.100.248:8100" />
+    <allow-navigation href="http://192.168.100.249:8100" />
+    <allow-navigation href="http://192.168.100.250:8100" />
     <plugin name="cordova-plugin-console" spec="^1.0.5" />
     <plugin name="cordova-plugin-device" spec="^1.1.4" />
     <plugin name="cordova-plugin-splashscreen" spec="^4.0.3" />
@@ -106,6 +107,9 @@
         <variable name="APP_NAME" value="Bukufi Mobile App" />
     </plugin>
     <plugin name="cordova-plugin-googleplus" spec="^5.2.1">
-        <variable name="REVERSED_CLIENT_ID" value="com.googleusercontent.apps.447326809905-0k31qccs1dghoojhvhbsubnoivlfkul5" />
+        <variable name="REVERSED_CLIENT_ID" value="com.googleusercontent.apps.447326809905-698kdaspnqqcsrq3rg8e704ga6cu7276" />
     </plugin>
+    <allow-navigation href="http://192.168.100.230:8100" />
+    <engine name="android" spec="6.3.0" />
+    <engine name="ios" spec="4.5.4" />
 </widget>

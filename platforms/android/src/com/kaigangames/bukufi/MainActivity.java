@@ -17,7 +17,7 @@
        under the License.
  */
 
-package io.ionic.bukufiM2;
+package com.kaigangames.bukufi;
 
 import android.os.Bundle;
 import org.apache.cordova.*;

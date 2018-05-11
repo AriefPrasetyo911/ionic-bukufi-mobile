@@ -1,6 +1,6 @@
 webpackJsonp([4],{
 
-/***/ 534:
+/***/ 533:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -18,21 +18,21 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var UserAccountPageModule = (function () {
+var UserAccountPageModule = /** @class */ (function () {
     function UserAccountPageModule() {
     }
+    UserAccountPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__user_account__["a" /* UserAccountPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__user_account__["a" /* UserAccountPage */]),
+            ],
+        })
+    ], UserAccountPageModule);
     return UserAccountPageModule;
 }());
-UserAccountPageModule = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
-        declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__user_account__["a" /* UserAccountPage */],
-        ],
-        imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__user_account__["a" /* UserAccountPage */]),
-        ],
-    })
-], UserAccountPageModule);
 
 //# sourceMappingURL=user-account.module.js.map
 

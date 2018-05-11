@@ -60,4 +60,11 @@ page-book {
         width: auto;
         margin-top: -7px;
     }
+
+    //iOS
+    .platform-ios{
+        .ios-only{
+            float: right;
+        }
+    }
 }

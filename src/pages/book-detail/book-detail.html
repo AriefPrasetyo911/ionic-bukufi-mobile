@@ -159,7 +159,7 @@
 
             <ion-row class="btn-action w-100">
                 <div *ngIf="loggedin" class="w-100">
-                    <button *ngIf="bookmarkConfirm == 1" ion-button round outline block icon-left class="buttonColor mt-15" disabled>
+                    <!-- <button *ngIf="bookmarkConfirm == 1" ion-button round outline block icon-left class="buttonColor mt-15" disabled>
                         <ion-icon name="ios-bookmark-outline"></ion-icon>
                         BOOKMARK dis
                     </button>
@@ -167,7 +167,8 @@
                     <button *ngIf="bookmarkConfirm == 0" ion-button round outline block icon-left class="buttonColor mt-15" (click)="addBookmarkBook()">
                         <ion-icon name="ios-bookmark-outline"></ion-icon>
                         BOOKMARK nondis
-                    </button>
+                    </button> -->
+                    {{bookmarkConfirm}}
                 </div>
     
                 <div *ngIf="!loggedin" class="w-100">
